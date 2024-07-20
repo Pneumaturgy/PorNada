@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=3 format=3 uid="uid://cwurvkxkotcjx"]
 
-[ext_resource type="PackedScene" uid="uid://d4fg7o03fppnq" path="res://Scenes/Entity.tscn" id="1_str5b"]
+[ext_resource type="PackedScene" uid="uid://dkl4luny1yncs" path="res://Scenes/Entity.tscn" id="1_str5b"]
+[ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Player.tscn" id="2_463pk"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,5 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Entity" parent="." instance=ExtResource("1_str5b")]
+position = Vector2(0, -40)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("2_463pk")]
