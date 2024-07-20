@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkl4luny1yncs"]
 
-[ext_resource type="Texture2D" uid="uid://da7fce4v5uasj" path="res://Assets/2D/Sprites/pneumaturgylogo_new_180x.png" id="1_reftq"]
 [ext_resource type="Script" path="res://Scripts/entity.gd" id="1_yq3jr"]
+[ext_resource type="Texture2D" uid="uid://mvth86fnewd4" path="res://Assets/2D/Sprites/icon.svg" id="2_8t6tb"]
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_7fgs6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
@@ -9,9 +9,9 @@
 [node name="Entity" type="CharacterBody2D"]
 script = ExtResource("1_yq3jr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="EntitySprite" type="Sprite2D" parent="."]
 scale = Vector2(0.16, 0.16)
-texture = ExtResource("1_reftq")
+texture = ExtResource("2_8t6tb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mly5f")
