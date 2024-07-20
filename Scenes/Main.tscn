@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwurvkxkotcjx"]
 
-[ext_resource type="PackedScene" uid="uid://d4fg7o03fppnq" path="res://Scenes/Entity.tscn" id="1_str5b"]
+[ext_resource type="PackedScene" uid="uid://dkl4luny1yncs" path="res://Scenes/Entity.tscn" id="1_str5b"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
