@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4fg7o03fppnq"]
+
+[ext_resource type="Texture2D" uid="uid://da7fce4v5uasj" path="res://Assets/2D/Sprites/pneumaturgylogo_new_180x.png" id="1_reftq"]
+[ext_resource type="Script" path="res://Scripts/entity.gd" id="1_yq3jr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
+
+[node name="Entity" type="CharacterBody2D"]
+script = ExtResource("1_yq3jr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_reftq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mly5f")
