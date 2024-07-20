@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=4 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="PackedScene" uid="uid://dkl4luny1yncs" path="res://Scenes/Entity.tscn" id="1_str5b"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Player.tscn" id="2_463pk"]
+[ext_resource type="PackedScene" uid="uid://bg0nq0mcgnsh1" path="res://Scenes/Payloads/DamagePayload.tscn" id="3_1p3u8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,3 +16,18 @@ grow_vertical = 2
 position = Vector2(0, -40)
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
+
+[node name="DamagePayload" parent="." instance=ExtResource("3_1p3u8")]
+position = Vector2(-39, 64)
+
+[node name="DamagePayload2" parent="." instance=ExtResource("3_1p3u8")]
+position = Vector2(-11, 71)
+
+[node name="DamagePayload3" parent="." instance=ExtResource("3_1p3u8")]
+position = Vector2(29, 61)
+
+[node name="DamagePayload4" parent="." instance=ExtResource("3_1p3u8")]
+position = Vector2(-19, 37)
+
+[node name="DamagePayload5" parent="." instance=ExtResource("3_1p3u8")]
+position = Vector2(73, 50)
