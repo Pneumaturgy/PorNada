@@ -10,15 +10,24 @@ class_name Alien
 	# on enter, move towards player
 		# up to a limit
 
+@onready var player = %Player
+
+var is_chasing = false
+var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	velocity = Vector2(0, get_property("speed"))
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if is_chasing:
+		direction = (player.global_position - global_position).normalized()
+		velocity = direction * get_property("speed")
+		look_at(player.global_position)
+		move_and_slide()
 
 
 func _on_attack_range_body_entered(body):
@@ -28,4 +37,11 @@ func _on_attack_range_body_entered(body):
 
 func _on_vision_range_body_entered(body):
 	if body is Player:
+		is_chasing = true
 		print('coming to geeeet you!!')
+
+
+func _on_vision_range_body_exited(body):
+	if body is Player:
+		is_chasing = false
+		print('where did you go??')
