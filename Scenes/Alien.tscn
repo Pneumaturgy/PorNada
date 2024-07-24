@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://jhbskamdetoa"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_xdxhu"]
-[ext_resource type="Texture2D" uid="uid://mvth86fnewd4" path="res://Assets/2D/Sprites/icon.svg" id="2_tv8dh"]
+[ext_resource type="Texture2D" uid="uid://dtbxfpjb5gx83" path="res://Assets/2D/Sprites/nastyone.png" id="2_dr1yf"]
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_m1kmf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
@@ -16,8 +16,8 @@ radius = 500.0
 script = ExtResource("1_xdxhu")
 
 [node name="AlienSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_tv8dh")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_dr1yf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mly5f")
