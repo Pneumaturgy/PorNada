@@ -45,6 +45,10 @@ collision_mask = 128
 [node name="VisionRangeCollision" type="CollisionShape2D" parent="VisionRange"]
 shape = SubResource("CircleShape2D_1ijht")
 
+[node name="AttackCooldown" type="Timer" parent="."]
+
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="body_entered" from="VisionRange" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="VisionRange" to="." method="_on_vision_range_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
