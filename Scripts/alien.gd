@@ -1,0 +1,31 @@
+extends Entity
+class_name Alien
+
+# affect player health
+	#on collision 
+	# if collisoin is player
+	# player.affect health
+# move towards player
+	# set up vision radius
+	# on enter, move towards player
+		# up to a limit
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_attack_range_body_entered(body):
+	if body is Player:
+		print("hello!")
+
+
+func _on_vision_range_body_entered(body):
+	if body is Player:
+		print('coming to geeeet you!!')

@@ -2,14 +2,14 @@ extends Mech
 class_name Player
 
 @export var joypad_dead_zone = 0.1
-@onready var current_payload = preload("res://Scenes/Payloads/DamagePayload.tscn")
+@export var current_payload : PackedScene
 @onready var aiming_direction = $AimingDirection
 var firing_offset = 20
 
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input_direction * speed
+	velocity = input_direction * get_property("speed")
 
 
 func _input(event):
