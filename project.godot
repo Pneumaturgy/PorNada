@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="PneumaKnights"
+config/name="Por Nada"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Assets/2D/Sprites/pneumaturgylogo_new_180x.png"
+config/icon="res://Assets/2D/Sprites/nastyone.png"
 
 [autoload]
 
