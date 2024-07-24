@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://jhbskamdetoa"]
+
+[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_xdxhu"]
+[ext_resource type="Texture2D" uid="uid://mvth86fnewd4" path="res://Assets/2D/Sprites/icon.svg" id="2_tv8dh"]
+[ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_m1kmf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b76x1"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ijht"]
+radius = 500.0
+
+[node name="Alien" type="CharacterBody2D"]
+script = ExtResource("1_xdxhu")
+
+[node name="AlienSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_tv8dh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mly5f")
+
+[node name="AimingDirection" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+rotation = 1.5708
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_m1kmf")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_mask = 128
+
+[node name="AttackRangeCollision" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_b76x1")
+
+[node name="VisionRange" type="Area2D" parent="."]
+collision_mask = 128
+
+[node name="VisionRangeCollision" type="CollisionShape2D" parent="VisionRange"]
+shape = SubResource("CircleShape2D_1ijht")
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_entered" from="VisionRange" to="." method="_on_vision_range_body_entered"]

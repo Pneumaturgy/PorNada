@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name  Entity
 
-@export var speed = 300.0
-
 @export var properties = {
 	"health": 100.0,
 	"defense": 10.0,

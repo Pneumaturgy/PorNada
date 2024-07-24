@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwurvkxkotcjx"]
 
-[ext_resource type="PackedScene" uid="uid://dkl4luny1yncs" path="res://Scenes/Entity.tscn" id="1_str5b"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Player.tscn" id="2_463pk"]
+[ext_resource type="PackedScene" uid="uid://jhbskamdetoa" path="res://Scenes/Alien.tscn" id="2_ljluj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,8 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Entity" parent="." instance=ExtResource("1_str5b")]
-position = Vector2(0, -40)
-
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 position = Vector2(0, -109)
+
+[node name="Alien" parent="." instance=ExtResource("2_ljluj")]

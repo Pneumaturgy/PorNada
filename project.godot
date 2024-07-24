@@ -99,6 +99,10 @@ TEMP_fire={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_8="Player"
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true

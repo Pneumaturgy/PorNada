@@ -1,8 +1,15 @@
 extends Area2D
 class_name Payload
 
+@export var bullet_speed = 500
 @export var timeToLive = 1.0
-var affected_properties_with_deltas = {}
+@export var affected_properties_with_deltas : Dictionary = {
+	"health" : 0.0,
+	"defense" : 0.0,
+	"speed" : 0.0
+}
+
+var direction
 
 func _ready():
 	var death_timer = Timer.new()
@@ -12,8 +19,8 @@ func _ready():
 	death_timer.start()
 
 func apply_effects(entity):
-	print("applying effects...")
-	print(affected_properties_with_deltas)
+	#print("applying effects...")
+	#print(affected_properties_with_deltas)
 	for property in affected_properties_with_deltas:
 		var delta = affected_properties_with_deltas[property]
 		entity.affect_property(property, delta)
@@ -26,3 +33,6 @@ func _on_body_entered(body):
 
 func destroy_bullet():
 	queue_free()
+
+func _process(delta):
+	position += direction * delta * bullet_speed
