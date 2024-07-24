@@ -11,6 +11,9 @@ class_name Alien
 		# up to a limit
 
 @onready var player = %Player
+@onready var AttackCooldownTimer = $AttackCooldown
+
+@export var attack_cooldown = 1.0
 
 var is_chasing = false
 var direction
@@ -29,9 +32,16 @@ func _process(delta):
 		move_and_slide()
 
 
+func attack():
+	print("die human")
+	# TODO: attack logic with a payload with a very low ttl
+	AttackCooldownTimer.start(attack_cooldown)
+	print("time left: ", AttackCooldownTimer.get_time_left())
+
 func _on_attack_range_body_entered(body):
 	if body is Player:
-		print("hello!")
+		print("burn baby burn")
+		attack()
 
 
 func _on_vision_range_body_entered(body):
@@ -44,3 +54,13 @@ func _on_vision_range_body_exited(body):
 	if body is Player:
 		is_chasing = false
 		print('where did you go??')
+
+
+func _on_attack_range_body_exited(body):
+	if body is Player:
+		AttackCooldownTimer.stop()
+		print("that one got away")
+
+
+func _on_attack_cooldown_timeout():
+	attack()
