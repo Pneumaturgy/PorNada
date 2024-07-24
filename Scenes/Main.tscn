@@ -12,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
+unique_name_in_owner = true
 position = Vector2(0, -109)
 
 [node name="Alien" parent="." instance=ExtResource("2_ljluj")]
