@@ -34,7 +34,7 @@ func _process(delta):
 
 func attack():
 	print("die human")
-	# TODO: attack logic with a payload with a very low ttl
+	# TODO: attack logic with a payload with a very low ttl - starting
 	AttackCooldownTimer.start(attack_cooldown)
 	print("time left: ", AttackCooldownTimer.get_time_left())
 
