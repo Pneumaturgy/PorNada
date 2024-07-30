@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://5cvk2h0wcksl"]
+[gd_scene load_steps=3 format=3 uid="uid://id3yyslh6dji"]
 
-[ext_resource type="Texture2D" uid="uid://mvth86fnewd4" path="res://Assets/2D/Sprites/icon.svg" id="1_lacnq"]
+[ext_resource type="Script" path="res://Scripts/AlienSpawner.gd" id="1_58flf"]
+[ext_resource type="Texture2D" uid="uid://mvth86fnewd4" path="res://Assets/2D/Sprites/icon.svg" id="1_xbnx5"]
 
 [node name="AlienSpawner" type="Node2D"]
+script = ExtResource("1_58flf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_lacnq")
+texture = ExtResource("1_xbnx5")
 
