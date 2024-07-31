@@ -107,3 +107,4 @@ TEMP_fire={
 
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.529412, 0.564706, 0.592157, 1)
+environment/transparent_background=false
