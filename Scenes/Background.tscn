@@ -1,3 +1,368 @@
-[gd_scene format=3 uid="uid://dody11on1j6u8"]
+[gd_scene load_steps=6 format=3 uid="uid://dody11on1j6u8"]
+
+[ext_resource type="Texture2D" uid="uid://dok2dcxq5wr52" path="res://Assets/2D/Backgrounds/grassneon512.png" id="1_evvsd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mo4i"]
+normal = Vector2(1, 0)
+distance = -1154.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_70gdi"]
+normal = Vector2(-1, 0)
+distance = -1154.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_quogh"]
+distance = -1154.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8r57x"]
+normal = Vector2(0, 1)
+distance = -1154.0
 
 [node name="Background" type="Node2D"]
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+position = Vector2(-770, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D2"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+position = Vector2(770, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D3"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 770)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D4"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -770)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D5"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites"]
+position = Vector2(770, -770)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D6"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites"]
+position = Vector2(-770, -770)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D7"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites"]
+position = Vector2(-770, 770)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D8"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites"]
+position = Vector2(770, 770)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(0, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(-512, 512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(-512, 0)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(0, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Sprites/Sprite2D9"]
+position = Vector2(-512, -512)
+texture = ExtResource("1_evvsd")
+
+[node name="CollisionShape2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D"]
+shape = SubResource("WorldBoundaryShape2D_7mo4i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionShape2D"]
+shape = SubResource("WorldBoundaryShape2D_70gdi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CollisionShape2D"]
+shape = SubResource("WorldBoundaryShape2D_quogh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CollisionShape2D"]
+shape = SubResource("WorldBoundaryShape2D_8r57x")
