@@ -26,7 +26,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_chasing and player != null:
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * get_property("speed")
@@ -35,7 +35,7 @@ func _process(delta):
 
 
 func attack():
-	var direction = (player.global_position - self.global_position).normalized()
+	direction = (player.global_position - self.global_position).normalized()
 	var new_payload = payload.instantiate()
 	new_payload.global_position = self.global_position + (direction * firing_offset)
 	new_payload.direction = direction
