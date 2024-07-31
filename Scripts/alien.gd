@@ -11,10 +11,12 @@ class_name Alien
 		# up to a limit
 
 @onready var player = %Player
+@export var payload : PackedScene
 @onready var AttackCooldownTimer = $AttackCooldown
 
 @export var attack_cooldown = 1.0
 
+var firing_offset = 20
 var is_chasing = false
 var direction
 
@@ -33,8 +35,13 @@ func _process(delta):
 
 
 func attack():
+	var direction = (player.global_position - self.global_position).normalized()
+	var new_payload = payload.instantiate()
+	new_payload.global_position = self.global_position + (direction * firing_offset)
+	new_payload.direction = direction
+	new_payload.rotation = self.rotation
+	get_parent().add_child(new_payload)
 	print("die human")
-	# TODO: attack logic with a payload with a very low ttl
 	AttackCooldownTimer.start(attack_cooldown)
 	print("time left: ", AttackCooldownTimer.get_time_left())
 
