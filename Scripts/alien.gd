@@ -48,7 +48,7 @@ func attack():
 func _on_attack_range_body_entered(body):
 	if body is Player:
 		print("burn baby burn")
-		attack()
+		self.call_deferred("attack")
 
 
 func _on_vision_range_body_entered(body):
@@ -70,7 +70,7 @@ func _on_attack_range_body_exited(body):
 
 
 func _on_attack_cooldown_timeout():
-	attack()
+	self.call_deferred("attack")
 
 func set_player_instance(player_instance):
 	player = player_instance
