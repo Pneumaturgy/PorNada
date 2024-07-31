@@ -10,7 +10,7 @@ class_name Alien
 	# on enter, move towards player
 		# up to a limit
 
-@onready var player = %Player
+var player
 @onready var AttackCooldownTimer = $AttackCooldown
 
 @export var attack_cooldown = 1.0
@@ -25,7 +25,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if is_chasing:
+	if is_chasing and player != null:
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * get_property("speed")
 		look_at(player.global_position)
@@ -64,3 +64,6 @@ func _on_attack_range_body_exited(body):
 
 func _on_attack_cooldown_timeout():
 	attack()
+
+func set_player_instance(player_instance):
+	player = player_instance

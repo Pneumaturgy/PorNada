@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=4 format=3 uid="uid://cwurvkxkotcjx"]
 
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Player.tscn" id="2_463pk"]
-[ext_resource type="PackedScene" uid="uid://jhbskamdetoa" path="res://Scenes/Alien.tscn" id="2_ljluj"]
+[ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 
-[node name="Control" type="Control"]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_oqb2v")
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 unique_name_in_owner = true
 position = Vector2(0, -109)
 
-[node name="Alien" parent="." instance=ExtResource("2_ljluj")]
+[node name="AlienSpawner" parent="Player" instance=ExtResource("3_osgbh")]
+
+[connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
