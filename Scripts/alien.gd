@@ -10,11 +10,13 @@ class_name Alien
 	# on enter, move towards player
 		# up to a limit
 
-@onready var player = %Player
+var player
+@export var payload : PackedScene
 @onready var AttackCooldownTimer = $AttackCooldown
 
 @export var attack_cooldown = 1.0
 
+var firing_offset = 20
 var is_chasing = false
 var direction
 
@@ -24,8 +26,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if is_chasing:
+func _process(_delta):
+	if is_chasing and player != null:
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * get_property("speed")
 		look_at(player.global_position)
@@ -33,15 +35,20 @@ func _process(delta):
 
 
 func attack():
+	direction = (player.global_position - self.global_position).normalized()
+	var new_payload = payload.instantiate()
+	new_payload.global_position = self.global_position + (direction * firing_offset)
+	new_payload.direction = direction
+	new_payload.rotation = self.rotation
+	get_parent().add_child(new_payload)
 	print("die human")
-	# TODO: attack logic with a payload with a very low ttl
 	AttackCooldownTimer.start(attack_cooldown)
 	print("time left: ", AttackCooldownTimer.get_time_left())
 
 func _on_attack_range_body_entered(body):
 	if body is Player:
 		print("burn baby burn")
-		attack()
+		self.call_deferred("attack")
 
 
 func _on_vision_range_body_entered(body):
@@ -63,4 +70,7 @@ func _on_attack_range_body_exited(body):
 
 
 func _on_attack_cooldown_timeout():
-	attack()
+	self.call_deferred("attack")
+
+func set_player_instance(player_instance):
+	player = player_instance

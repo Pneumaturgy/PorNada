@@ -1,11 +1,30 @@
 extends Node2D
 
+signal alien_spawned(alien_instance)
 
-# Called when the node enters the scene tree for the first time.
+@export var spawn_frequency = 1
+@export var spawn_quantity = 3
+@export var maximum_distance = 1.1
+
+const alien_scene = preload("res://Scenes/Alien.tscn")
+
+@onready var timer = $Timer
+
 func _ready():
-	pass # Replace with function body.
+	timer.wait_time = spawn_frequency
 
+func _on_timer_timeout():
+	for i in range(spawn_quantity):
+		spawn_aliens()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func spawn_aliens():
+	var minimal_distance = sqrt((get_viewport_rect().size.x / 8) ** 2 + (get_viewport_rect().size.y / 8) ** 2)
+	var max_distance = minimal_distance * maximum_distance
+	var distance = randf_range(minimal_distance, max_distance)
+	print("New enemy spawn at: ", str(distance), "minimal: ", str(minimal_distance), "maximum: ", max_distance)
+	var angle = randf_range(0, 360)
+	var x = cos(angle) * distance
+	var y = sin(angle) * distance
+	var alien_instance = alien_scene.instantiate()
+	alien_instance.position = Vector2(global_position.x + x, global_position.y + y)
+	alien_spawned.emit(alien_instance)
