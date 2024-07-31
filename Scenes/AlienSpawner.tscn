@@ -8,4 +8,3 @@ script = ExtResource("1_58flf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xbnx5")
-
