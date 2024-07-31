@@ -42,7 +42,6 @@ func attack():
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)
 	print("die human")
-	# TODO: attack logic with a payload with a very low ttl - starting
 	AttackCooldownTimer.start(attack_cooldown)
 	print("time left: ", AttackCooldownTimer.get_time_left())
 
