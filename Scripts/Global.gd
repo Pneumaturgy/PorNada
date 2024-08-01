@@ -8,6 +8,8 @@ var example_save
 var wins
 var losses
 
+var current_alien_count = 0
+
 
 ## A new blank save that saves generic data
 func new_save():
