@@ -74,3 +74,8 @@ func _on_attack_cooldown_timeout():
 
 func set_player_instance(player_instance):
 	player = player_instance
+
+func die():
+	Global.current_alien_count -= 1
+	print("An alien died, current count: ", Global.current_alien_count)
+	super.die()
