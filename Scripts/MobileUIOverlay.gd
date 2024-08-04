@@ -5,7 +5,6 @@ signal use_aim_vector
 @onready var move_joystick = $Control/HSplitContainer/MoveJoystickControl/MoveJoystick
 @onready var aim_joystick = $Control/HSplitContainer/AimJoystickControl/AimJoystick
 
-
 ## While this Overlay is active, the joysticks inside it will
 ## Pass on their values for whatever wants to use them.
 func _physics_process(_delta):
@@ -14,4 +13,8 @@ func _physics_process(_delta):
 	else:
 		emit_signal("use_move_vector",Vector2(0,0))
 	if aim_joystick.joystick_active:
+		Input.action_press("fire")
 		emit_signal("use_aim_vector",aim_joystick.vector)
+	elif self.visible:
+		Input.action_release("fire")
+

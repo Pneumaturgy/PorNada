@@ -12,23 +12,36 @@ class_name MobileJoystick
 
 var vector = Vector2(0,0)
 var joystick_active = false
+var active_touch_id = -1
 @onready var marker = $Marker
 
 ## Are you touching the button?
 func _input(event):
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		if self.is_pressed():
+			active_touch_id = event.index # Get current touch index
+			#if active_touch_id == 0:
+			#if active_touch_id == -1:  # No active touch
+			joystick_active = true # This joystick is being active
+			print(active_touch_id, \" touching\")
 			vector = calculate_vector(event.position)
-			joystick_active = true
 			marker.global_position = event.position
-	
+	#elif event.pressed:
+		#print('yea')
+		#joystick_active = false
+		#active_touch_id = -1
 	if event is InputEventScreenTouch:
+		
 		if event.pressed == false:
+			print('yea')
+			active_touch_id = -1
 			joystick_active = false
+
 
 
 ## If not, return the marker to its center.
 func _physics_process(delta):
+	print(active_touch_id)
 	if !joystick_active:
 		marker.global_position = lerp(marker.global_position, self.global_position+Vector2(64,64), delta*10)
 

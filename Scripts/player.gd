@@ -15,6 +15,7 @@ func _ready():
 	fire_rate_timer.wait_time = fire_rate
 
 #region Input Vectors
+
 func get_input():
 	if !$MobileUiOverlay.visible:
 		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -27,7 +28,6 @@ func _on_mobile_ui_overlay_use_aim_vector(aim_vector):
 	self.rotation = aim_vector.angle()
 
 #endregion
-
 
 func _input(event):
 	if event is InputEventMouseMotion and !$MobileUiOverlay.visible:
@@ -42,7 +42,7 @@ func _input(event):
 		if Input.is_action_just_pressed("ui_cancel"):
 			get_tree().quit()
 	
-	if Input.is_action_pressed("TEMP_fire") and weapon_ready:
+	if Input.is_action_pressed("fire") and weapon_ready:
 		fire(current_payload)
 		weapon_ready = false
 		fire_rate_timer.start()
@@ -55,8 +55,8 @@ func fire(payload):
 	var direction = (aiming_direction.global_position - self.global_position).normalized()
 	print('firing: ', payload)
 	var new_payload = payload.instantiate()
-	new_payload.global_position = aiming_direction.global_position + (direction * firing_offset)
 	new_payload.direction = direction
+	new_payload.global_position = aiming_direction.global_position + (direction * firing_offset)
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)
 

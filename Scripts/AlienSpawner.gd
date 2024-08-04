@@ -24,7 +24,7 @@ func spawn_aliens():
 	var minimal_distance = sqrt((get_viewport_rect().size.x / 8) ** 2 + (get_viewport_rect().size.y / 8) ** 2)
 	var max_distance = minimal_distance * maximum_distance
 	var distance = randf_range(minimal_distance, max_distance)
-	print("New enemy spawn at: ", str(distance), "minimal: ", str(minimal_distance), "maximum: ", max_distance)
+	#print("New enemy spawn at: ", str(distance), "minimal: ", str(minimal_distance), "maximum: ", max_distance)
 	var angle = randf_range(0, 360)
 	var x = cos(angle) * distance
 	var y = sin(angle) * distance
@@ -32,4 +32,4 @@ func spawn_aliens():
 	alien_instance.position = Vector2(global_position.x + x, global_position.y + y)
 	alien_spawned.emit(alien_instance)
 	Global.current_alien_count += 1
-	print("An alien was born, current count: ", Global.current_alien_count)
+	#print("An alien was born, current count: ", Global.current_alien_count)

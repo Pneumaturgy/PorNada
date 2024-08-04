@@ -41,32 +41,32 @@ func attack():
 	new_payload.direction = direction
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)
-	print("die human")
+	#print("die human")
 	AttackCooldownTimer.start(attack_cooldown)
-	print("time left: ", AttackCooldownTimer.get_time_left())
+	#print("time left: ", AttackCooldownTimer.get_time_left())
 
 func _on_attack_range_body_entered(body):
 	if body is Player:
-		print("burn baby burn")
+		#print("burn baby burn")
 		self.call_deferred("attack")
 
 
 func _on_vision_range_body_entered(body):
 	if body is Player:
 		is_chasing = true
-		print('coming to geeeet you!!')
+		#print('coming to geeeet you!!')
 
 
 func _on_vision_range_body_exited(body):
 	if body is Player:
 		is_chasing = false
-		print('where did you go??')
+		#print('where did you go??')
 
 
 func _on_attack_range_body_exited(body):
 	if body is Player:
 		AttackCooldownTimer.stop()
-		print("that one got away")
+		#print("that one got away")
 
 
 func _on_attack_cooldown_timeout():
@@ -77,5 +77,5 @@ func set_player_instance(player_instance):
 
 func die():
 	Global.current_alien_count -= 1
-	print("An alien died, current count: ", Global.current_alien_count)
+	#print("An alien died, current count: ", Global.current_alien_count)
 	super.die()
