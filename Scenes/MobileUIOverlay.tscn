@@ -9,8 +9,14 @@ radius = 64.0
 [node name="MobileUiOverlay" type="CanvasLayer"]
 script = ExtResource("1_v4w2o")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton1" type="TouchScreenButton" parent="."]
 position = Vector2(200, 675)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_16fnk")
+shape = SubResource("CircleShape2D_wy6xy")
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(1400, 675)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("2_16fnk")
 shape = SubResource("CircleShape2D_wy6xy")

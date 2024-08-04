@@ -53,3 +53,11 @@ func fire(payload):
 
 func _on_fire_rate_timer_timeout():
 	weapon_ready = true
+
+
+func _on_mobile_ui_overlay_use_move_vector(move_vector):
+	velocity = move_vector * get_property("speed")
+
+
+func _on_mobile_ui_overlay_use_aim_vector(aim_vector):
+	self.rotation = aim_vector.angle()
