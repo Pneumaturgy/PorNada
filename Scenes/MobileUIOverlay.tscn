@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwxpty4m3mpmh"]
+
+[ext_resource type="Script" path="res://Scripts/MobileUIOverlay.gd" id="1_v4w2o"]
+[ext_resource type="Texture2D" uid="uid://da7fce4v5uasj" path="res://Assets/2D/Sprites/pneumaturgylogo_new_180x.png" id="2_16fnk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wy6xy"]
+radius = 64.0
+
+[node name="MobileUiOverlay" type="CanvasLayer"]
+script = ExtResource("1_v4w2o")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(200, 675)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_16fnk")
+shape = SubResource("CircleShape2D_wy6xy")
