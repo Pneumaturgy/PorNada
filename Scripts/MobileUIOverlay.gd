@@ -2,16 +2,16 @@ extends CanvasLayer
 
 signal use_move_vector
 signal use_aim_vector
+@onready var move_joystick = $Control/HSplitContainer/MoveJoystickControl/MoveJoystick
+@onready var aim_joystick = $Control/HSplitContainer/AimJoystickControl/AimJoystick
 
-func _input(event):
-	if event is InputEventScreenTouch or event is InputEventScreenDrag:
-		if $TouchScreenButton1.is_pressed():
-			var move_vector = calculate_vector($TouchScreenButton1,event.position)
-			emit_signal("use_move_vector",move_vector)
-		if $TouchScreenButton2.is_pressed():
-			var aim_vector = calculate_vector($TouchScreenButton2,event.position)
-			emit_signal("use_aim_vector", aim_vector)
 
-func calculate_vector(button, event_position):
-	var texture_center = button.position + Vector2(128,128)
-	return (event_position - texture_center).normalized()
+## While this Overlay is active, the joysticks inside it will
+## Pass on their values for whatever wants to use them.
+func _physics_process(_delta):
+	if move_joystick.joystick_active:
+		emit_signal("use_move_vector",move_joystick.vector)
+	else:
+		emit_signal("use_move_vector",Vector2(0,0))
+	if aim_joystick.joystick_active:
+		emit_signal("use_aim_vector",aim_joystick.vector)

@@ -14,16 +14,26 @@ var weapon_ready = true
 func _ready():
 	fire_rate_timer.wait_time = fire_rate
 
+#region Input Vectors
 func get_input():
-	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input_direction * get_property("speed")
+	if !$MobileUiOverlay.visible:
+		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		velocity = input_direction * get_property("speed")
+
+func _on_mobile_ui_overlay_use_move_vector(move_vector):
+	velocity = move_vector * get_property("speed")
+
+func _on_mobile_ui_overlay_use_aim_vector(aim_vector):
+	self.rotation = aim_vector.angle()
+
+#endregion
 
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !$MobileUiOverlay.visible:
 		look_at(get_global_mouse_position())
 		
-	if event is InputEventJoypadMotion:
+	if event is InputEventJoypadMotion and !$MobileUiOverlay.visible:
 		var input_aim_direction = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
 		if abs(input_aim_direction.x) >= joypad_dead_zone or abs(input_aim_direction.y) >= joypad_dead_zone:
 			self.rotation = input_aim_direction.angle()
@@ -33,7 +43,6 @@ func _input(event):
 			get_tree().quit()
 	
 	if Input.is_action_pressed("TEMP_fire") and weapon_ready:
-		#print('yeah')
 		fire(current_payload)
 		weapon_ready = false
 		fire_rate_timer.start()
@@ -55,9 +64,3 @@ func _on_fire_rate_timer_timeout():
 	weapon_ready = true
 
 
-func _on_mobile_ui_overlay_use_move_vector(move_vector):
-	velocity = move_vector * get_property("speed")
-
-
-func _on_mobile_ui_overlay_use_aim_vector(aim_vector):
-	self.rotation = aim_vector.angle()

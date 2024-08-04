@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://hw2sromwbqi5"]
+
+[ext_resource type="Texture2D" uid="uid://bekmnwv56pe7h" path="res://Assets/2D/Vectors/WhiteCircle.svg" id="1_pi1rb"]
+[ext_resource type="Texture2D" uid="uid://bi0ev6o72ommq" path="res://Assets/2D/Vectors/128Logo.svg" id="2_4jqcj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ooca8"]
+radius = 64.0
+
+[sub_resource type="GDScript" id="GDScript_fysrj"]
+script/source = "extends TouchScreenButton
+class_name MobileJoystick
+
+var vector = Vector2(0,0)
+var joystick_active = false
+@onready var marker = $Marker
+
+## Are you touching the button?
+func _input(event):
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		if self.is_pressed():
+			vector = calculate_vector(event.position)
+			joystick_active = true
+			marker.global_position = event.position
+	
+	if event is InputEventScreenTouch:
+		if event.pressed == false:
+			joystick_active = false
+
+
+## If not, return the marker to its center.
+func _physics_process(delta):
+	if !joystick_active:
+		marker.global_position = lerp(marker.global_position, self.global_position+Vector2(64,64), delta*10)
+
+func calculate_vector(event_position):
+	var texture_center = self.global_position + Vector2(64,64)
+	return (event_position - texture_center).normalized()
+
+"
+
+[node name="Joystick" type="TouchScreenButton"]
+texture_normal = ExtResource("1_pi1rb")
+shape = SubResource("CircleShape2D_ooca8")
+script = SubResource("GDScript_fysrj")
+
+[node name="Marker" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4jqcj")
