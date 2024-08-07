@@ -76,11 +76,11 @@ var is_at_circumference = false
 	#if !joystick_active and marker.global_position > self.global_position + Vector2(64.9,64.9) or marker.global_position < self.global_position + Vector2(64.9,64.9):
 		##print(\"move back...\")
 		#marker.global_position = lerp(marker.global_position, self.global_position+Vector2(64,64), delta*10)
-#
-#func calculate_vector(event_position):
-	##var texture_center = event_position + Vector2(64,64)
-	##return (event_position - texture_center).normalized()
-	#return event_position.normalized()
+
+func calculate_vector(event_position):
+	#var texture_center = event_position + Vector2(64,64)
+	#return (event_position - texture_center).normalized()
+	return event_position.normalized()
 
 "
 

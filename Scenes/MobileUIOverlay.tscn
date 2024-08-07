@@ -1,44 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwxpty4m3mpmh"]
+[gd_scene load_steps=2 format=3 uid="uid://dwxpty4m3mpmh"]
 
 [ext_resource type="Script" path="res://Scripts/MobileUIOverlay.gd" id="1_v4w2o"]
-[ext_resource type="PackedScene" uid="uid://hw2sromwbqi5" path="res://Scenes/Joystick.tscn" id="4_g5efo"]
 
 [node name="MobileUiOverlay" type="CanvasLayer"]
 script = ExtResource("1_v4w2o")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(960, 540)
-
-[node name="HSplitContainer" type="HBoxContainer" parent="Control"]
-custom_minimum_size = Vector2(0, 600)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -128.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 1
-
-[node name="MoveJoystickControl" type="Control" parent="Control/HSplitContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="MoveJoystick" parent="Control/HSplitContainer/MoveJoystickControl" instance=ExtResource("4_g5efo")]
-
-[node name="AimJoystickControl" type="Control" parent="Control/HSplitContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="AimJoystick" parent="Control/HSplitContainer/AimJoystickControl" instance=ExtResource("4_g5efo")]
+[node name="Label" type="Label" parent="."]
+offset_left = 74.0
+offset_top = 45.0
+offset_right = 1751.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 40
+text = "Test"

@@ -17,30 +17,27 @@ var is_at_circumference = false
 
 @onready var marker = $Marker
 
-### Are you touching the button?
-#func _input(event):
-	#if event is InputEventScreenTouch:
-		#if event.pressed:
-			#active_touch_id = event.index
-			#print(active_touch_id)
-			#joystick_active = true
-			#print(joystick_active)
-			#
-		#else:
-			#if active_touch_id != -1:
-				#active_touch_id = -1
-				#print(active_touch_id)
-			#if joystick_active:
-				#joystick_active = false
-				#print(joystick_active)
-	#if event is InputEventScreenDrag or InputEventScreenTouch:
-		#if joystick_active and active_touch_id == 0:
-			#marker.global_position = event.position
-			#print(marker.global_position)
-		#else:
-			#print(event)
-	#
-#
+## Are you touching the button?
+func _input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			active_touch_id = event.index
+			print(active_touch_id)
+			joystick_active = true
+			print(joystick_active)
+			if event is InputEventScreenDrag or InputEventScreenTouch:
+				marker.position = event.position
+				print(marker.position)
+		else:
+			if active_touch_id != -1:
+				active_touch_id = -1
+				print(active_touch_id)
+			if joystick_active:
+				joystick_active = false
+				print(joystick_active)
+	
+	
+
 	#if event is InputEventScreenTouch:
 		#if event.pressed:
 			#active_touch_id = event.index
@@ -72,15 +69,15 @@ var is_at_circumference = false
 
 ### If not, return the marker to its center.
 #func _physics_process(delta):
-	###print(active_touch_id)
-	#if !joystick_active and marker.global_position > self.global_position + Vector2(64.9,64.9) or marker.global_position < self.global_position + Vector2(64.9,64.9):
-		##print(\"move back...\")
+	##print(active_touch_id)
+	#if !joystick_active:
+		#print(\"move back...\")
 		#marker.global_position = lerp(marker.global_position, self.global_position+Vector2(64,64), delta*10)
-#
-#func calculate_vector(event_position):
-	##var texture_center = event_position + Vector2(64,64)
-	##return (event_position - texture_center).normalized()
-	#return event_position.normalized()
+
+func calculate_vector(event_position):
+	#var texture_center = event_position + Vector2(64,64)
+	#return (event_position - texture_center).normalized()
+	return event_position.normalized()
 
 "
 
