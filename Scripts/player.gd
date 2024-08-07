@@ -27,8 +27,6 @@ func get_input():
 	else:
 		velocity = touch_move_vector * (speed_multiplier * get_property("speed"))
 
-
-
 func _on_mobile_ui_overlay_use_touch_move_vector(move_vector):
 	touch_move_vector = move_vector
 
