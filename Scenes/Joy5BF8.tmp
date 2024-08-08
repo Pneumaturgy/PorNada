@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://hw2sromwbqi5"]
+
+[ext_resource type="Texture2D" uid="uid://bekmnwv56pe7h" path="res://Assets/2D/Vectors/WhiteCircle.svg" id="1_pi1rb"]
+[ext_resource type="Texture2D" uid="uid://bi0ev6o72ommq" path="res://Assets/2D/Vectors/128Logo.svg" id="2_4jqcj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ooca8"]
+radius = 64.0
+
+[sub_resource type="GDScript" id="GDScript_fysrj"]
+script/source = "extends TouchScreenButton
+class_name MobileJoystick
+
+var vector = Vector2(0,0)
+var joystick_active = false
+var active_touch_id = -1
+var is_at_circumference = false
+
+@onready var marker = $Marker
+
+## Are you touching the button?
+func _input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			active_touch_id = event.index
+			print(active_touch_id)
+			joystick_active = true
+			print(joystick_active)
+			if event is InputEventScreenDrag or InputEventScreenTouch:
+				marker.position = event.position
+				print(marker.position)
+		else:
+			if active_touch_id != -1:
+				active_touch_id = -1
+				print(active_touch_id)
+			if joystick_active:
+				joystick_active = false
+				print(joystick_active)
+	
+	
+
+	#if event is InputEventScreenTouch:
+		#if event.pressed:
+			#active_touch_id = event.index
+			#joystick_active = true
+			#print(\"activating joystick: \", active_touch_id)
+			#if event is InputEventScreenDrag and active_touch_id == event.index:
+				#print('event matches')
+				#print('event position: ', event.position)
+				#print('self global position: ', self.global_position)
+				#var initial_position = event.position
+				#print('initial_position: ', initial_position)
+				##vector = calculate_vector(event.position)
+				##vector = (event.position - self.global_position).normalized()
+				#vector = event.position - initial_position
+				#marker.position = event.position
+				#print('vector is: ', vector)
+				#print('vector length is: ', vector.length())
+			#if vector.length() > 0.9:
+				#print('firing')
+				#is_at_circumference = true
+			#else:
+				#is_at_circumference = false
+		#else:
+			#active_touch_id = -1
+			#joystick_active = false
+			#print(\"deactivating joystick: \", active_touch_id)
+		#
+
+
+### If not, return the marker to its center.
+#func _physics_process(delta):
+	##print(active_touch_id)
+	#if !joystick_active:
+		#print(\"move back...\")
+		#marker.global_position = lerp(marker.global_position, self.global_position+Vector2(64,64), delta*10)
+
+func calculate_vector(event_position):
+	#var texture_center = event_position + Vector2(64,64)
+	#return (event_position - texture_center).normalized()
+	return event_position.normalized()
+
+"
+
+[node name="Joystick" type="TouchScreenButton"]
+texture_normal = ExtResource("1_pi1rb")
+shape = SubResource("CircleShape2D_ooca8")
+script = SubResource("GDScript_fysrj")
+
+[node name="Marker" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4jqcj")

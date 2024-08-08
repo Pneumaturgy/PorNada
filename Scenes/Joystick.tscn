@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hw2sromwbqi5"]
+
+[ext_resource type="Texture2D" uid="uid://vyfikinmsjt3" path="res://Assets/2D/Vectors/circle2.svg" id="1_dbm6s"]
+[ext_resource type="Texture2D" uid="uid://bi0ev6o72ommq" path="res://Assets/2D/Vectors/128Logo.svg" id="2_4jqcj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ooca8"]
+radius = 64.0
+
+[node name="Joystick" type="TouchScreenButton"]
+scale = Vector2(2, 2)
+texture_normal = ExtResource("1_dbm6s")
+shape = SubResource("CircleShape2D_ooca8")
+
+[node name="Marker" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4jqcj")

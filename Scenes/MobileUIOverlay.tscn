@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwxpty4m3mpmh"]
+
+[ext_resource type="Script" path="res://Scripts/MobileUIOverlay.gd" id="1_v4w2o"]
+
+[node name="MobileUiOverlay" type="CanvasLayer"]
+script = ExtResource("1_v4w2o")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 74.0
+offset_top = 45.0
+offset_right = 1751.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 40
+text = "Test"

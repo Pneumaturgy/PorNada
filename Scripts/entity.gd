@@ -31,7 +31,7 @@ func check_triggers(property, value):
 		health_triggers(value)
 
 func set_property(property, value):
-	print(property, " changing to ", value)
+	#print(property, " changing to ", value)
 	var MAX_VALUE = MAX_PROPERTIES[property]
 	var MIN_VALUE = MIN_PROPERTIES[property]
 	if value < MIN_VALUE:
@@ -45,5 +45,5 @@ func get_property(property):
 	return properties[property]
 
 func affect_property(property, delta):
-	print(property, " changing by ", delta)
+	#print(property, " changing by ", delta)
 	set_property(property, get_property(property) + delta)
