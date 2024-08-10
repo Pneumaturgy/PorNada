@@ -18,7 +18,8 @@ func find_player():
 
 
 func follow_player():
-	self.global_position = player.global_position
+	if player:
+		self.global_position = player.global_position
 "
 
 [node name="PlayerCamera" type="Camera2D"]
