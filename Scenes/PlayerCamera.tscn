@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://1f81cbb0o7ig"]
+[gd_scene load_steps=2 format=3 uid="uid://1f81cbb0o7ig"]
 
-[node name="PlayerCamera" type="Node2D"]
+[sub_resource type="GDScript" id="GDScript_q544c"]
+script/source = "extends Camera2D
+class_name PlayerCamera2D
+var player
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	find_player()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	follow_player()
+
+func find_player():
+	player = get_parent().get_node(\"Player\")
+
+
+func follow_player():
+	self.global_position = player.global_position
+"
+
+[node name="PlayerCamera" type="Camera2D"]
+zoom = Vector2(4, 4)
+script = SubResource("GDScript_q544c")

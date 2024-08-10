@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=6 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Player.tscn" id="2_463pk"]
+[ext_resource type="PackedScene" uid="uid://1f81cbb0o7ig" path="res://Scenes/PlayerCamera.tscn" id="3_dv5yg"]
 [ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 [ext_resource type="PackedScene" uid="uid://dody11on1j6u8" path="res://Scenes/Background.tscn" id="4_rrqsw"]
 
@@ -10,6 +11,8 @@ script = ExtResource("1_oqb2v")
 
 [node name="Background" parent="." instance=ExtResource("4_rrqsw")]
 position = Vector2(1, 1)
+
+[node name="PlayerCamera" parent="." instance=ExtResource("3_dv5yg")]
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 unique_name_in_owner = true
