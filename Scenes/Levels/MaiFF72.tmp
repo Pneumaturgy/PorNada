@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=3 uid="uid://be1i0a5dgxjx"]
+
+[ext_resource type="Texture2D" uid="uid://dq0oahffcj7wl" path="res://Assets/2D/Backgrounds/MainMenu/1.png" id="2_d04v8"]
+[ext_resource type="Texture2D" uid="uid://b2pv2gva54lda" path="res://Assets/2D/Backgrounds/MainMenu/2.png" id="3_ln5qm"]
+[ext_resource type="Texture2D" uid="uid://bac15a0optmuk" path="res://Assets/2D/Backgrounds/MainMenu/3.png" id="4_5w3o8"]
+[ext_resource type="Texture2D" uid="uid://6qw3ygn2swoq" path="res://Assets/2D/Backgrounds/MainMenu/4.png" id="5_0sevg"]
+[ext_resource type="Texture2D" uid="uid://brckde1y0n4l7" path="res://Assets/2D/Backgrounds/MainMenu/5.png" id="6_bakvp"]
+[ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/pornada_ui.tres" id="7_h7o41"]
+
+[sub_resource type="GDScript" id="GDScript_j122v"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_play_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/Levels/Main.tscn\")
+
+func _on_quit_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="GDScript" id="GDScript_eu2ia"]
+script/source = "extends Camera2D
+
+# Adjust these to control the strength of the parallax effect
+@export var rotation_speed: float = 0.05
+@export var max_rotation: float = 0.1
+@export var is_mobile = false
+var target_rotation: float = 0.0
+
+func _ready():
+	set_process_input(true)
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		position = event.position
+	if is_mobile:
+		var gyro = Input.get_accelerometer()
+		position = gyro
+
+"
+
+[node name="MainMenu" type="Node2D"]
+script = SubResource("GDScript_j122v")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0.01)
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-18, 15)
+scale = Vector2(1.1, 1.12778)
+texture = ExtResource("2_d04v8")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 0.02)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-28.895, 277.955)
+texture = ExtResource("3_ln5qm")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.04, 0.04)
+
+[node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(181.885, 145.11)
+texture = ExtResource("4_5w3o8")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.07, 0.07)
+
+[node name="4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(46.5, 236.5)
+texture = ExtResource("5_0sevg")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.09, 0.09)
+
+[node name="5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(-3, 301)
+texture = ExtResource("6_bakvp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = SubResource("GDScript_eu2ia")
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="MainMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="MainMenu/Control"]
+layout_mode = 1
+offset_left = 123.0
+offset_top = 77.0
+offset_right = 1854.0
+offset_bottom = 729.0
+theme = ExtResource("7_h7o41")
+theme_override_font_sizes/normal_font_size = 480
+bbcode_enabled = true
+text = "[wave amp=50 freq=5]Por Nada[/wave]"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -280.0
+offset_right = 500.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Quit" type="Button" parent="MainMenu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h7o41")
+theme_override_font_sizes/font_size = 90
+text = "Quit"
+
+[node name="Control" type="Control" parent="MainMenu/Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MainMenu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7_h7o41")
+theme_override_font_sizes/font_size = 90
+text = "Play"
+
+[connection signal="pressed" from="MainMenu/Control/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MainMenu/Control/HBoxContainer/Play" to="." method="_on_play_pressed"]
