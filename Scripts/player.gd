@@ -4,7 +4,7 @@ class_name Player
 @export var joypad_dead_zone = 0.1
 @export var current_payload : PackedScene
 @export var fire_rate = 0.3
-
+@export var mobile_controls = true
 @onready var aiming_direction = $AimingDirection
 @onready var fire_rate_timer = $FireRateTimer
 
@@ -16,7 +16,14 @@ var touch_aim_vector = Vector2(0, 0)
 var speed_multiplier : float
 
 func _ready():
+	check_mobile_controls()
 	fire_rate_timer.wait_time = fire_rate
+
+func check_mobile_controls():
+	if mobile_controls:
+		$MobileUiOverlay.visible = true
+	else:
+		$MobileUiOverlay.visible = false
 
 #region Input Vectors
 
@@ -33,7 +40,8 @@ func _on_mobile_ui_overlay_use_touch_move_vector(move_vector):
 
 func _on_mobile_ui_overlay_use_touch_aim_vector(aim_vector):
 	touch_aim_vector = aim_vector
-	self.rotation = aim_vector.angle()
+	if $MobileUiOverlay.visible:
+		self.rotation = aim_vector.angle()
 
 
 func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):

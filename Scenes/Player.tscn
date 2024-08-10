@@ -12,6 +12,7 @@
 collision_layer = 129
 script = ExtResource("1_0towx")
 current_payload = ExtResource("2_5ich6")
+mobile_controls = false
 
 [node name="MobileUiOverlay" parent="." instance=ExtResource("3_qwxjb")]
 
