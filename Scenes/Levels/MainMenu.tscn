@@ -30,21 +30,23 @@ func _on_quit_pressed():
 [sub_resource type="GDScript" id="GDScript_eu2ia"]
 script/source = "extends Camera2D
 
-# Adjust these to control the strength of the parallax effect
-@export var rotation_speed: float = 0.05
-@export var max_rotation: float = 0.1
-@export var is_mobile = false
-var target_rotation: float = 0.0
+var is_mobile = false
+
 
 func _ready():
 	set_process_input(true)
+	if OS.get_name() == \"Android\":
+		is_mobile = true
+
+func _process(delta):
+	if is_mobile:
+		var gyro = Input.get_gyroscope()
+		position += Vector2(-gyro.y*15,-gyro.x*15)
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		position = event.position
-	if is_mobile:
-		var gyro = Input.get_accelerometer()
-		position = gyro
+	
 
 "
 
@@ -52,8 +54,8 @@ func _input(event):
 script = SubResource("GDScript_j122v")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(960, 540)
-transform = Transform2D(1, 0, 0, 1, 960, 540)
+offset = Vector2(1000, 540)
+transform = Transform2D(1, 0, 0, 1, 1000, 540)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.01, 0.01)
@@ -106,10 +108,13 @@ grow_vertical = 2
 
 [node name="Title" type="RichTextLabel" parent="MainMenu/Control"]
 layout_mode = 1
-offset_left = 123.0
-offset_top = 77.0
-offset_right = 1854.0
-offset_bottom = 729.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -836.0
+offset_right = 836.0
+offset_bottom = 652.0
+grow_horizontal = 2
 theme = ExtResource("7_h7o41")
 theme_override_font_sizes/normal_font_size = 480
 bbcode_enabled = true
@@ -122,10 +127,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -500.0
+offset_left = -600.0
 offset_top = -280.0
-offset_right = 500.0
-offset_bottom = -79.0
+offset_right = 600.0
+offset_bottom = -79.0001
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -138,7 +143,7 @@ theme_override_font_sizes/font_size = 90
 text = "Quit"
 
 [node name="Control" type="Control" parent="MainMenu/Control/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MainMenu/Control/HBoxContainer"]
