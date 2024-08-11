@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://jhbskamdetoa"]
 
-[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_xdxhu"]
-[ext_resource type="Texture2D" uid="uid://dtbxfpjb5gx83" path="res://Assets/2D/Sprites/nastyone.png" id="2_dr1yf"]
-[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_kka2w"]
-[ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_m1kmf"]
+[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_y513y"]
+[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_23r3c"]
+[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_w54un"]
+[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_x0uxp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 
@@ -14,8 +14,8 @@ radius = 20.0
 radius = 500.0
 
 [node name="Alien" type="CharacterBody2D"]
-script = ExtResource("1_xdxhu")
-payload = ExtResource("2_kka2w")
+script = ExtResource("1_y513y")
+payload = ExtResource("2_23r3c")
 attack_cooldown = 0.05
 properties = {
 "defense": 10.0,
@@ -23,18 +23,27 @@ properties = {
 "speed": 30.0
 }
 
-[node name="AlienSprite" type="Sprite2D" parent="."]
+[node name="CharacterGraphics" type="Node2D" parent="."]
+rotation = -1.5708
+script = ExtResource("3_w54un")
+color = "Pink"
+
+[node name="Sprites" type="Node2D" parent="CharacterGraphics"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(5, 0)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_dr1yf")
+texture = ExtResource("4_x0uxp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(-5, 0)
+scale = Vector2(-0.05, 0.05)
+texture = ExtResource("4_x0uxp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mly5f")
-
-[node name="AimingDirection" type="Sprite2D" parent="."]
-position = Vector2(16, 0)
-rotation = 1.5708
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("3_m1kmf")
 
 [node name="AttackRange" type="Area2D" parent="."]
 collision_mask = 128

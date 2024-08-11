@@ -1,29 +1,53 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp3v34nxlp5eb"]
+[gd_scene load_steps=8 format=3 uid="uid://dp3v34nxlp5eb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0towx"]
 [ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_5ich6"]
-[ext_resource type="Texture2D" uid="uid://da7fce4v5uasj" path="res://Assets/2D/Sprites/pneumaturgylogo_new_180x.png" id="2_6ho0i"]
+[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_8236i"]
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_ffhe0"]
 [ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_qwxjb"]
+[ext_resource type="Texture2D" uid="uid://bcox5tg3oo4sg" path="res://Assets/2D/Sprites/Triangle.png" id="4_djjlr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 129
 script = ExtResource("1_0towx")
-current_payload = ExtResource("2_5ich6")
 mobile_controls = false
+current_payload = ExtResource("2_5ich6")
+
+[node name="CharacterGraphics" type="Node2D" parent="."]
+rotation = -1.5708
+script = ExtResource("3_8236i")
+color = "Green"
+
+[node name="Sprites" type="Node2D" parent="CharacterGraphics"]
+
+[node name="Main" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_djjlr")
+
+[node name="Main2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(-5, 0)
+rotation = -0.523599
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_djjlr")
+
+[node name="Main3" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(5, 0)
+rotation = 0.523599
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_djjlr")
 
 [node name="MobileUiOverlay" parent="." instance=ExtResource("3_qwxjb")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("2_6ho0i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mly5f")
 
 [node name="AimingDirection" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(16, 0)
 rotation = 1.5708
 scale = Vector2(0.02, 0.02)
