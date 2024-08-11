@@ -12,6 +12,7 @@
 collision_layer = 129
 script = ExtResource("1_0towx")
 current_payload = ExtResource("2_5ich6")
+mobile_controls = false
 
 [node name="MobileUiOverlay" parent="." instance=ExtResource("3_qwxjb")]
 
@@ -27,9 +28,6 @@ position = Vector2(16, 0)
 rotation = 1.5708
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("3_ffhe0")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
 
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.3
