@@ -4,7 +4,7 @@ class_name Player
 @export var joypad_dead_zone = 0.1
 @export var current_payload : PackedScene
 @export var fire_rate = 0.3
-
+@export var mobile_controls = true
 @onready var aiming_direction = $AimingDirection
 @onready var fire_rate_timer = $FireRateTimer
 
@@ -21,7 +21,14 @@ var speed_multiplier : float
 #@onready var player_animation = $CharacterSprite/PlayerAnimation
 
 func _ready():
+	check_mobile_controls()
 	fire_rate_timer.wait_time = fire_rate
+
+func check_mobile_controls():
+	if mobile_controls:
+		$MobileUiOverlay.visible = true
+	else:
+		$MobileUiOverlay.visible = false
 
 #region Input Vectors
 

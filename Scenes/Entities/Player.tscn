@@ -10,8 +10,9 @@
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 129
-script = ExtResource("1_sauiu")
-current_payload = ExtResource("2_7ujtl")
+script = ExtResource("1_0towx")
+current_payload = ExtResource("2_5ich6")
+mobile_controls = false
 
 [node name="MobileUiOverlay" parent="." instance=ExtResource("3_ktc1t")]
 visible = false
@@ -45,8 +46,11 @@ texture = ExtResource("5_27yn6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mly5f")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+[node name="AimingDirection" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+rotation = 1.5708
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_ffhe0")
 
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.3
