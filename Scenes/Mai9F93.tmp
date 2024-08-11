@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5v0f53fy0e50"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fre4a"]
+[ext_resource type="Texture2D" uid="uid://dq0oahffcj7wl" path="res://Assets/2D/Backgrounds/MainMenu/1.png" id="1_gmmxd"]
+[ext_resource type="Texture2D" uid="uid://b2pv2gva54lda" path="res://Assets/2D/Backgrounds/MainMenu/2.png" id="2_up6ab"]
+[ext_resource type="Texture2D" uid="uid://bac15a0optmuk" path="res://Assets/2D/Backgrounds/MainMenu/3.png" id="3_27tp5"]
+[ext_resource type="Texture2D" uid="uid://6qw3ygn2swoq" path="res://Assets/2D/Backgrounds/MainMenu/4.png" id="4_tbhg7"]
+[ext_resource type="Texture2D" uid="uid://brckde1y0n4l7" path="res://Assets/2D/Backgrounds/MainMenu/5.png" id="5_2gb2q"]
+
+[sub_resource type="GDScript" id="GDScript_nlp02"]
+script/source = "extends Camera3D
+
+# Adjust these to control the strength of the parallax effect
+@export var rotation_speed: float = 0.05
+@export var max_rotation: float = 0.1
+
+func _ready():
+	set_process_input(true)
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		# Get the center of the viewport as a Vector2
+		var viewport_center = get_viewport().size / 2.0
+		# Calculate the offset of the mouse from the center of the screen
+		var offset = event.position - viewport_center
+
+		# Calculate rotation based on mouse movement
+		var target_rotation = Vector2(-offset.y, offset.x) * rotation_speed
+
+		# Clamp the rotation to the maximum allowed rotation
+		var angle = target_rotation.angle()
+		var clamped_angle = clamp(angle, -max_rotation, max_rotation)
+
+		# Apply rotation to the camera
+		rotation = clamped_angle
+"
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_fre4a")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_gmmxd")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-28.895, 277.955)
+texture = ExtResource("2_up6ab")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(181.885, 145.11)
+texture = ExtResource("3_27tp5")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(46.5, 236.5)
+texture = ExtResource("4_tbhg7")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(-3, 301)
+texture = ExtResource("5_2gb2q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = SubResource("GDScript_nlp02")
