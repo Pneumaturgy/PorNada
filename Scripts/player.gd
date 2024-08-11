@@ -1,10 +1,9 @@
 extends Mech
 class_name Player
-
+@export var mobile_controls = true
 @export var joypad_dead_zone = 0.1
 @export var current_payload : PackedScene
 @export var fire_rate = 0.3
-@export var mobile_controls = true
 @onready var aiming_direction = $AimingDirection
 @onready var fire_rate_timer = $FireRateTimer
 
@@ -28,33 +27,35 @@ func check_mobile_controls():
 #region Input Vectors
 
 func get_input():
-	if !$MobileUiOverlay.visible:
+	if !mobile_controls:
 		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		velocity = input_direction * get_property("speed")
 	else:
 		velocity = touch_move_vector * (speed_multiplier * get_property("speed"))
 
 func _on_mobile_ui_overlay_use_touch_move_vector(move_vector):
-	touch_move_vector = move_vector
+	if mobile_controls:
+		touch_move_vector = move_vector
 
 
 func _on_mobile_ui_overlay_use_touch_aim_vector(aim_vector):
-	touch_aim_vector = aim_vector
-	if $MobileUiOverlay.visible:
+	if mobile_controls:
+		touch_aim_vector = aim_vector
 		self.rotation = aim_vector.angle()
 
 
 func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):
-	speed_multiplier = _speed_multiplier
+	if mobile_controls:
+		speed_multiplier = _speed_multiplier
 
 
 #endregion
 
 func _input(event):
-	if event is InputEventMouseMotion and !$MobileUiOverlay.visible:
+	if event is InputEventMouseMotion and !mobile_controls:
 		look_at(get_global_mouse_position())
 		
-	if event is InputEventJoypadMotion and !$MobileUiOverlay.visible:
+	if event is InputEventJoypadMotion and !mobile_controls:
 		var input_aim_direction = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
 		if abs(input_aim_direction.x) >= joypad_dead_zone or abs(input_aim_direction.y) >= joypad_dead_zone:
 			self.rotation = input_aim_direction.angle()
