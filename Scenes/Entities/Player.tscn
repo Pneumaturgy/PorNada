@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp3v34nxlp5eb"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_sauiu"]
+[ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_7ujtl"]
+[ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_ktc1t"]
+[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="4_8dknf"]
+[ext_resource type="Texture2D" uid="uid://blaevsnlogl4h" path="res://Assets/2D/Sprites/Triangle.png" id="5_27yn6"]
+[ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="6_b0qbc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 129
+script = ExtResource("1_sauiu")
+current_payload = ExtResource("2_7ujtl")
+
+[node name="MobileUiOverlay" parent="." instance=ExtResource("3_ktc1t")]
+visible = false
+
+[node name="CharacterGraphics" type="Node2D" parent="."]
+script = ExtResource("4_8dknf")
+color = "Green"
+
+[node name="Sprites" type="Node2D" parent="CharacterGraphics"]
+
+[node name="Main" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+rotation = -1.5708
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_27yn6")
+
+[node name="Rifle2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(-1.85773e-07, -4.25)
+rotation = -1.0472
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("5_27yn6")
+
+[node name="Rifle1" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(1.85773e-07, 4.25)
+rotation = -2.0944
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("5_27yn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_mly5f")
+
+[node name="AimingDirection" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(16, 0)
+rotation = 1.5708
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("6_b0qbc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="use_touch_aim_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_aim_vector"]
+[connection signal="use_touch_move_multiplier" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_multiplier"]
+[connection signal="use_touch_move_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_vector"]
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

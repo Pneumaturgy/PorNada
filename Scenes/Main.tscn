@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
-[ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Player.tscn" id="2_463pk"]
+[ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Entities/Player.tscn" id="2_463pk"]
 [ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 [ext_resource type="PackedScene" uid="uid://dody11on1j6u8" path="res://Scenes/Background.tscn" id="4_rrqsw"]
 
