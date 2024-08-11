@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp3v34nxlp5eb"]
+[gd_scene load_steps=7 format=3 uid="uid://dp3v34nxlp5eb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_sauiu"]
 [ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_7ujtl"]
 [ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_ktc1t"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="4_8dknf"]
 [ext_resource type="Texture2D" uid="uid://blaevsnlogl4h" path="res://Assets/2D/Sprites/Triangle.png" id="5_27yn6"]
-[ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="6_b0qbc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 
@@ -44,15 +43,7 @@ scale = Vector2(0.025, 0.025)
 texture = ExtResource("5_27yn6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_mly5f")
-
-[node name="AimingDirection" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(16, 0)
-rotation = 1.5708
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("6_b0qbc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
