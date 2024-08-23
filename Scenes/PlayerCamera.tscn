@@ -29,7 +29,6 @@ func _physics_process(delta):
 		zoom = zoom.lerp(target_zoom, zoom_speed)
 	else:
 		zoom = zoom.lerp(min_zoom, zoom_speed)
-
 "
 
 [node name="PlayerCamera" type="Camera2D"]

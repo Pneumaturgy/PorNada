@@ -84,8 +84,3 @@ func fire(payload):
 
 func _on_fire_rate_timer_timeout():
 	weapon_ready = true
-
-
-
-
-

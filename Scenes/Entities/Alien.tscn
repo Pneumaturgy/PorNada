@@ -25,10 +25,10 @@ properties = {
 
 [node name="CharacterGraphics" type="Node2D" parent="."]
 rotation = -1.5708
-script = ExtResource("3_w54un")
-color = "Pink"
 
 [node name="Sprites" type="Node2D" parent="CharacterGraphics"]
+script = ExtResource("3_w54un")
+color = "Pink"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterGraphics/Sprites"]
 texture_filter = 1

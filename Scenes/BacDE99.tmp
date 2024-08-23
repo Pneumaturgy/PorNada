@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dody11on1j6u8"]
+[gd_scene load_steps=11 format=3 uid="uid://dody11on1j6u8"]
 
 [ext_resource type="Script" path="res://Scripts/procedural_background.gd" id="1_bxrdg"]
 [ext_resource type="Texture2D" uid="uid://dok2dcxq5wr52" path="res://Assets/2D/Backgrounds/grassneon512.png" id="1_evvsd"]
 [ext_resource type="Texture2D" uid="uid://5v4ce5n06muu" path="res://Assets/2D/Backgrounds/square512.png" id="2_2ieuh"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="2_kcfgp"]
 [ext_resource type="Texture2D" uid="uid://bcox5tg3oo4sg" path="res://Assets/2D/Sprites/Triangle.png" id="4_jscb7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lug4w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mo4i"]
 normal = Vector2(1, 0)
@@ -23,6 +25,9 @@ distance = -1154.0
 
 [node name="Background" type="Node2D"]
 script = ExtResource("1_bxrdg")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_lug4w")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -44,7 +49,6 @@ color = "LightGray"
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/GroundLayer"]
 texture_filter = 1
 texture_repeat = 2
-scale = Vector2(0.005, 0.005)
 texture = ExtResource("4_jscb7")
 
 [node name="BushLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -52,7 +56,6 @@ script = ExtResource("2_kcfgp")
 color = "LightGray"
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BushLayer"]
-visible = false
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("4_jscb7")
@@ -62,7 +65,6 @@ script = ExtResource("2_kcfgp")
 color = "LightGray"
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TreeLayer"]
-visible = false
 texture_filter = 1
 texture_repeat = 2
 texture = ExtResource("4_jscb7")

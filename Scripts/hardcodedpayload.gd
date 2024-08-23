@@ -7,5 +7,3 @@ func _ready():
 	affected_properties_with_deltas = {
 		"health": -10.0
 	}
-
-

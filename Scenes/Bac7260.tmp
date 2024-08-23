@@ -44,7 +44,7 @@ color = "LightGray"
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/GroundLayer"]
 texture_filter = 1
 texture_repeat = 2
-scale = Vector2(0.005, 0.005)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_jscb7")
 
 [node name="BushLayer" type="ParallaxLayer" parent="ParallaxBackground"]
