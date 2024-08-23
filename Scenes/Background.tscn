@@ -2,24 +2,24 @@
 
 [ext_resource type="Script" path="res://Scripts/procedural_background.gd" id="1_bxrdg"]
 [ext_resource type="Texture2D" uid="uid://dok2dcxq5wr52" path="res://Assets/2D/Backgrounds/grassneon512.png" id="1_evvsd"]
-[ext_resource type="Texture2D" uid="uid://5v4ce5n06muu" path="res://Assets/2D/Backgrounds/square512.png" id="2_2ieuh"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="2_kcfgp"]
+[ext_resource type="Texture2D" uid="uid://cvhptu0tte830" path="res://Assets/2D/Backgrounds/background_imag.png" id="3_h45xo"]
 [ext_resource type="Texture2D" uid="uid://bcox5tg3oo4sg" path="res://Assets/2D/Sprites/Triangle.png" id="4_jscb7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mo4i"]
 normal = Vector2(1, 0)
-distance = -1154.0
+distance = -23080.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_70gdi"]
 normal = Vector2(-1, 0)
-distance = -1154.0
+distance = -23080.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_quogh"]
-distance = -1154.0
+distance = -23080.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8r57x"]
 normal = Vector2(0, 1)
-distance = -1154.0
+distance = -23080.0
 
 [node name="Background" type="Node2D"]
 script = ExtResource("1_bxrdg")
@@ -27,7 +27,7 @@ script = ExtResource("1_bxrdg")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="BackLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1024, 1024)
+motion_mirroring = Vector2(8192, 8192)
 script = ExtResource("2_kcfgp")
 color = "Gray"
 
@@ -35,7 +35,10 @@ color = "Gray"
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(2, 2)
-texture = ExtResource("2_2ieuh")
+texture = ExtResource("3_h45xo")
+offset = Vector2(2048, 2048)
+region_enabled = true
+region_rect = Rect2(0, 0, 8192, 8192)
 
 [node name="GroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 script = ExtResource("2_kcfgp")

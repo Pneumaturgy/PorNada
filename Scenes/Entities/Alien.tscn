@@ -6,21 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_x0uxp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
+radius = 200.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b76x1"]
-radius = 20.0
+radius = 400.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ijht"]
-radius = 500.0
+radius = 10000.0
 
 [node name="Alien" type="CharacterBody2D"]
 script = ExtResource("1_y513y")
 payload = ExtResource("2_23r3c")
 attack_cooldown = 0.05
 properties = {
-"defense": 10.0,
-"health": 100.0,
-"speed": 30.0
+"defense": 100.0,
+"health": 10.0,
+"speed": 300.0
 }
 
 [node name="CharacterGraphics" type="Node2D" parent="."]
@@ -32,14 +33,13 @@ color = "Pink"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterGraphics/Sprites"]
 texture_filter = 1
-position = Vector2(5, 0)
-scale = Vector2(0.05, 0.05)
+position = Vector2(105, 0)
 texture = ExtResource("4_x0uxp")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
 texture_filter = 1
-position = Vector2(-5, 0)
-scale = Vector2(-0.05, 0.05)
+position = Vector2(-105, 0)
+scale = Vector2(-1, 1)
 texture = ExtResource("4_x0uxp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
