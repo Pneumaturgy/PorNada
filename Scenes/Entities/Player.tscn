@@ -130,7 +130,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 129
+collision_layer = 128
+collision_mask = 2
 script = ExtResource("1_0towx")
 mobile_controls = false
 current_payload = ExtResource("2_5ich6")

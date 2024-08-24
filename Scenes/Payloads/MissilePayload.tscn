@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmi0he5h0u8c5"]
+
+[ext_resource type="Script" path="res://Scripts/MissilePayload.gd" id="1_f2838"]
+[ext_resource type="Texture2D" uid="uid://b5s852ioh2cx7" path="res://Assets/2D/Vectors/missile.svg" id="1_vbb3a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6uds"]
+
+[sub_resource type="Gradient" id="Gradient_ykumx"]
+offsets = PackedFloat32Array(0, 0.489879, 1)
+colors = PackedColorArray(1, 0.833333, 0, 1, 1, 0.483333, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t7vix"]
+gradient = SubResource("Gradient_ykumx")
+
+[sub_resource type="Curve" id="Curve_84gw4"]
+_data = [Vector2(0, 0.514175), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mitdw"]
+curve = SubResource("Curve_84gw4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwsnk"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 30.0
+initial_velocity_min = -200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_mitdw")
+color_ramp = SubResource("GradientTexture1D_t7vix")
+
+[node name="MisslePayload" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_f2838")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.09, 0.04)
+texture = ExtResource("1_vbb3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_t6uds")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-10, 0)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_pwsnk")
+lifetime = 0.03
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
