@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dody11on1j6u8"]
+[gd_scene load_steps=8 format=3 uid="uid://dody11on1j6u8"]
 
-[ext_resource type="Script" path="res://Scripts/procedural_background.gd" id="1_bxrdg"]
-[ext_resource type="Texture2D" uid="uid://dok2dcxq5wr52" path="res://Assets/2D/Backgrounds/grassneon512.png" id="1_evvsd"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="2_kcfgp"]
-[ext_resource type="Texture2D" uid="uid://cvhptu0tte830" path="res://Assets/2D/Backgrounds/background_imag.png" id="3_h45xo"]
-[ext_resource type="Texture2D" uid="uid://bcox5tg3oo4sg" path="res://Assets/2D/Sprites/Triangle.png" id="4_jscb7"]
+[ext_resource type="Texture2D" uid="uid://5v4ce5n06muu" path="res://Assets/2D/Backgrounds/square512.png" id="2_r33hi"]
+[ext_resource type="PackedScene" uid="uid://dg40hof4xuov3" path="res://Scenes/ProceduralBackground.tscn" id="4_3fvl5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8r57x"]
+normal = Vector2(0, 1)
+distance = -23080.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7mo4i"]
 normal = Vector2(1, 0)
@@ -17,397 +19,36 @@ distance = -23080.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_quogh"]
 distance = -23080.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8r57x"]
-normal = Vector2(0, 1)
-distance = -23080.0
-
 [node name="Background" type="Node2D"]
-script = ExtResource("1_bxrdg")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="BackLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(8192, 8192)
 script = ExtResource("2_kcfgp")
-color = "Gray"
+color = "#B3679B"
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackLayer"]
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(2, 2)
-texture = ExtResource("3_h45xo")
+texture = ExtResource("2_r33hi")
 offset = Vector2(2048, 2048)
 region_enabled = true
 region_rect = Rect2(0, 0, 8192, 8192)
 
 [node name="GroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.01, 1.01)
 script = ExtResource("2_kcfgp")
-color = "LightGray"
+color = "Pink"
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/GroundLayer"]
-texture_filter = 1
-texture_repeat = 2
-scale = Vector2(0.005, 0.005)
-texture = ExtResource("4_jscb7")
-
-[node name="BushLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-script = ExtResource("2_kcfgp")
-color = "LightGray"
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BushLayer"]
-visible = false
-texture_filter = 1
-texture_repeat = 2
-texture = ExtResource("4_jscb7")
-
-[node name="TreeLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-script = ExtResource("2_kcfgp")
-color = "LightGray"
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/TreeLayer"]
-visible = false
-texture_filter = 1
-texture_repeat = 2
-texture = ExtResource("4_jscb7")
-
-[node name="Sprites" type="Node2D" parent="."]
-
-[node name="OldSprites" type="Node2D" parent="."]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="OldSprites"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites"]
-position = Vector2(-770, 0)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D2"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites"]
-position = Vector2(770, 0)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D3"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites"]
-position = Vector2(0, 770)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D4"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites"]
-position = Vector2(0, -770)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D5"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites"]
-position = Vector2(770, -770)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D6"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites"]
-position = Vector2(-770, -770)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D7"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites"]
-position = Vector2(-770, 770)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D8"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites"]
-position = Vector2(770, 770)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D4" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(0, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D5" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(-512, 512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D6" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(-512, 0)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D7" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(0, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D8" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(512, -512)
-texture = ExtResource("1_evvsd")
-
-[node name="Sprite2D9" type="Sprite2D" parent="OldSprites/Sprite2D9"]
-position = Vector2(-512, -512)
-texture = ExtResource("1_evvsd")
+[node name="ProceduralBackgroundGrass" parent="ParallaxBackground/GroundLayer" instance=ExtResource("4_3fvl5")]
+position = Vector2(-25668, -25668)
 
 [node name="CollisionShape2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CollisionShape2D"]
+shape = SubResource("WorldBoundaryShape2D_8r57x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D"]
 shape = SubResource("WorldBoundaryShape2D_7mo4i")
@@ -417,6 +58,3 @@ shape = SubResource("WorldBoundaryShape2D_70gdi")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="CollisionShape2D"]
 shape = SubResource("WorldBoundaryShape2D_quogh")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="CollisionShape2D"]
-shape = SubResource("WorldBoundaryShape2D_8r57x")

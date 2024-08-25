@@ -6,6 +6,7 @@ class_name Player
 @export var fire_rate = 0.3
 @onready var aiming_direction = $AimingDirection
 @onready var fire_rate_timer = $FireRateTimer
+@onready var label = $CanvasLayer/Label
 
 var firing_offset = 20
 var weapon_ready = true
@@ -72,6 +73,7 @@ func _input(event):
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
+	label.text = "fps: " + str(Engine.get_frames_per_second())
 
 func fire(payload):
 	var direction = (aiming_direction.global_position - self.global_position).normalized()

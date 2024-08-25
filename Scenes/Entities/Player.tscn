@@ -55,6 +55,12 @@ texture = ExtResource("3_ffhe0")
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.3
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="use_touch_aim_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_aim_vector"]
 [connection signal="use_touch_move_multiplier" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_multiplier"]
 [connection signal="use_touch_move_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_vector"]
