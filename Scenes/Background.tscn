@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://dody11on1j6u8"]
+[gd_scene load_steps=7 format=3 uid="uid://dody11on1j6u8"]
 
-[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="2_kcfgp"]
 [ext_resource type="Texture2D" uid="uid://5v4ce5n06muu" path="res://Assets/2D/Backgrounds/square512.png" id="2_r33hi"]
 [ext_resource type="PackedScene" uid="uid://dg40hof4xuov3" path="res://Scenes/ProceduralBackground.tscn" id="4_3fvl5"]
 
@@ -25,10 +24,9 @@ distance = -23080.0
 
 [node name="BackLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(8192, 8192)
-script = ExtResource("2_kcfgp")
-color = "#B3679B"
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackLayer"]
+modulate = Color(0.0156863, 0.447059, 0.301961, 1)
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(2, 2)
@@ -39,8 +37,6 @@ region_rect = Rect2(0, 0, 8192, 8192)
 
 [node name="GroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(1.01, 1.01)
-script = ExtResource("2_kcfgp")
-color = "Pink"
 
 [node name="ProceduralBackgroundGrass" parent="ParallaxBackground/GroundLayer" instance=ExtResource("4_3fvl5")]
 position = Vector2(-25668, -25668)
