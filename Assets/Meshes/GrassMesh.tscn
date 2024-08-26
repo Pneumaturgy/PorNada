@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyl41ew4j5b01"]
+
+[ext_resource type="Texture2D" uid="uid://1plmppwp3vkn" path="res://Assets/2D/Sprites/Nature/grassblade.png" id="1_mw42e"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_t6nnh"]
+size = Vector2(17, -141)
+
+[node name="Mesh" type="MeshInstance2D"]
+mesh = SubResource("QuadMesh_t6nnh")
+texture = ExtResource("1_mw42e")

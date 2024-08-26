@@ -15,7 +15,6 @@ affected_properties_with_deltas = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.002, 0.002)
 texture = ExtResource("2_e1fm5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

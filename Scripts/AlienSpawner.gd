@@ -4,7 +4,8 @@ signal alien_spawned(alien_instance)
 
 @export var spawn_frequency = 1
 @export var spawn_quantity = 3
-@export var maximum_distance = 1.1
+@export var maximum_distance = 10
+
 
 const alien_scene = preload("res://Scenes/Entities/Alien.tscn")
 
@@ -21,7 +22,7 @@ func _on_timer_timeout():
 			spawn_aliens()
 
 func spawn_aliens():
-	var minimal_distance = sqrt((get_viewport_rect().size.x / 8) ** 2 + (get_viewport_rect().size.y / 8) ** 2)
+	var minimal_distance = sqrt((get_viewport_rect().size.x / 1) ** 2 + (get_viewport_rect().size.y / 1) ** 2)
 	var max_distance = minimal_distance * maximum_distance
 	var distance = randf_range(minimal_distance, max_distance)
 	#print("New enemy spawn at: ", str(distance), "minimal: ", str(minimal_distance), "maximum: ", max_distance)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw68i57ktg0k5"]
+
+[ext_resource type="Texture2D" uid="uid://dwq7b3hqrdite" path="res://Assets/2D/Sprites/Nature/leaf1.png" id="1_2tp4u"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_t6nnh"]
+size = Vector2(218, -471)
+
+[node name="Mesh" type="MeshInstance2D"]
+mesh = SubResource("QuadMesh_t6nnh")
+texture = ExtResource("1_2tp4u")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj4swdyvl2uwt"]
+
+[ext_resource type="Texture2D" uid="uid://1plmppwp3vkn" path="res://Assets/2D/Sprites/Nature/grassblade.png" id="1_bpuga"]
+[ext_resource type="Shader" uid="uid://dw44umatrfwjf" path="res://Assets/Shaders/wind_move.tres" id="1_g33ge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qb2f"]
+shader = ExtResource("1_g33ge")
+shader_parameter/Height = 0.0
+shader_parameter/WindParameter = 0.065
+shader_parameter/ShakeStrengthParameter = 20.0
+shader_parameter/ColorParameter = Color(0.768627, 0.341176, 0.568627, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_affwh"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-8.5, -70.5, 0, 17, 141, 0),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63),
+"format": 34393296913,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 8, 193, 0, 0, 141, 66, 0, 0, 8, 193, 0, 0, 141, 194, 0, 0, 8, 65, 0, 0, 141, 194, 0, 0, 8, 65, 0, 0, 141, 66)
+}]
+
+[node name="GrassBladeMesh2D" type="MeshInstance2D"]
+material = SubResource("ShaderMaterial_7qb2f")
+mesh = SubResource("ArrayMesh_affwh")
+texture = ExtResource("1_bpuga")
