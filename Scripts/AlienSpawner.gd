@@ -1,6 +1,7 @@
 extends Node2D
 
 signal alien_spawned(alien_instance)
+signal all_aliens_spawned
 
 @export var spawn_frequency = 1
 @export var spawn_quantity = 3
