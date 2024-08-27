@@ -4,45 +4,49 @@ const SAVE_PATH = "user://pneumagame.save"
 const PROGRESS_PATH = "user://pneumagame_progress.save"
 const PASSWORD = "pneuma"
 # -------------
-var example_save
-var wins
-var losses
+var save_file
+var total_wins : int
+var current_stage : int
+#var wins
+#var losses
 
 var current_alien_count = 0
 
-
-## A new blank save that saves generic data
+#region Save & Progress Dicts
+## 5a: A new blank save that saves generic data
 func new_save():
 	return {
-		"ExampleSave" = 0
+		"Save" = 0
 	}
 
-## A new blank progress save that saves different sort of progress data
+## 5b: A new blank progress save that saves different sort of progress data
 func new_progress():
 	return {
-		"ExampleProgress": {
-			"Wins": 0,
-			"Losses": 0
+		"Progress": {
+			#"Wins": 0,
+			#"Losses": 0
 		}
 	}
 
-## Generates a new save dictionary to save current data
+## 2a: Generates a new save dictionary to save current data
 func generate_save_dict():
 	return {
-		"ExampleSave" : example_save
+		"Save" : save_file
 	}
 
-## Generates a new progress save dictionary to save current progress
+## 2b: Generates a new progress save dictionary to save current progress
 func generate_progress_dict():
 	return {
-		"ExampleProgress": {
-			"Wins": wins,
-			"Losses": losses
+		"Progress": {
+			"Total Wins": total_wins,
+			"Current Stage": current_stage
+			#"Wins": wins,
+			#"Losses": losses
 		}
 	}
+#endregion 
 
-
-## create a new savegame file and store it in local storage
+## 1: create a new savegame file and store it in local storage
 func save_game(save_path = SAVE_PATH):
 	var new_save_game = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, PASSWORD)
 	var json_string
@@ -54,11 +58,11 @@ func save_game(save_path = SAVE_PATH):
 	new_save_game.close()
 	print("saved at {0}: {1}".format([save_path, json_string]))
 
-## return if a file already exists
+## 5: return if a file already exists
 func save_file_exists(save_path = SAVE_PATH):
 	return FileAccess.file_exists(save_path)
 
-## access the save file to load data back into the game
+## 4: access the save file to load data back into the game
 func load_game(save_path = SAVE_PATH):
 	if !save_file_exists(save_path):
 		if save_path == SAVE_PATH:
@@ -76,13 +80,15 @@ func load_game(save_path = SAVE_PATH):
 		else:
 			print("JSON Parse Error: ", jsonParser.get_error_message(), " in ", saveData, " at line ", jsonParser.get_error_line())
 
-## access the save file to load progress back into the game
+## 3: access the save file to load progress back into the game
 func load_progress_variables():
 	var loaded_progress_vars = load_game(PROGRESS_PATH)
 	var default_progress_values = new_progress() # For new versions of save files
 	var progress = loaded_progress_vars.get("PlayerVsCpuScores", default_progress_values["PlayerVsCpuScores"])
-	wins = progress.get("Wins", 0)
-	losses = progress.get("Losses", 0)
+	total_wins = progress.get("Total Wins", 0)
+	current_stage = progress.get("Current Stage", 0)
+	#wins = progress.get("Wins", 0)
+	#losses = progress.get("Losses", 0)
 
 ## Put all necessary quitting logic here
 func quit_game():

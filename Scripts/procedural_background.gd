@@ -13,10 +13,10 @@ var noise_texture : NoiseTexture2D
 
 func _ready():
 	for child in get_children().size():
-		print(child)
+		#print(child)
 		if get_child(child) is MultiMeshInstance2D:
 			multi_mesh_instance_array[child] = get_child(child)
-	print(multi_mesh_instance_array)
+	#print(multi_mesh_instance_array)
 	if variance_multiplier.size() and ranges_array.size() != multi_mesh_instance_array.size():
 		push_error("Some values are misisng for the multimesh instances - Please check Variance Multipliers and Ranges Array!")
 	do_distribution()
