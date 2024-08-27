@@ -3,11 +3,14 @@ extends Node2D
 @onready var player = %Player
 @onready var fade_in_screen = $FadeInScreen
 @onready var label = $FadeInScreen/Label
-@onready var hud = $HUD
-@onready var title = $HUD/Control/Title
-@onready var title_2 = $HUD/Control/Title2
+@onready var end_game = $EndGame
+@onready var title = $EndGame/Control/Title
+@onready var title_2 = $EndGame/Control/Title2
+@onready var kill_counter = $HUD/KillCounter
+var current_level_kill_count : int
 
 func _ready():
+	current_level_kill_count = 0
 	fade_in_screen.visible = true
 
 func _on_alien_spawner_alien_spawned(alien_instance):
@@ -22,7 +25,7 @@ func _on_alien_spawner_all_aliens_spawned():
 	
 
 func trigger_new_level():
-	hud.visible = true
+	end_game.visible = true
 	title.text = "[center][wave amp=50 freq=5]Completed Stage:[/wave][/center]"
 	title_2.text = "[center][wave amp=50 freq=5]" + str(Global.current_stage) + "[/wave][/center]"
 	Global.current_stage += 1
@@ -32,3 +35,8 @@ func trigger_new_level():
 	#new_game.level_length = minimum_tiles + (((maximum_tiles-minimum_tiles)/player_max_level) * difficulty)
 	# Save
 	# progress
+
+
+func on_alien_death():
+	current_level_kill_count += 1
+	kill_counter.text = "[wave amp=50 freq=5]Kills: " + str(current_level_kill_count) + "[/wave]"

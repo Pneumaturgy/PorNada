@@ -14,6 +14,8 @@ const alien_scene = preload("res://Scenes/Entities/Alien.tscn")
 var current_max_aliens : int
 var current_spawn_frequency : float
 var current_spawn_quantity : int 
+
+var signal_check = true
 	#new_game.level_length = minimum_tiles + (((maximum_tiles-minimum_tiles)/player_max_level) * difficulty)
 
 @onready var timer = $Timer
@@ -26,7 +28,8 @@ func _on_timer_timeout():
 	for i in range(current_spawn_quantity):
 		if Global.current_alien_count < current_max_aliens:
 			spawn_aliens()
-		else:
+		elif signal_check:
+			signal_check = false
 			all_aliens_spawned.emit()
 
 func spawn_aliens():
@@ -39,6 +42,7 @@ func spawn_aliens():
 	var y = sin(angle) * distance
 	var alien_instance = alien_scene.instantiate()
 	alien_instance.position = Vector2(global_position.x + x, global_position.y + y)
+	#get_parent().add_child(alien_instance)
 	alien_spawned.emit(alien_instance)
 	Global.current_alien_count += 1
 	#print("An alien was born, current count: ", Global.current_alien_count)

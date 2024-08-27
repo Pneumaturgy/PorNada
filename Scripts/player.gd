@@ -54,20 +54,20 @@ func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):
 #endregion
 
 func _input(event):
-
-	if event is InputEventMouseButton:
-		if Input.is_action_just_pressed("fire") and weapon_ready:
-			can_fire = true
-			weapon_ready = false
-			fire_rate_timer.start()
-
-		if Input.is_action_just_released("fire"):
-			can_fire = false
+	
+	#if event is InputEventMouseButton:
+		#if Input.is_action_just_pressed("fire") and weapon_ready:
+			#can_fire = true
+			#weapon_ready = false
+			#fire_rate_timer.start()
+#
+		#if Input.is_action_just_released("fire"):
+			#can_fire = false
 	#if Input.is_action_pressed("fire") and weapon_ready:
 		#fire(current_payload)
 		#weapon_ready = false
 		#fire_rate_timer.start()
-
+	
 	if event is InputEventMouseMotion and !mobile_controls:
 		look_at(get_global_mouse_position())
 		
@@ -83,10 +83,15 @@ func _input(event):
 
 
 func _physics_process(_delta):
-	fire(current_payload)
+	if Input.is_action_pressed("fire") and weapon_ready:
+		fire(current_payload)
+		weapon_ready = false
+		fire_rate_timer.start()
+	#if can_fire:
+		#fire(current_payload)
 	get_input()
 	move_and_slide()
-
+	
 
 func fire(payload):
 	if can_fire:

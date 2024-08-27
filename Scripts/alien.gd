@@ -1,6 +1,8 @@
 extends Entity
 class_name Alien
 
+
+signal alien_death
 # affect player health
 	#on collision 
 	# if collisoin is player
@@ -22,7 +24,7 @@ var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	alien_death.connect(get_parent().on_alien_death)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -77,5 +79,6 @@ func set_player_instance(player_instance):
 
 func die():
 	Global.current_alien_count -= 1
+	alien_death.emit()
 	#print("An alien died, current count: ", Global.current_alien_count)
 	super.die()

@@ -133,10 +133,10 @@ zoom = Vector2(0.4, 0.4)
 min_zoom = Vector2(0.2, 0.2)
 max_zoom = Vector2(0.3, 0.3)
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="EndGame" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="Control" type="Control" parent="HUD"]
+[node name="Control" type="Control" parent="EndGame"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,7 +144,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="HUD/Control"]
+[node name="Title" type="RichTextLabel" parent="EndGame/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -159,7 +159,7 @@ theme_override_font_sizes/normal_font_size = 170
 bbcode_enabled = true
 text = "[center][wave amp=50 freq=5]Completed Stage:[/wave][/center]"
 
-[node name="Title2" type="RichTextLabel" parent="HUD/Control"]
+[node name="Title2" type="RichTextLabel" parent="EndGame/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -174,7 +174,7 @@ theme_override_font_sizes/normal_font_size = 360
 bbcode_enabled = true
 text = "[center][wave amp=50 freq=5]1[/wave][/center]"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EndGame/Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -189,23 +189,33 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Quit" type="Button" parent="HUD/Control/HBoxContainer"]
+[node name="Quit" type="Button" parent="EndGame/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("6_ygu73")
 theme_override_font_sizes/font_size = 90
 text = "Quit"
 
-[node name="Control" type="Control" parent="HUD/Control/HBoxContainer"]
+[node name="Control" type="Control" parent="EndGame/Control/HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="Play" type="Button" parent="HUD/Control/HBoxContainer"]
+[node name="Play" type="Button" parent="EndGame/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("6_ygu73")
 theme_override_font_sizes/font_size = 90
 text = "Continue"
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="KillCounter" type="RichTextLabel" parent="HUD"]
+offset_right = 504.0
+offset_bottom = 140.0
+theme = ExtResource("6_ygu73")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave amp=50 freq=5]Kills:[/wave]"
 
 [node name="FadeInScreen" type="CanvasLayer" parent="."]
 visible = false

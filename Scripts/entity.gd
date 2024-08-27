@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name  Entity
 
+var death_check = true
+
 @export var properties = {
 	"health": 100.0,
 	"defense": 10.0,
@@ -24,7 +26,10 @@ func die():
 
 func health_triggers(value):
 	if value <= 0:
-		die()
+		if death_check:
+			death_check = false
+			die()
+			
 
 func check_triggers(property, value):
 	if property == "health":
