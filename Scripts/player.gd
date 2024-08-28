@@ -1,11 +1,18 @@
 extends Mech
 class_name Player
+
+signal player_died
+
+
 @export var mobile_controls = true
 @export var joypad_dead_zone = 0.1
 @export var current_payload : PackedScene
 @export var fire_rate = 0.3
 @onready var aiming_direction = $AimingDirection
 @onready var fire_rate_timer = $FireRateTimer
+
+@onready var progress_bar = $PlayerHud/Control/ProgressBar
+
 #@onready var label = $CanvasLayer/Label
 
 var firing_offset = 20
@@ -19,6 +26,7 @@ var speed_multiplier : float
 func _ready():
 	check_mobile_controls()
 	fire_rate_timer.wait_time = fire_rate
+	progress_bar.value = self.properties["health"]
 
 func check_mobile_controls():
 	if mobile_controls:
@@ -113,3 +121,11 @@ func _on_fire_rate_timer_timeout():
 	weapon_ready = true
 	if can_fire:
 		fire(current_payload)
+
+func update_ui(property, delta):
+	if property == "health":
+		progress_bar.value = self.properties["health"]
+
+
+func die():
+	player_died.emit()

@@ -286,6 +286,7 @@ autostart = true
 wait_time = 10.0
 one_shot = true
 
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
 [connection signal="animation_finished" from="FadeInScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]

@@ -10,9 +10,9 @@ var death_check = true
 }
 
 var MAX_PROPERTIES = {
-	"health": 100.0,
-	"defense": 10.0,
-	"speed": 300.0
+	"health": 1000.0,
+	"defense": 100.0,
+	"speed": 10000.0
 }
 
 var MIN_PROPERTIES = {
@@ -50,5 +50,9 @@ func get_property(property):
 	return properties[property]
 
 func affect_property(property, delta):
+	update_ui(property,delta)
 	#print(property, " changing by ", delta)
 	set_property(property, get_property(property) + delta)
+
+func update_ui(property,delta):
+	pass

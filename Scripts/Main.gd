@@ -19,6 +19,7 @@ extends Node2D
 
 var next_scene : String
 var current_level_kill_count : int
+var death_animation_trigger = false
 
 func _ready():
 	current_stage_text.text = "[center][wave amp=50 freq=5]Current Stage: " + str(Global.current_stage) + "[/wave][/center]"
@@ -73,3 +74,17 @@ func kill_all_aliens():
 	var current_aliens = get_tree().get_nodes_in_group("enemies")
 	for alien in current_aliens:
 		alien.die()
+
+
+func _on_player_player_died():
+	var default_new_progress = Global.new_progress()
+	Global.current_stage = default_new_progress["Progress"]["Current Stage"]
+	fade_in_screen.visible = true
+	animation_player.play_backwards()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if death_animation_trigger:
+		get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
+	else:
+		death_animation_trigger = true
