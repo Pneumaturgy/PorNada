@@ -22,8 +22,8 @@ func _ready():
 	death_timer.start()
 
 func apply_effects(entity):
-	print("applying effects...")
-	print(affected_properties_with_deltas)
+	#print("applying effects...")
+	#print(affected_properties_with_deltas)
 	for property in affected_properties_with_deltas:
 		var delta = affected_properties_with_deltas[property]
 		entity.affect_property(property, delta)
@@ -40,7 +40,7 @@ func destroy_bullet():
 func _process(delta):
 	if enemy_target == null:
 		enemy_target = get_nearest_enemy()
-	print(enemy_target)
+	#print(enemy_target)
 	if enemy_target:
 		var target_direction = enemy_target.global_position - self.global_position
 		var target_rotation = target_direction.angle()
