@@ -1,14 +1,13 @@
 extends Node
 ## Please Update
-const SAVE_PATH = "user://pneumagame.save"
-const PROGRESS_PATH = "user://pneumagame_progress.save"
-const PASSWORD = "pneuma"
-# -------------
+const SAVE_PATH = "user://por_nada.save"
+const PROGRESS_PATH = "user://por_nada_progress.save"
+const PASSWORD = "por_nada"
+
 var save_file
 var total_wins : int
 var current_stage : int
-#var wins
-#var losses
+
 
 var current_alien_count = 0
 
@@ -23,8 +22,8 @@ func new_save():
 func new_progress():
 	return {
 		"Progress": {
-			#"Wins": 0,
-			#"Losses": 0
+			"Total Wins": 0,
+			"Current Stage": 1
 		}
 	}
 
@@ -84,7 +83,7 @@ func load_game(save_path = SAVE_PATH):
 func load_progress_variables():
 	var loaded_progress_vars = load_game(PROGRESS_PATH)
 	var default_progress_values = new_progress() # For new versions of save files
-	var progress = loaded_progress_vars.get("PlayerVsCpuScores", default_progress_values["PlayerVsCpuScores"])
+	var progress = loaded_progress_vars.get("Progress", default_progress_values["Progress"])
 	total_wins = progress.get("Total Wins", 0)
 	current_stage = progress.get("Current Stage", 0)
 	#wins = progress.get("Wins", 0)

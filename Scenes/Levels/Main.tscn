@@ -238,5 +238,9 @@ libraries = {
 }
 autoplay = "fade_in"
 
+[node name="DayNightTimer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
 [connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
-[connection signal="all_aliens_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_all_aliens_spawned"]
+[connection signal="timeout" from="DayNightTimer" to="." method="_on_day_night_timer_timeout"]

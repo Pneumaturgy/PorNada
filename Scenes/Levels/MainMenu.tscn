@@ -24,13 +24,21 @@ func _process(delta):
 	pass
 
 
-func _on_play_pressed():
-	print('yes')
+func _on_new_pressed():
+	
+	print('new')
 	animation_player.play_backwards(\"fade_in\")
 	color_rect.visible = true
 	trigger = true
-	
+	var default_new_progress = Global.new_progress()
+	Global.current_stage = default_new_progress[\"Progress\"][\"Current Stage\"]
+	print(\"global current stage: \", str(Global.current_stage))
 
+func _on_load_pressed():
+	print('load')
+	animation_player.play_backwards(\"fade_in\")
+	color_rect.visible = true
+	trigger = true
 
 
 
@@ -263,7 +271,7 @@ text = "Quit"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MainMenu/Control/HBoxContainer"]
+[node name="New" type="Button" parent="MainMenu/Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_h7o41")
@@ -305,6 +313,6 @@ libraries = {
 autoplay = "fade_in"
 
 [connection signal="pressed" from="MainMenu/Control/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="MainMenu/Control/HBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MainMenu/Control/HBoxContainer/Load" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Control/HBoxContainer/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="MainMenu/Control/HBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="animation_finished" from="FadeInScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

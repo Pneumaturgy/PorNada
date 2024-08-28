@@ -20,11 +20,15 @@ func _on_alien_spawner_alien_spawned(alien_instance):
 func _process(delta):
 	label.text = "fps: " + str(Engine.get_frames_per_second())
 
-func _on_alien_spawner_all_aliens_spawned():
-	trigger_new_level()
+#func _on_alien_spawner_all_aliens_spawned():
+	#pass
 	
 
 func trigger_new_level():
+	#var current_aliens = get_tree().get_nodes_in_group("enemies")
+	
+	# destroy all enemies on screen
+	# get child of type alien, trigger die function inside them
 	end_game.visible = true
 	title.text = "[center][wave amp=50 freq=5]Completed Stage:[/wave][/center]"
 	title_2.text = "[center][wave amp=50 freq=5]" + str(Global.current_stage) + "[/wave][/center]"
@@ -40,3 +44,8 @@ func trigger_new_level():
 func on_alien_death():
 	current_level_kill_count += 1
 	kill_counter.text = "[wave amp=50 freq=5]Kills: " + str(current_level_kill_count) + "[/wave]"
+
+
+func _on_day_night_timer_timeout():
+	print("Welcome to the next level!")
+	trigger_new_level()
