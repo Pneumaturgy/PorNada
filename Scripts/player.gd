@@ -6,9 +6,10 @@ class_name Player
 @export var fire_rate = 0.3
 @onready var aiming_direction = $AimingDirection
 @onready var fire_rate_timer = $FireRateTimer
-@onready var label = $CanvasLayer/Label
+#@onready var label = $CanvasLayer/Label
 
 var firing_offset = 20
+var can_fire = false
 var weapon_ready = true
 
 var touch_move_vector = Vector2(0, 0)
@@ -53,6 +54,20 @@ func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):
 #endregion
 
 func _input(event):
+	
+	#if event is InputEventMouseButton:
+		#if Input.is_action_just_pressed("fire") and weapon_ready:
+			#can_fire = true
+			#weapon_ready = false
+			#fire_rate_timer.start()
+#
+		#if Input.is_action_just_released("fire"):
+			#can_fire = false
+	if Input.is_action_pressed("fire") and weapon_ready:
+		fire(current_payload)
+		weapon_ready = false
+		fire_rate_timer.start()
+	
 	if event is InputEventMouseMotion and !mobile_controls:
 		look_at(get_global_mouse_position())
 		
@@ -65,17 +80,21 @@ func _input(event):
 		if Input.is_action_just_pressed("ui_cancel"):
 			get_tree().quit()
 	
-	if Input.is_action_pressed("fire") and weapon_ready:
-		fire(current_payload)
-		weapon_ready = false
-		fire_rate_timer.start()
+
 
 func _physics_process(_delta):
+	#if Input.is_action_pressed("fire") and weapon_ready:
+		#fire(current_payload)
+		#weapon_ready = false
+		#fire_rate_timer.start()
+	#if can_fire:
+		#fire(current_payload)
 	get_input()
 	move_and_slide()
-	label.text = "fps: " + str(Engine.get_frames_per_second())
+	
 
 func fire(payload):
+	#if can_fire:
 	var direction = (aiming_direction.global_position - self.global_position).normalized()
 	#print('firing: ', payload)
 	var new_payload = payload.instantiate()
