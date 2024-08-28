@@ -22,8 +22,6 @@ properties = {
 
 [node name="AlienSpawner" parent="Player" instance=ExtResource("3_osgbh")]
 
-[node name="AlienSpawner2" parent="Player" instance=ExtResource("3_osgbh")]
-
 [node name="Background" parent="." instance=ExtResource("4_rrqsw")]
 position = Vector2(1, 1)
 
