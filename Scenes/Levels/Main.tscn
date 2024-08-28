@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://1f81cbb0o7ig" path="res://Scenes/PlayerCamera.tscn" id="3_dv5yg"]
 [ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 [ext_resource type="PackedScene" uid="uid://dody11on1j6u8" path="res://Scenes/Background.tscn" id="4_rrqsw"]
-[ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/pornada_ui.tres" id="6_ygu73"]
 [ext_resource type="PackedScene" uid="uid://cmi0he5h0u8c5" path="res://Scenes/Payloads/MissilePayload.tscn" id="5_64eut"]
+[ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/pornada_ui.tres" id="6_ygu73"]
 
 [sub_resource type="Animation" id="Animation_p7r1s"]
 length = 0.001
