@@ -6,7 +6,7 @@ signal alien_spawned(alien_instance)
 @export var default_spawn_frequency = 1
 @export var default_spawn_quantity = 3
 @export var default_alien_count: int = 50
-
+var can_spawn = true
 @export var maximum_distance = 10
 const alien_scene = preload("res://Scenes/Entities/Alien.tscn")
 
@@ -24,12 +24,13 @@ func _ready():
 	
 
 func _on_timer_timeout():
-	for i in range(current_spawn_quantity):
-		if Global.current_alien_count < current_max_aliens:
-			spawn_aliens()
-		#elif signal_check:
-			#signal_check = false
-			#all_aliens_spawned.emit()
+	if can_spawn:
+		for i in range(current_spawn_quantity):
+			if Global.current_alien_count < current_max_aliens:
+				spawn_aliens()
+			#elif signal_check:
+				#signal_check = false
+				#all_aliens_spawned.emit()
 
 func spawn_aliens():
 	var minimal_distance = sqrt((get_viewport_rect().size.x / 1) ** 2 + (get_viewport_rect().size.y / 1) ** 2)

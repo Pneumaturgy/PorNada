@@ -107,7 +107,7 @@ func fire(payload):
 	new_payload.global_position = aiming_direction.global_position + (direction * firing_offset)
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)
-	print("bullet speed", new_payload.bullet_speed)
+	#print("bullet speed", new_payload.bullet_speed)
 
 func _on_fire_rate_timer_timeout():
 	weapon_ready = true

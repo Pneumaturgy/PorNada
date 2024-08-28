@@ -3,13 +3,25 @@ extends Node2D
 @onready var player = %Player
 @onready var fade_in_screen = $FadeInScreen
 @onready var label = $FadeInScreen/Label
+@onready var animation_player = $FadeInScreen/AnimationPlayer
+
 @onready var end_game = $EndGame
-@onready var title = $EndGame/Control/Title
-@onready var title_2 = $EndGame/Control/Title2
-@onready var kill_counter = $HUD/KillCounter
+@onready var stage_number = $EndGame/Control/StageNumber
+@onready var next_stage_number = $EndGame/Control/NextStageNumber
+
+@onready var kill_counter = $HUD/Control/HBoxContainer/KillCounter
+@onready var timer_text = $HUD/Control/HBoxContainer/Time
+@onready var current_stage_text = $HUD/Control/HBoxContainer/CurrentStageText
+
+@onready var alien_spawner = $Player/AlienSpawner
+@onready var day_timer = $DayTimer
+@onready var night_timer = $NightTimer
+
+var next_scene : String
 var current_level_kill_count : int
 
 func _ready():
+	current_stage_text.text = "[center][wave amp=50 freq=5]Current Stage: " + str(Global.current_stage) + "[/wave][/center]"
 	current_level_kill_count = 0
 	fade_in_screen.visible = true
 
@@ -19,33 +31,45 @@ func _on_alien_spawner_alien_spawned(alien_instance):
 
 func _process(delta):
 	label.text = "fps: " + str(Engine.get_frames_per_second())
-
+	next_stage_number.text =  "[center][wave amp=50 freq=5]" + str(night_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
+	timer_text.text =  "[center][wave amp=50 freq=5]Time: " + str(day_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
 #func _on_alien_spawner_all_aliens_spawned():
 	#pass
 	
 
 func trigger_new_level():
-	#var current_aliens = get_tree().get_nodes_in_group("enemies")
+	alien_spawner.can_spawn = false
+	kill_all_aliens()
 	
-	# destroy all enemies on screen
-	# get child of type alien, trigger die function inside them
 	end_game.visible = true
-	title.text = "[center][wave amp=50 freq=5]Completed Stage:[/wave][/center]"
-	title_2.text = "[center][wave amp=50 freq=5]" + str(Global.current_stage) + "[/wave][/center]"
+	stage_number.text = "[center][wave amp=50 freq=5]" + str(Global.current_stage) + "[/wave][/center]"
+	next_stage_number.text = "[center][wave amp=50 freq=5]" + str(night_timer.time_left) + "[/wave][/center]"
+	
 	Global.current_stage += 1
-	#Global.save_game()
 	Global.save_game(Global.SAVE_PATH)
 	Global.save_game(Global.PROGRESS_PATH)
-	#new_game.level_length = minimum_tiles + (((maximum_tiles-minimum_tiles)/player_max_level) * difficulty)
-	# Save
-	# progress
+
 
 
 func on_alien_death():
 	current_level_kill_count += 1
 	kill_counter.text = "[wave amp=50 freq=5]Kills: " + str(current_level_kill_count) + "[/wave]"
 
-
-func _on_day_night_timer_timeout():
+func _on_day_timer_timeout():
 	print("Welcome to the next level!")
 	trigger_new_level()
+	night_timer.start()
+
+func _on_night_timer_timeout():
+	end_game.visible = false
+	alien_spawner.update_difficulty()
+	alien_spawner.can_spawn = true
+	day_timer.start()
+	current_stage_text.text  = "[center][wave amp=50 freq=5]Current Stage: " + str(Global.current_stage) + "[/wave][/center]"
+
+
+
+func kill_all_aliens():
+	var current_aliens = get_tree().get_nodes_in_group("enemies")
+	for alien in current_aliens:
+		alien.die()
