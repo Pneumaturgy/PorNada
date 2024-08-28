@@ -2,14 +2,14 @@ extends Area2D
 class_name MisslePayload
 
 @export var fire_rate = 0.7
-@export var bullet_speed = 100
-@export var timeToLive = 5.0
+@export var bullet_speed = 5000
+@export var timeToLive = 10.0
 @export var affected_properties_with_deltas : Dictionary = {
 	"health" : -100.0,
 	"defense" : 0.0,
 	"speed" : 0.0
 }
-@export var rotation_speed = 15.0
+@export var rotation_speed = 10.0
 
 var direction
 var enemy_target
@@ -48,7 +48,7 @@ func _process(delta):
 		var move_direction = Vector2(cos(rotation), sin(rotation))
 		position += move_direction * bullet_speed * delta
 	else:
-		position += direction * delta * bullet_speed
+		position += direction * bullet_speed * delta
 
 func get_nearest_enemy():
 	var nearest_enemy = null

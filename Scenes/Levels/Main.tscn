@@ -12,7 +12,8 @@ script = ExtResource("1_oqb2v")
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 unique_name_in_owner = true
-fire_rate = 0.1
+current_payload = ExtResource("5_64eut")
+fire_rate = 0.7
 properties = {
 "defense": 10.0,
 "health": 100.0,
@@ -21,6 +22,8 @@ properties = {
 
 [node name="AlienSpawner" parent="Player" instance=ExtResource("3_osgbh")]
 
+[node name="AlienSpawner2" parent="Player" instance=ExtResource("3_osgbh")]
+
 [node name="Background" parent="." instance=ExtResource("4_rrqsw")]
 position = Vector2(1, 1)
 
@@ -28,13 +31,5 @@ position = Vector2(1, 1)
 zoom = Vector2(0.4, 0.4)
 min_zoom = Vector2(0.2, 0.2)
 max_zoom = Vector2(0.3, 0.3)
-
-[node name="Player" parent="." instance=ExtResource("2_463pk")]
-unique_name_in_owner = true
-position = Vector2(0, -109)
-current_payload = ExtResource("5_64eut")
-fire_rate = 0.7
-
-[node name="AlienSpawner" parent="Player" instance=ExtResource("3_osgbh")]
 
 [connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
