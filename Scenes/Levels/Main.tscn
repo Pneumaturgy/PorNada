@@ -159,7 +159,7 @@ theme_override_font_sizes/normal_font_size = 170
 bbcode_enabled = true
 text = "[center][wave amp=50 freq=5]Completed Stage:[/wave][/center]"
 
-[node name="Title2" type="RichTextLabel" parent="EndGame/Control"]
+[node name="StageNumber" type="RichTextLabel" parent="EndGame/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -174,48 +174,87 @@ theme_override_font_sizes/normal_font_size = 360
 bbcode_enabled = true
 text = "[center][wave amp=50 freq=5]1[/wave][/center]"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EndGame/Control"]
+[node name="NextStage" type="RichTextLabel" parent="EndGame/Control"]
+clip_contents = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -600.0
-offset_top = -280.0
-offset_right = 600.0
-offset_bottom = -79.0001
+offset_left = -470.0
+offset_top = -198.0
+offset_right = 230.0
 grow_horizontal = 2
 grow_vertical = 0
-alignment = 1
-
-[node name="Quit" type="Button" parent="EndGame/Control/HBoxContainer"]
-layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("6_ygu73")
-theme_override_font_sizes/font_size = 90
-text = "Quit"
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center][wave amp=50 freq=5]Next Stage In: [/wave][/center]"
 
-[node name="Control" type="Control" parent="EndGame/Control/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-
-[node name="Play" type="Button" parent="EndGame/Control/HBoxContainer"]
-layout_mode = 2
+[node name="NextStageNumber" type="RichTextLabel" parent="EndGame/Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 148.0
+offset_top = -288.0
+offset_right = 477.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 3
 theme = ExtResource("6_ygu73")
-theme_override_font_sizes/font_size = 90
-text = "Continue"
+theme_override_font_sizes/normal_font_size = 240
+bbcode_enabled = true
+text = "[center][wave amp=50 freq=5]10 [/wave][/center]"
+fit_content = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="KillCounter" type="RichTextLabel" parent="HUD"]
-offset_right = 504.0
-offset_bottom = 140.0
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 149.0
+grow_horizontal = 2
+
+[node name="KillCounter" type="RichTextLabel" parent="HUD/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 theme = ExtResource("6_ygu73")
 theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[wave amp=50 freq=5]Kills:[/wave]"
+
+[node name="Time" type="RichTextLabel" parent="HUD/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+theme = ExtResource("6_ygu73")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave amp=50 freq=5]Time:[/wave]"
+
+[node name="CurrentStageText" type="RichTextLabel" parent="HUD/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_ygu73")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[wave amp=50 freq=5]Current Stage:[/wave]"
 
 [node name="FadeInScreen" type="CanvasLayer" parent="."]
 visible = false
@@ -238,9 +277,17 @@ libraries = {
 }
 autoplay = "fade_in"
 
-[node name="DayNightTimer" type="Timer" parent="."]
-wait_time = 60.0
+[node name="DayTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 autostart = true
 
+[node name="NightTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
-[connection signal="timeout" from="DayNightTimer" to="." method="_on_day_night_timer_timeout"]
+[connection signal="animation_finished" from="FadeInScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
+[connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]
