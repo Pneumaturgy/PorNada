@@ -30,6 +30,9 @@ func _on_alien_spawner_alien_spawned(alien_instance):
 	add_child(alien_instance)
 	alien_instance.set_player_instance(player)
 
+func _on_drop_spawned(drop_instance):
+	pass
+
 func _process(delta):
 	label.text = "fps: " + str(Engine.get_frames_per_second())
 	next_stage_number.text =  "[center][wave amp=50 freq=5]" + str(night_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
@@ -75,6 +78,10 @@ func kill_all_aliens():
 	for alien in current_aliens:
 		alien.die()
 
+func clean_all_drops():
+	var current_drops = get_tree().get_nodes_in_group("drops")
+	for drop in current_drops:
+		drop.free()
 
 func _on_player_player_died():
 	var default_new_progress = Global.new_progress()

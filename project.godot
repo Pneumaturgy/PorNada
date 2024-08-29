@@ -42,6 +42,10 @@ folder_colors={
 "res://addons/": "yellow"
 }
 
+[global_group]
+
+drops=""
+
 [input]
 
 move_up={
@@ -107,6 +111,7 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Items"
 2d_physics/layer_8="Player"
 
 [rendering]

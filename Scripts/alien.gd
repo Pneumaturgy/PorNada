@@ -3,6 +3,7 @@ class_name Alien
 
 
 signal alien_death
+
 # affect player health
 	#on collision 
 	# if collisoin is player
@@ -17,6 +18,8 @@ var player
 @onready var AttackCooldownTimer = $AttackCooldown
 
 @export var attack_cooldown = 1.0
+
+const pneuma_scene = preload("res://Scenes/Entities/DroppedResources/Pneuma.tscn")
 
 var firing_offset = 20
 var is_chasing = false
@@ -81,4 +84,8 @@ func die():
 	Global.current_alien_count -= 1
 	alien_death.emit()
 	#print("An alien died, current count: ", Global.current_alien_count)
+	var new_pneuma = pneuma_scene.instantiate()
+	new_pneuma.position = self.global_position
+	var drops_node_group = get_node("/root/Main")
+	drops_node_group.add_child(new_pneuma)
 	super.die()
