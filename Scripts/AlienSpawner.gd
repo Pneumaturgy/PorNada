@@ -8,10 +8,9 @@ signal alien_spawned(alien_instance)
 @export var default_alien_count: int = 50
 var can_spawn = true
 @export var maximum_distance = 10
-const alien_scene = preload("res://Scenes/Entities/Alien.tscn")
 const aliens = [
-	preload("res://Scenes/Entities/Alien.tscn"),
-	preload("res://Scenes/Entities/RedAlien.tscn")
+	preload("res://Scenes/Entities/Enemies/Alien.tscn"),
+	preload("res://Scenes/Entities/Enemies/RedAlien.tscn")
 ]
 
 var current_max_aliens : int

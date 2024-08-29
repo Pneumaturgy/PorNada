@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://jhbskamdetoa"]
 
-[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_y513y"]
-[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_23r3c"]
-[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_w54un"]
-[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_x0uxp"]
+[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_dvvrb"]
+[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_j20ow"]
+[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_erahv"]
+[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_cp628"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0
@@ -17,8 +17,8 @@ radius = 10000.0
 [node name="Alien" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 128
-script = ExtResource("1_y513y")
-payload = ExtResource("2_23r3c")
+script = ExtResource("1_dvvrb")
+payload = ExtResource("2_j20ow")
 attack_cooldown = 0.5
 properties = {
 "defense": 100.0,
@@ -30,19 +30,19 @@ properties = {
 rotation = -1.5708
 
 [node name="Sprites" type="Node2D" parent="CharacterGraphics"]
-script = ExtResource("3_w54un")
+script = ExtResource("3_erahv")
 color = "Pink"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterGraphics/Sprites"]
 texture_filter = 1
 position = Vector2(105, 0)
-texture = ExtResource("4_x0uxp")
+texture = ExtResource("4_cp628")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
 texture_filter = 1
 position = Vector2(-105, 0)
 scale = Vector2(-1, 1)
-texture = ExtResource("4_x0uxp")
+texture = ExtResource("4_cp628")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mly5f")
