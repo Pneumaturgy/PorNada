@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://de0jmx2n1muqc"]
+
+[ext_resource type="FontFile" uid="uid://bs74q7u0nqjej" path="res://Assets/Fonts/SankofaDisplay-Regular.ttf" id="1_qmemq"]
+[ext_resource type="StyleBox" uid="uid://maofl7cginxf" path="res://Assets/UI/por_nada_style2.tres" id="3_neb35"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m635s"]
+bg_color = Color(0.36, 0.646, 0.75, 0.215686)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.728438, 0.803818, 0.940842, 1)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi80c"]
+bg_color = Color(0.36, 0.646, 0.75, 0.392157)
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.728438, 0.803818, 0.940842, 1)
+border_blend = true
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdrl1"]
+bg_color = Color(0.345732, 0.621961, 0.624864, 0.168627)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+
+[resource]
+Button/fonts/font = ExtResource("1_qmemq")
+Button/styles/hover = SubResource("StyleBoxFlat_m635s")
+Button/styles/normal = ExtResource("3_neb35")
+Button/styles/pressed = SubResource("StyleBoxFlat_xi80c")
+ItemList/styles/panel = SubResource("StyleBoxFlat_kdrl1")
+Label/fonts/font = ExtResource("1_qmemq")
+Panel/styles/panel = ExtResource("3_neb35")
+RichTextLabel/fonts/normal_font = ExtResource("1_qmemq")

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bac15a0optmuk" path="res://Assets/2D/Backgrounds/MainMenu/3.png" id="4_5w3o8"]
 [ext_resource type="Texture2D" uid="uid://6qw3ygn2swoq" path="res://Assets/2D/Backgrounds/MainMenu/4.png" id="5_0sevg"]
 [ext_resource type="Texture2D" uid="uid://brckde1y0n4l7" path="res://Assets/2D/Backgrounds/MainMenu/5.png" id="6_bakvp"]
-[ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/pornada_ui.tres" id="7_h7o41"]
+[ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="7_h7o41"]
 
 [sub_resource type="GDScript" id="GDScript_j122v"]
 script/source = "extends Node2D

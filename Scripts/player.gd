@@ -8,8 +8,15 @@ signal player_died
 @export var joypad_dead_zone = 0.1
 @export var current_payload : PackedScene
 @export var fire_rate = 0.3
+
+## Inventory Variables
+const INVENTORY_SLOT = preload("res://Scenes/Player/inventory_slot.tscn")
+@export var current_inventory_slots = 4
+var max_inventory_slots = 32
+@export var inventory_items = [InventoryItem]
 @onready var aiming_direction = $AimingDirection
 @onready var fire_rate_timer = $FireRateTimer
+@onready var inventory = $Inventory
 
 @onready var progress_bar = $PlayerHud/Control/ProgressBar
 
@@ -18,7 +25,7 @@ signal player_died
 var firing_offset = 20
 var can_fire = false
 var weapon_ready = true
-
+var disable_player_controls = false
 var touch_move_vector = Vector2(0, 0)
 var touch_aim_vector = Vector2(0, 0)
 var speed_multiplier : float
@@ -37,12 +44,14 @@ func check_mobile_controls():
 #region Input Vectors
 
 func get_input():
-	if !mobile_controls:
-		var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-		velocity = input_direction * get_property("speed")
+	if !disable_player_controls:
+		if !mobile_controls:
+			var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+			velocity = input_direction * get_property("speed")
+		else:
+			velocity = touch_move_vector * (speed_multiplier * get_property("speed"))
 	else:
-		velocity = touch_move_vector * (speed_multiplier * get_property("speed"))
-
+		velocity = Vector2(0,0)
 func _on_mobile_ui_overlay_use_touch_move_vector(move_vector):
 	if mobile_controls:
 		touch_move_vector = move_vector
@@ -62,48 +71,48 @@ func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):
 #endregion
 
 func _input(event):
-	if event is InputEventMouseButton:
-		can_fire = event.pressed
-		#if event.pressed:
-		#print('event pressed true ', event)
-	if Input.is_action_just_pressed("fire"):
-		if weapon_ready:
-			fire(current_payload)
-			weapon_ready = false
-	#if event is InputEventMouseButton:
-		#if Input.is_action_just_pressed("fire") and weapon_ready:
-			#can_fire = true
-			#weapon_ready = false
-			#fire_rate_timer.start()
-#
-		#if Input.is_action_just_released("fire"):
-			#can_fire = false
+	if !disable_player_controls:
+		if event is InputEventMouseButton:
+			can_fire = event.pressed
 
-	
-	if event is InputEventMouseMotion and !mobile_controls:
-		look_at(get_global_mouse_position())
+		if Input.is_action_just_pressed("fire"):
+			if weapon_ready:
+				fire(current_payload)
+				weapon_ready = false
 		
-	if event is InputEventJoypadMotion and !mobile_controls:
-		var input_aim_direction = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
-		if abs(input_aim_direction.x) >= joypad_dead_zone or abs(input_aim_direction.y) >= joypad_dead_zone:
-			self.rotation = input_aim_direction.angle()
-	
-	if event is InputEventKey:
-		if Input.is_action_just_pressed("ui_cancel"):
-			get_tree().quit()
+		if event is InputEventMouseMotion and !mobile_controls:
+			look_at(get_global_mouse_position())
+			
+		if event is InputEventJoypadMotion and !mobile_controls:
+			var input_aim_direction = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+			if abs(input_aim_direction.x) >= joypad_dead_zone or abs(input_aim_direction.y) >= joypad_dead_zone:
+				self.rotation = input_aim_direction.angle()
+		
+		if event is InputEventKey:
+			if Input.is_action_just_pressed("ui_cancel"):
+				get_tree().quit()
+		if event is InputEventKey:
+			if Input.is_action_just_pressed("open_inventory"):
+				toggle_inventory()
+	else:
+		if event is InputEventKey:
+			if Input.is_action_just_pressed("open_inventory"):
+				toggle_inventory()
+					
 	
 
 
 func _physics_process(_delta):
-	#if Input.is_action_pressed("fire") and weapon_ready:
-		#fire(current_payload)
-		#weapon_ready = false
-		#fire_rate_timer.start()
-	#if can_fire:
-		#fire(current_payload)
 	get_input()
 	move_and_slide()
 	
+
+func toggle_inventory():
+	inventory.visible = !inventory.visible
+	disable_player_controls = !disable_player_controls
+	#return inventory_open
+
+
 
 func fire(payload):
 	fire_rate_timer.start()
