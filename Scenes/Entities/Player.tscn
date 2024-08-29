@@ -101,6 +101,14 @@ offset_bottom = 386.5
 grow_vertical = 2
 fill_mode = 3
 
+[node name="Inventory" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Inventory"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="use_touch_aim_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_aim_vector"]
 [connection signal="use_touch_move_multiplier" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_multiplier"]
 [connection signal="use_touch_move_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_vector"]
