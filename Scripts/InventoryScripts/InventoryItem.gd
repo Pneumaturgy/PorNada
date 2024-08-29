@@ -1,4 +1,4 @@
-extends Resource
+extends Node
 class_name InventoryItem
 
 @export var item_type : String
