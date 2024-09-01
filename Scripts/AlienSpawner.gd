@@ -8,8 +8,11 @@ signal alien_spawned(alien_instance)
 @export var default_alien_count: int = 50
 var can_spawn = true
 @export var maximum_distance = 10
-const alien_scene = preload("res://Scenes/Entities/Alien.tscn")
-
+const aliens = [
+	preload("res://Scenes/Entities/Enemies/Alien.tscn"),
+	preload("res://Scenes/Entities/Enemies/RedAlien.tscn"),
+	preload("res://Scenes/Entities/Enemies/RangedAlien.tscn")
+]
 
 var current_max_aliens : int
 var current_spawn_frequency : float
@@ -40,7 +43,7 @@ func spawn_aliens():
 	var angle = randf_range(0, 360)
 	var x = cos(angle) * distance
 	var y = sin(angle) * distance
-	var alien_instance = alien_scene.instantiate()
+	var alien_instance = aliens[randi_range(0, len(aliens)-1)].instantiate()
 	alien_instance.position = Vector2(global_position.x + x, global_position.y + y)
 	#get_parent().add_child(alien_instance)
 	#print(alien_instance.get_parent())
