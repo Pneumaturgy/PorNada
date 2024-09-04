@@ -31,7 +31,7 @@ func _process(delta):
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 128
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_0towx")
 mobile_controls = false
 current_payload = ExtResource("2_3nogi")

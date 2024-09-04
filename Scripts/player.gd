@@ -28,10 +28,13 @@ var touch_move_vector = Vector2(0, 0)
 var touch_aim_vector = Vector2(0, 0)
 var speed_multiplier : float
 
+var inventory: Dictionary # TODO: Transform into its own class / node, to communicate with Signals. Also, convert inventory contents to arrays within resources
+
 func _ready():
 	check_mobile_controls()
 	fire_rate_timer.wait_time = fire_rate
 	progress_bar.value = self.properties["health"]
+	inventory = {}
 
 func check_mobile_controls():
 	if mobile_controls:
@@ -129,6 +132,10 @@ func _on_fire_rate_timer_timeout():
 func update_ui(property, delta):
 	if property == "health":
 		progress_bar.value = self.properties["health"]
+
+func add_inventory(item_key, quantity):
+	inventory[item_key] = inventory.get(item_key, 0) + quantity
+	print("Player has ", str(inventory[item_key]), " ", item_key) # TODO: Transport this to new inventory class
 
 func die():
 	player_died.emit()
