@@ -30,7 +30,7 @@ func _on_alien_spawner_alien_spawned(alien_instance):
 	add_child(alien_instance)
 	alien_instance.set_player_instance(player)
 
-func _on_drop_spawned(drop_instance):
+func _on_drop_spawned(drop_instance): # TODO: Do we need this?
 	pass
 
 func _process(delta):
@@ -78,7 +78,7 @@ func kill_all_aliens():
 	for alien in current_aliens:
 		alien.die()
 
-func clean_all_drops():
+func clean_all_drops(): # TODO: This needs to be hooked up to stage finish
 	var current_drops = get_tree().get_nodes_in_group("drops")
 	for drop in current_drops:
 		drop.free()

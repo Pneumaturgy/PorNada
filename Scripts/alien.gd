@@ -87,5 +87,5 @@ func die():
 	var new_pneuma = pneuma_scene.instantiate()
 	new_pneuma.position = self.global_position
 	var drops_node_group = get_node("/root/Main")
-	drops_node_group.add_child(new_pneuma)
+	drops_node_group.add_child(new_pneuma) # TODO: Turn into a drop function to add graphic functionality
 	super.die()

@@ -1,8 +1,8 @@
-class_name GenericDrop
+class_name GenericDrop # TODO: Turn this into a resource 
 extends Area2D
 
 var quantity: int
-var min_quantity_multiplier: int = 1
+var min_quantity_multiplier: int = 1 # TODO: Export these variables in the editor
 var max_quantity_multiplier: int = 10
 var item_identifier: String = "item:generic"
 
@@ -15,4 +15,4 @@ func _on_body_entered(body: Node2D) -> void:
 	print("body: ", body)
 	if body is Player:
 		body.add_inventory(item_identifier, quantity)
-		queue_free()
+		queue_free() # TODO: Convert into a function to add pickup effects and particles
