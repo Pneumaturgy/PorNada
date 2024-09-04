@@ -12,14 +12,12 @@ var touches = {}  # Dictionary to keep track of touches and their associated joy
 var touch_1_index : int
 var touch_2_index : int
 var deadzone_radius : float = 100
-#@onready var label = $Label
 var raw_touch_move_vector : Vector2
 var raw_touch_aim_vector : Vector2
 var speed_multiplier : float
 
 
 func _physics_process(_delta):
-	#label.text = str(touches.keys())
 	if touch_move_joystick:
 		emit_signal("use_touch_move_vector",touch_move_vector)
 		speed_multiplier = calculate_speed_multiplier(raw_touch_move_vector)

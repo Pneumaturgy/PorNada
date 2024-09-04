@@ -13,8 +13,6 @@ signal player_died
 
 @onready var progress_bar = $PlayerHud/Control/ProgressBar
 
-#@onready var label = $CanvasLayer/Label
-
 var firing_offset = 20
 var can_fire = false
 var weapon_ready = true
@@ -64,30 +62,19 @@ func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):
 func _input(event):
 	if event is InputEventMouseButton:
 		can_fire = event.pressed
-		#if event.pressed:
-		#print('event pressed true ', event)
 	if Input.is_action_just_pressed("fire"):
 		if weapon_ready:
 			fire(current_payload)
 			weapon_ready = false
-	#if event is InputEventMouseButton:
-		#if Input.is_action_just_pressed("fire") and weapon_ready:
-			#can_fire = true
-			#weapon_ready = false
-			#fire_rate_timer.start()
-#
-		#if Input.is_action_just_released("fire"):
-			#can_fire = false
 
-	
 	if event is InputEventMouseMotion and !mobile_controls:
 		look_at(get_global_mouse_position())
-		
+
 	if event is InputEventJoypadMotion and !mobile_controls:
 		var input_aim_direction = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
 		if abs(input_aim_direction.x) >= joypad_dead_zone or abs(input_aim_direction.y) >= joypad_dead_zone:
 			self.rotation = input_aim_direction.angle()
-	
+
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("ui_cancel"):
 			get_tree().quit()
@@ -95,27 +82,18 @@ func _input(event):
 
 
 func _physics_process(_delta):
-	#if Input.is_action_pressed("fire") and weapon_ready:
-		#fire(current_payload)
-		#weapon_ready = false
-		#fire_rate_timer.start()
-	#if can_fire:
-		#fire(current_payload)
 	get_input()
 	move_and_slide()
 	
 
 func fire(payload):
 	fire_rate_timer.start()
-	#if can_fire:
 	var direction = (aiming_direction.global_position - self.global_position).normalized()
-	#print('firing: ', payload)
 	var new_payload = payload.instantiate()
 	new_payload.direction = direction
 	new_payload.global_position = aiming_direction.global_position + (direction * firing_offset)
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)
-	#print("bullet speed", new_payload.bullet_speed)
 
 func _on_fire_rate_timer_timeout():
 	weapon_ready = true
@@ -125,7 +103,6 @@ func _on_fire_rate_timer_timeout():
 func update_ui(property, delta):
 	if property == "health":
 		progress_bar.value = self.properties["health"]
-
 
 func die():
 	player_died.emit()

@@ -28,7 +28,6 @@ var is_looking = false
 func _ready():
 	alien_death.connect(get_parent().on_alien_death)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if is_looking:
@@ -37,7 +36,6 @@ func _process(_delta):
 		direction = (player.global_position - global_position).normalized()
 		velocity = direction * get_property("speed")
 		move_and_slide()
-
 
 func attack():
 	if !is_attacking:
@@ -56,32 +54,23 @@ func get_target_rotation():
 	var target_rotation = target_direction.angle()
 	return target_rotation
 
-
 func _on_attack_range_body_entered(body):
 	if body is Player:
-		#print("burn baby burn")
 		self.call_deferred("attack")
-
 
 func _on_vision_range_body_entered(body):
 	if body is Player:
 		is_chasing = true
 		is_looking = true
-		#print('coming to geeeet you!!')
-
 
 func _on_vision_range_body_exited(body):
 	if body is Player:
 		is_chasing = false
 		is_looking = false
-		#print('where did you go??')
-
 
 func _on_attack_range_body_exited(body):
 	if body is Player:
 		AttackCooldownTimer.stop()
-		#print("that one got away")
-
 
 func _on_attack_cooldown_timeout():
 	is_attacking = false
@@ -93,5 +82,4 @@ func set_player_instance(player_instance):
 func die():
 	Global.current_alien_count -= 1
 	alien_death.emit()
-	#print("An alien died, current count: ", Global.current_alien_count)
 	super.die()

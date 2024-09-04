@@ -5,7 +5,7 @@ class_name MisslePayload
 @export var bullet_speed = 5000
 @export var timeToLive = 10.0
 @export var affected_properties_with_deltas : Dictionary = {
-	"health" : -100.0,
+	"health" : -10.0,
 	"defense" : 0.0,
 	"speed" : 0.0
 }
@@ -22,14 +22,11 @@ func _ready():
 	death_timer.start()
 
 func apply_effects(entity):
-	#print("applying effects...")
-	#print(affected_properties_with_deltas)
 	for property in affected_properties_with_deltas:
 		var delta = affected_properties_with_deltas[property]
 		entity.affect_property(property, delta)
 
 func _on_body_entered(body):
-	#print("body: ", body)
 	if body is CharacterBody2D: # Entity:
 		apply_effects(body)
 		destroy_bullet()
@@ -40,7 +37,6 @@ func destroy_bullet():
 func _process(delta):
 	if enemy_target == null:
 		enemy_target = get_nearest_enemy()
-	#print(enemy_target)
 	if enemy_target:
 		var target_direction = enemy_target.global_position - self.global_position
 		var target_rotation = target_direction.angle()
