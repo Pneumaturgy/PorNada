@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dp3v34nxlp5eb"]
+[gd_scene load_steps=12 format=3 uid="uid://dp3v34nxlp5eb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0towx"]
 [ext_resource type="PackedScene" uid="uid://cmi0he5h0u8c5" path="res://Scenes/Payloads/MissilePayload.tscn" id="2_3nogi"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_qwxjb"]
 [ext_resource type="Texture2D" uid="uid://bcox5tg3oo4sg" path="res://Assets/2D/Sprites/Triangle.png" id="4_djjlr"]
 [ext_resource type="PackedScene" uid="uid://bi0qftlhda3q6" path="res://Scenes/sprites_shadow.tscn" id="5_j2ydm"]
+[ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="8_kevpt"]
+[ext_resource type="PackedScene" uid="uid://cvm2bnvip3e0n" path="res://Scenes/Player/inventory_slot.tscn" id="9_68ep1"]
 
 [sub_resource type="GDScript" id="GDScript_75t6v"]
 script/source = "extends Sprite2D
@@ -100,6 +102,51 @@ offset_right = 150.0
 offset_bottom = 386.5
 grow_vertical = 2
 fill_mode = 3
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="Inventory"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory Background2" type="GridContainer" parent="Inventory/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -814.0
+offset_top = -446.281
+offset_right = 814.0
+offset_bottom = 446.281
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_kevpt")
+columns = 8
+
+[node name="Inventory Slot" parent="Inventory/Control/Inventory Background2" instance=ExtResource("9_68ep1")]
+layout_mode = 2
+
+[node name="Inventory Background" type="Panel" parent="Inventory/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -813.963
+offset_top = -470.771
+offset_right = 813.963
+offset_bottom = 421.791
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_kevpt")
 
 [connection signal="use_touch_aim_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_aim_vector"]
 [connection signal="use_touch_move_multiplier" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_multiplier"]
