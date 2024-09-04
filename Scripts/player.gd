@@ -20,8 +20,6 @@ var max_inventory_slots = 32
 
 @onready var progress_bar = $PlayerHud/Control/ProgressBar
 
-#@onready var label = $CanvasLayer/Label
-
 var firing_offset = 20
 var can_fire = false
 var weapon_ready = true
@@ -116,15 +114,12 @@ func toggle_inventory():
 
 func fire(payload):
 	fire_rate_timer.start()
-	#if can_fire:
 	var direction = (aiming_direction.global_position - self.global_position).normalized()
-	#print('firing: ', payload)
 	var new_payload = payload.instantiate()
 	new_payload.direction = direction
 	new_payload.global_position = aiming_direction.global_position + (direction * firing_offset)
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)
-	#print("bullet speed", new_payload.bullet_speed)
 
 func _on_fire_rate_timer_timeout():
 	weapon_ready = true
@@ -134,7 +129,6 @@ func _on_fire_rate_timer_timeout():
 func update_ui(property, delta):
 	if property == "health":
 		progress_bar.value = self.properties["health"]
-
 
 func die():
 	player_died.emit()

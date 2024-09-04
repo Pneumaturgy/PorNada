@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://jhbskamdetoa"]
+[gd_scene load_steps=8 format=3 uid="uid://ddybj8vr5f4c5"]
 
-[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_y513y"]
-[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_23r3c"]
-[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_w54un"]
-[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_x0uxp"]
+[ext_resource type="Script" path="res://Scripts/Enemies/teleporterAlien.gd" id="1_yxjr0"]
+[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_yvxcy"]
+[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_mnlrb"]
+[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_tsh2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0
@@ -14,35 +14,35 @@ radius = 400.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ijht"]
 radius = 10000.0
 
-[node name="Alien" type="CharacterBody2D" groups=["enemies"]]
+[node name="RedAlien" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 128
-script = ExtResource("1_y513y")
-payload = ExtResource("2_23r3c")
+script = ExtResource("1_yxjr0")
+payload = ExtResource("2_yvxcy")
 attack_cooldown = 0.5
 properties = {
 "defense": 100.0,
-"health": 10.0,
-"speed": 2000.0
+"health": 200.0,
+"speed": 1200.0
 }
 
 [node name="CharacterGraphics" type="Node2D" parent="."]
 rotation = -1.5708
 
 [node name="Sprites" type="Node2D" parent="CharacterGraphics"]
-script = ExtResource("3_w54un")
-color = "Pink"
+script = ExtResource("3_mnlrb")
+color = "Red"
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterGraphics/Sprites"]
 texture_filter = 1
 position = Vector2(105, 0)
-texture = ExtResource("4_x0uxp")
+texture = ExtResource("4_tsh2a")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
 texture_filter = 1
 position = Vector2(-105, 0)
 scale = Vector2(-1, 1)
-texture = ExtResource("4_x0uxp")
+texture = ExtResource("4_tsh2a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mly5f")

@@ -29,14 +29,12 @@ func health_triggers(value):
 		if death_check:
 			death_check = false
 			die()
-			
 
 func check_triggers(property, value):
 	if property == "health":
 		health_triggers(value)
 
 func set_property(property, value):
-	#print(property, " changing to ", value)
 	var MAX_VALUE = MAX_PROPERTIES[property]
 	var MIN_VALUE = MIN_PROPERTIES[property]
 	if value < MIN_VALUE:
@@ -51,7 +49,6 @@ func get_property(property):
 
 func affect_property(property, delta):
 	update_ui(property,delta)
-	#print(property, " changing by ", delta)
 	set_property(property, get_property(property) + delta)
 
 func update_ui(property,delta):

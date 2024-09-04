@@ -34,9 +34,6 @@ func _process(delta):
 	label.text = "fps: " + str(Engine.get_frames_per_second())
 	next_stage_number.text =  "[center][wave amp=50 freq=5]" + str(night_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
 	timer_text.text =  "[center][wave amp=50 freq=5]Time: " + str(day_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
-#func _on_alien_spawner_all_aliens_spawned():
-	#pass
-	
 
 func trigger_new_level():
 	alien_spawner.can_spawn = false
@@ -49,8 +46,6 @@ func trigger_new_level():
 	Global.current_stage += 1
 	Global.save_game(Global.SAVE_PATH)
 	Global.save_game(Global.PROGRESS_PATH)
-
-
 
 func on_alien_death():
 	current_level_kill_count += 1
