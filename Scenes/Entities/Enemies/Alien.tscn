@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://jhbskamdetoa"]
+
+[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_dvvrb"]
+[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_j20ow"]
+[ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_erahv"]
+[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_cp628"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b76x1"]
+radius = 400.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ijht"]
+radius = 10000.0
+
+[node name="Alien" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 128
+script = ExtResource("1_dvvrb")
+payload = ExtResource("2_j20ow")
+attack_cooldown = 0.5
+properties = {
+"defense": 100.0,
+"health": 10.0,
+"speed": 2000.0
+}
+
+[node name="CharacterGraphics" type="Node2D" parent="."]
+rotation = -1.5708
+
+[node name="Sprites" type="Node2D" parent="CharacterGraphics"]
+script = ExtResource("3_erahv")
+color = "Pink"
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(105, 0)
+texture = ExtResource("4_cp628")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+texture_filter = 1
+position = Vector2(-105, 0)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_cp628")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mly5f")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_mask = 128
+
+[node name="AttackRangeCollision" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_b76x1")
+
+[node name="VisionRange" type="Area2D" parent="."]
+collision_mask = 128
+
+[node name="VisionRangeCollision" type="CollisionShape2D" parent="VisionRange"]
+shape = SubResource("CircleShape2D_1ijht")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="VisionRange" to="." method="_on_vision_range_body_entered"]
+[connection signal="body_exited" from="VisionRange" to="." method="_on_vision_range_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
