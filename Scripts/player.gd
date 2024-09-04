@@ -91,11 +91,11 @@ func _input(event):
 				get_tree().quit()
 		if event is InputEventKey:
 			if Input.is_action_just_pressed("open_inventory"):
-				toggle_inventory()
+				toggle_inventory() # TODO: Remove; this doesn't need to be here
 	else:
 		if event is InputEventKey:
 			if Input.is_action_just_pressed("open_inventory"):
-				toggle_inventory()
+				toggle_inventory() # TODO : Take this out of the else
 					
 	
 
