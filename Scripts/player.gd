@@ -2,7 +2,7 @@ extends Mech
 class_name Player
 
 signal player_died
-
+signal collected(drop)
 
 @export var mobile_controls = true
 @export var joypad_dead_zone = 0.1
@@ -10,14 +10,15 @@ signal player_died
 @export var fire_rate = 0.3
 
 ## Inventory Variables
-const INVENTORY_SLOT = preload("res://Scenes/Player/inventory_slot.tscn")
+#const INVENTORY_SLOT = preload("res://Scenes/Player/inventory_slot.tscn")
 @export var current_inventory_slots = 4
-var max_inventory_slots = 32
-@export var inventory_items = [InventoryItem]
-@onready var aiming_direction = $AimingDirection
-@onready var fire_rate_timer = $FireRateTimer
+#var max_inventory_slots = 32
+#@export var inventory_items = [InventoryItem]
 @onready var inventory = $Inventory
 
+
+@onready var aiming_direction = $AimingDirection
+@onready var fire_rate_timer = $FireRateTimer
 @onready var progress_bar = $PlayerHud/Control/ProgressBar
 
 var firing_offset = 20
@@ -28,13 +29,14 @@ var touch_move_vector = Vector2(0, 0)
 var touch_aim_vector = Vector2(0, 0)
 var speed_multiplier : float
 
-var inventory: Dictionary # TODO: Transform into its own class / node, to communicate with Signals. Also, convert inventory contents to arrays within resources
+var inventory_2: Dictionary # TODO: Transform into its own class / node, to communicate with Signals. Also, convert inventory contents to arrays within resources
 
 func _ready():
+	#collected.connect(on_collected)
 	check_mobile_controls()
 	fire_rate_timer.wait_time = fire_rate
 	progress_bar.value = self.properties["health"]
-	inventory = {}
+	inventory_2 = {}
 
 func check_mobile_controls():
 	if mobile_controls:
@@ -92,16 +94,9 @@ func _input(event):
 		if event is InputEventKey:
 			if Input.is_action_just_pressed("ui_cancel"):
 				get_tree().quit()
-		if event is InputEventKey:
-			if Input.is_action_just_pressed("open_inventory"):
-				toggle_inventory() # TODO: Remove; this doesn't need to be here
-	else:
-		if event is InputEventKey:
-			if Input.is_action_just_pressed("open_inventory"):
-				toggle_inventory() # TODO : Take this out of the else
-					
-	
-
+	if event is InputEventKey:
+		if Input.is_action_just_pressed("open_inventory"):
+			toggle_inventory() # TODO : Take this out of the else
 
 func _physics_process(_delta):
 	get_input()
@@ -132,10 +127,6 @@ func _on_fire_rate_timer_timeout():
 func update_ui(property, delta):
 	if property == "health":
 		progress_bar.value = self.properties["health"]
-
-func add_inventory(item_key, quantity):
-	inventory[item_key] = inventory.get(item_key, 0) + quantity
-	print("Player has ", str(inventory[item_key]), " ", item_key) # TODO: Transport this to new inventory class
 
 func die():
 	player_died.emit()

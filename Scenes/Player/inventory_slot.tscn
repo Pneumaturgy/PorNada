@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvm2bnvip3e0n"]
 
-[ext_resource type="Script" path="res://Scripts/InventoryScripts/InventoryItem.gd" id="1_0sype"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/inventory_slot.gd" id="1_u6826"]
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="2_okqm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j45qd"]
@@ -12,11 +12,41 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_u6826")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+
+[node name="QuantityText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -120.0
+offset_right = 39.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_okqm6")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(100, 100)
-script = ExtResource("1_0sype")
-item_type = "Poop"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_j45qd")

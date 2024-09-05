@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpn16s0tmjxxb"]
+
+[ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="1_hkppn"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/inventory.gd" id="1_ng15c"]
+
+[node name="Inventory" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_ng15c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryGrid" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -814.0
+offset_top = -446.281
+offset_right = 814.0
+offset_bottom = 446.281
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hkppn")
+columns = 8
+
+[node name="Inventory Background" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -813.963
+offset_top = -470.771
+offset_right = 813.963
+offset_bottom = 421.791
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hkppn")

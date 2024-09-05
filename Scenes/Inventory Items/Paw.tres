@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Drop" load_steps=3 format=3 uid="uid://rk58oi5dmcsu"]
+
+[ext_resource type="Texture2D" uid="uid://dgvdcp8hvakqa" path="res://Assets/2D/InventoryImages/Paw.svg" id="1_f34we"]
+[ext_resource type="Script" path="res://Scripts/DroppedResources/drop_resource.gd" id="1_ym12d"]
+
+[resource]
+script = ExtResource("1_ym12d")
+min_quantity_multiplier = 1
+max_quantity_multiplier = 10
+item_identifier = "Paw"
+item_image = ExtResource("1_f34we")
