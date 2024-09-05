@@ -16,10 +16,10 @@ signal alien_death
 var player
 @export var payload : PackedScene
 @onready var AttackCooldownTimer = $AttackCooldown
-
+@export var dropped_item : Resource
 @export var attack_cooldown = 1.0
 
-const pneuma_scene = preload("res://Scenes/Entities/DroppedResources/Pneuma.tscn")
+const drop_item = preload("res://Scenes/Entities/DroppedResources/DropItemScene.tscn")
 
 var firing_offset = 20
 var is_chasing = false
@@ -86,9 +86,10 @@ func die():
 	Global.current_alien_count -= 1
 	alien_death.emit()
 	#print("An alien died, current count: ", Global.current_alien_count)
-	var new_pneuma = pneuma_scene.instantiate()
-	new_pneuma.position = self.global_position
+	var new_drop = drop_item.instantiate()
+	new_drop.drop_resource = dropped_item
+	#print(new_drop.drop_resource.item_identifier)
+	new_drop.position = self.global_position
 	var drops_node_group = get_node("/root/Main")
-	drops_node_group.add_child(new_pneuma) # TODO: Turn into a drop function to add graphic functionality
-
+	drops_node_group.call_deferred("add_child", new_drop)#add_child(new_pneuma) # TODO: Turn into a drop function to add graphic functionality
 	super.die()

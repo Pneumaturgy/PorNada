@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Drop" load_steps=3 format=3 uid="uid://cq6c8ttxhboi1"]
+
+[ext_resource type="Script" path="res://Scripts/DroppedResources/drop_resource.gd" id="1_4hort"]
+[ext_resource type="Texture2D" uid="uid://bo3o36bki75ht" path="res://Assets/2D/InventoryImages/Pneuma.svg" id="1_ja7fa"]
+
+[resource]
+script = ExtResource("1_4hort")
+min_quantity_multiplier = 1
+max_quantity_multiplier = 10
+item_identifier = "Pneuma"
+item_image = ExtResource("1_ja7fa")

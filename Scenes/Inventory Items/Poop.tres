@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=2 format=3 uid="uid://b7l1aj3nk0ifo"]
-
-[ext_resource type="Script" path="res://Scripts/InventoryScripts/InventoryItem.gd" id="1_87f4o"]
-
-[resource]
-script = ExtResource("1_87f4o")
-item_type = "Poop"
-item_quantity = 10

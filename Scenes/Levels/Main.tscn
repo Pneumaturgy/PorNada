@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=11 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Entities/Player.tscn" id="2_463pk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 [ext_resource type="PackedScene" uid="uid://dody11on1j6u8" path="res://Scenes/Background.tscn" id="4_rrqsw"]
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="6_ygu73"]
+
 [sub_resource type="Animation" id="Animation_p7r1s"]
 length = 0.001
 tracks/0/type = "bezier"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Drop" load_steps=3 format=3 uid="uid://d3452acsadh0i"]
+
+[ext_resource type="Texture2D" uid="uid://bhdh7t06agb31" path="res://Assets/2D/InventoryImages/Log.svg" id="1_ci7yd"]
+[ext_resource type="Script" path="res://Scripts/DroppedResources/drop_resource.gd" id="1_fxpgs"]
+
+[resource]
+script = ExtResource("1_fxpgs")
+min_quantity_multiplier = 1
+max_quantity_multiplier = 10
+item_identifier = "Log"
+item_image = ExtResource("1_ci7yd")
