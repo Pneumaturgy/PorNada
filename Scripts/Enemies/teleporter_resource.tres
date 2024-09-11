@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AlienResource" load_steps=2 format=3 uid="uid://cs8wtldoiqixe"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/alien_resource.gd" id="1_pisf8"]
+
+[resource]
+script = ExtResource("1_pisf8")
+chasingMovementStrategy = 0

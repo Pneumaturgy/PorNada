@@ -27,17 +27,24 @@ var direction
 var is_attacking = false
 var is_looking = false
 
+@export var alien_resource : AlienResource
+var chasing_movement_strategy
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	alien_death.connect(get_parent().on_alien_death)
+	chasing_movement_strategy = alien_resource.get_chasing_movement_strategy(get_tree()) #TODO fix this get tree to the timer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if is_looking:
 		look_at(player.global_position)
 	if is_chasing and player != null:
-		direction = (player.global_position - global_position).normalized()
-		velocity = direction * get_property("speed")
+		velocity = chasing_movement_strategy.get_velocity(
+			player.global_position,
+			global_position,
+			get_property("speed")
+		)
 		move_and_slide()
 
 func attack():

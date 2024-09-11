@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://04omko2mjy5m"]
+[gd_scene load_steps=10 format=3 uid="uid://04omko2mjy5m"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/rangedAlien.gd" id="1_kgq4v"]
 [ext_resource type="PackedScene" uid="uid://cad00cst3bj8a" path="res://Scenes/Payloads/RangedAlienPayload.tscn" id="2_jh2kw"]
 [ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="3_0fj6t"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_h7yqp"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_aalla"]
+[ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/enemy_resource.tres" id="4_l84u6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0
@@ -21,6 +22,7 @@ collision_mask = 128
 script = ExtResource("1_kgq4v")
 payload = ExtResource("2_jh2kw")
 dropped_item = ExtResource("3_0fj6t")
+alien_resource = ExtResource("4_l84u6")
 properties = {
 "defense": 50.0,
 "health": 10.0,
