@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="3_0fj6t"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_h7yqp"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_aalla"]
-[ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/enemy_resource.tres" id="4_l84u6"]
+[ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/Resources/alien.tres" id="4_l84u6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0

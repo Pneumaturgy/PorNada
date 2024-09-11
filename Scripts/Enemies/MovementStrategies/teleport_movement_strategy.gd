@@ -1,4 +1,4 @@
-extends EnemyMovementStrategy
+extends AlienMovementStrategy
 class_name TeleportMovementStrategy
 
 @export var teleportTimeout = 0.5

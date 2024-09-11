@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_j20ow"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_erahv"]
 [ext_resource type="Resource" uid="uid://d3452acsadh0i" path="res://Scenes/Inventory Items/Log.tres" id="3_uwuin"]
-[ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/enemy_resource.tres" id="4_47d1q"]
+[ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/Resources/alien.tres" id="4_47d1q"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_cp628"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]

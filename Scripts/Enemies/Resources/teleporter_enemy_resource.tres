@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AlienResource" load_steps=2 format=3 uid="uid://b1fe7oju5m2ov"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Resources/alien_resource.gd" id="1_2tniv"]
+
+[resource]
+script = ExtResource("1_2tniv")
+chasingMovementStrategy = 1

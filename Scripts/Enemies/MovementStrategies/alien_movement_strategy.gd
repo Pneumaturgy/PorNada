@@ -1,5 +1,5 @@
 extends Node
-class_name EnemyMovementStrategy
+class_name AlienMovementStrategy
 
 
 func get_velocity(player_global_position, global_position, speed):

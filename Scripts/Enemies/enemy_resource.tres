@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="AlienResource" load_steps=2 format=3 uid="uid://fjfw1fduldpl"]
-
-[ext_resource type="Script" path="res://Scripts/Enemies/alien_resource.gd" id="1_q8l2h"]
-
-[resource]
-script = ExtResource("1_q8l2h")
-chasingMovementStrategy = 1

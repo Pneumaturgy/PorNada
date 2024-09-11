@@ -9,7 +9,7 @@ var can_spawn = true
 @export var maximum_distance = 10
 const aliens = [
 	preload("res://Scenes/Entities/Enemies/Alien.tscn"),
-	#preload("res://Scenes/Entities/Enemies/RedAlien.tscn"),
+	preload("res://Scenes/Entities/Enemies/RedAlien.tscn"),
 	#preload("res://Scenes/Entities/Enemies/RangedAlien.tscn")
 ]
 
