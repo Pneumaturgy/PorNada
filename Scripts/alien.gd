@@ -21,9 +21,6 @@ var is_looking = false
 @export var alien_resource : AlienResource
 var chasing_movement_strategy
 
-func load_data():
-	payload = alien_resource.payload
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	alien_death.connect(get_parent().on_alien_death)
