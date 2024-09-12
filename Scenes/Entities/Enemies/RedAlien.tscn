@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://ddybj8vr5f4c5"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_xmpdo"]
-[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_yvxcy"]
+[ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_5u7mn"]
 [ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="3_a74p5"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_mnlrb"]
-[ext_resource type="Resource" uid="uid://b1fe7oju5m2ov" path="res://Scripts/Enemies/Resources/teleporter_enemy_resource.tres" id="4_aoodm"]
+[ext_resource type="Resource" uid="uid://b1fe7oju5m2ov" path="res://Scripts/Enemies/EnemyResources/teleporter_enemy_resource.tres" id="4_aoodm"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_tsh2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
@@ -20,7 +20,7 @@ radius = 10000.0
 collision_layer = 2
 collision_mask = 128
 script = ExtResource("1_xmpdo")
-payload = ExtResource("2_yvxcy")
+payload = ExtResource("2_5u7mn")
 drop_item_resource = ExtResource("3_a74p5")
 alien_resource = ExtResource("4_aoodm")
 properties = {

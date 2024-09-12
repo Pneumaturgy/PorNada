@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmi0he5h0u8c5"]
+[gd_scene load_steps=11 format=3 uid="uid://cmi0he5h0u8c5"]
 
-[ext_resource type="Script" path="res://Scripts/MissilePayload.gd" id="1_f2838"]
+[ext_resource type="Script" path="res://Scripts/Payloads/payload.gd" id="1_mqc8d"]
 [ext_resource type="Texture2D" uid="uid://b5s852ioh2cx7" path="res://Assets/2D/Vectors/missile.svg" id="1_vbb3a"]
+[ext_resource type="Resource" uid="uid://djr0wrcmv8urh" path="res://Scripts/Payloads/PayloadResources/missile_payload_stats.tres" id="2_0hy8s"]
+[ext_resource type="Resource" uid="uid://b85qw7g8rtmvt" path="res://Scripts/Payloads/PayloadResources/missile_payload_behavior.tres" id="3_xm10h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4m8o5"]
 radius = 25.0
@@ -37,7 +39,9 @@ color_ramp = SubResource("GradientTexture1D_bjeli")
 [node name="MisslePayload" type="Area2D"]
 collision_layer = 128
 collision_mask = 2
-script = ExtResource("1_f2838")
+script = ExtResource("1_mqc8d")
+payloadStatsResource = ExtResource("2_0hy8s")
+payloadBehaviorResource = ExtResource("3_xm10h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.249998, -2.86102e-06)

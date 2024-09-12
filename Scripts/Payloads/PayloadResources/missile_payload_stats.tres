@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PayloadStats" load_steps=2 format=3 uid="uid://djr0wrcmv8urh"]
+
+[ext_resource type="Script" path="res://Scripts/Payloads/PayloadResources/base_payload_stats.gd" id="1_sx5sw"]
+
+[resource]
+script = ExtResource("1_sx5sw")
+bullet_speed = 5000
+timeToLive = 10.0
+affected_properties_with_deltas = {
+"defense": 0.0,
+"health": -10.0,
+"speed": 0.0
+}
+fire_rate = 0.7
+rotation_speed = 10.0
+spawn_children = false

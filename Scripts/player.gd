@@ -112,10 +112,10 @@ func toggle_inventory():
 
 func fire(payload):
 	fire_rate_timer.start()
-	var direction = (aiming_direction.global_position - self.global_position).normalized()
+	var target = (aiming_direction.global_position - self.global_position).normalized()
 	var new_payload = payload.instantiate()
-	new_payload.direction = direction
-	new_payload.global_position = aiming_direction.global_position + (direction * firing_offset)
+	new_payload.direction = target
+	new_payload.global_position = aiming_direction.global_position + (target * firing_offset)
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)
 
