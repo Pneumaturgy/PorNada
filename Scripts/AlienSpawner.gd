@@ -10,7 +10,7 @@ var can_spawn = true
 const aliens = [
 	preload("res://Scenes/Entities/Enemies/Alien.tscn"),
 	preload("res://Scenes/Entities/Enemies/RedAlien.tscn"),
-	#preload("res://Scenes/Entities/Enemies/RangedAlien.tscn")
+	preload("res://Scenes/Entities/Enemies/RangedAlien.tscn")
 ]
 
 var current_max_aliens : int
