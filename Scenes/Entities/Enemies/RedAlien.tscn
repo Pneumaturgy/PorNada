@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddybj8vr5f4c5"]
+[gd_scene load_steps=10 format=3 uid="uid://ddybj8vr5f4c5"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/teleporterAlien.gd" id="1_yxjr0"]
+[ext_resource type="Script" path="res://Scripts/alien.gd" id="1_xmpdo"]
 [ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_yvxcy"]
-[ext_resource type="Resource" uid="uid://cq6c8ttxhboi1" path="res://Scenes/Inventory Items/Pneuma.tres" id="3_dqgav"]
+[ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="3_a74p5"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_mnlrb"]
+[ext_resource type="Resource" uid="uid://b1fe7oju5m2ov" path="res://Scripts/Enemies/Resources/teleporter_enemy_resource.tres" id="4_aoodm"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_tsh2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
@@ -18,14 +19,14 @@ radius = 10000.0
 [node name="RedAlien" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 128
-script = ExtResource("1_yxjr0")
+script = ExtResource("1_xmpdo")
 payload = ExtResource("2_yvxcy")
-dropped_item = ExtResource("3_dqgav")
-attack_cooldown = 0.5
+drop_item_resource = ExtResource("3_a74p5")
+alien_resource = ExtResource("4_aoodm")
 properties = {
-"defense": 100.0,
-"health": 200.0,
-"speed": 1200.0
+"defense": 10.0,
+"health": 100.0,
+"speed": 1000.0
 }
 
 [node name="CharacterGraphics" type="Node2D" parent="."]
