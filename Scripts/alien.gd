@@ -4,15 +4,6 @@ class_name Alien
 
 signal alien_death
 
-# affect player health
-	#on collision 
-	# if collisoin is player
-	# player.affect health
-# move towards player
-	# set up vision radius
-	# on enter, move towards player
-		# up to a limit
-
 var player
 @export var payload : PackedScene
 @onready var AttackCooldownTimer = $AttackCooldown
@@ -36,7 +27,7 @@ func load_data():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	alien_death.connect(get_parent().on_alien_death)
-	chasing_movement_strategy = alien_resource.get_chasing_movement_strategy(get_tree()) #TODO fix this get tree to the timer
+	chasing_movement_strategy = alien_resource.get_chasing_movement_strategy()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -94,14 +85,16 @@ func _on_attack_cooldown_timeout():
 func set_player_instance(player_instance):
 	player = player_instance
 
+func drop():
+	var new_drop = drop_item_scene.instantiate()
+	new_drop.drop_resource = drop_item_resource
+	new_drop.position = self.global_position
+	var drops_node_group = get_node("/root/Main")
+	drops_node_group.call_deferred("add_child", new_drop)
+	# TODO: Add graphic functionality
+
 func die():
 	Global.current_alien_count -= 1
 	alien_death.emit()
-	#print("An alien died, current count: ", Global.current_alien_count)
-	var new_drop = drop_item_scene.instantiate()
-	new_drop.drop_resource = drop_item_resource
-	#print(new_drop.drop_resource.item_identifier)
-	new_drop.position = self.global_position
-	var drops_node_group = get_node("/root/Main")
-	drops_node_group.call_deferred("add_child", new_drop)#add_child(new_pneuma) # TODO: Turn into a drop function to add graphic functionality
+	drop()
 	super.die()

@@ -1,16 +1,18 @@
 extends AlienMovementStrategy
 class_name TeleportMovementStrategy
 
+# TODO: consider how to configure this from the Inspector
 @export var teleportTimeout = 3
 @export var teleportScale = 750
+@export var teleportChancePercentage = 66
 
 var teleportTimer
 var willTeleportFlag = false
 var shouldOverwriteVelocity = false
 
-func _init(scene_tree):
+func _init():
 	teleportTimer = Timer.new()
-	scene_tree.get_root().add_child(teleportTimer)
+	Global.get_current_tree().get_root().add_child(teleportTimer)
 	teleportTimer.wait_time = teleportTimeout
 	teleportTimer.one_shot = false
 	teleportTimer.timeout.connect(teleport)
@@ -24,6 +26,5 @@ func get_velocity(player_global_position, global_position, speed):
 	return velocity + offset
 
 func teleport():
-	if randi_range(0, 2) == 1: #TODO 33% teleport chance - refactor to a func
+	if Utils.random_true_with(teleportChancePercentage):
 		shouldOverwriteVelocity = true
-		

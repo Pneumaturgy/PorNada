@@ -11,6 +11,11 @@ var current_stage : int
 
 var current_alien_count = 0
 
+
+func get_current_tree():
+	return get_tree()
+
+
 #region Save & Progress Dicts
 ## 5a: A new blank save that saves generic data
 func new_save():
