@@ -10,13 +10,21 @@ class_name Payload
 #}
 @export var payloadStatsResource : PayloadStats
 @export var payloadBehaviorResource : PayloadBehavior
+@export var payloadSpawnResource : PayloadSpawn
+
+var layer_value : int
+var mask_value : int
+
 var payload_behavior_strategy
+var payload_spawn_strategy
 
 var direction
 
 func _ready():
 	payload_behavior_strategy = payloadBehaviorResource.get_chasing_movement_strategy()
 	payload_behavior_strategy.initialize(self, payloadStatsResource)
+	payload_spawn_strategy = payloadSpawnResource.get_spawn_strategy()
+	payload_spawn_strategy.initialize(self, layer_value, mask_value, payloadStatsResource)
 	var death_timer = Timer.new()
 	add_child(death_timer)
 	death_timer.wait_time = payloadStatsResource.timeToLive

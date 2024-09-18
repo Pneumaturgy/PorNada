@@ -115,8 +115,11 @@ func fire(payload):
 	var target = (aiming_direction.global_position - self.global_position).normalized()
 	var new_payload : Area2D = payload.instantiate()
 	
-	new_payload.set_collision_layer_value(8, true); #Player
-	new_payload.set_collision_mask_value(2, true); #Enemies
+	new_payload.layer_value = 8
+	new_payload.mask_value = 2
+	
+	#new_payload.set_collision_layer_value(8, true); #Player
+	#new_payload.set_collision_mask_value(2, true); #Enemies
 	
 	new_payload.direction = target;
 	new_payload.global_position = aiming_direction.global_position + (target * firing_offset)

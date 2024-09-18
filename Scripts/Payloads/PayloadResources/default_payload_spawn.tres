@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PayloadSpawn" load_steps=2 format=3 uid="uid://boawrgnim215d"]
+
+[ext_resource type="Script" path="res://Scripts/Payloads/PayloadResources/base_payload_spawn_resource.gd" id="1_dv2h1"]
+
+[resource]
+script = ExtResource("1_dv2h1")
+payloadSpawn = 0

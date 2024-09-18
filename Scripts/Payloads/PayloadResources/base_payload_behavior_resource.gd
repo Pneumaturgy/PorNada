@@ -12,4 +12,4 @@ func get_chasing_movement_strategy():
 		PAYLOAD_BEHAVIORS.CHASE_PAYLOAD_BEHAVIOR:
 			return ChaseMovementBehavior.new()
 		PAYLOAD_BEHAVIORS.SPREAD_PAYLOAD_BEHAVIOR:
-			return SpreadMovementBehavior.new()
+			return PayloadMovementBehavior.new()
