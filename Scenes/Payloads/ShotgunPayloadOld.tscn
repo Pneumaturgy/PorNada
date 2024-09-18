@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://74e6nxgycvd7"]
+[gd_scene load_steps=5 format=3 uid="uid://bufjm3qkif3n"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/payload.gd" id="1_4i8bj"]
 [ext_resource type="Texture2D" uid="uid://cpf0bwxhv4x1m" path="res://Assets/2D/Vectors/shotgun_bullet.svg" id="2_kmr70"]
-[ext_resource type="Resource" uid="uid://d3txoplfv2gog" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_stats.tres" id="2_la12t"]
 [ext_resource type="Resource" uid="uid://dhnk35ais10jb" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_behavior.tres" id="3_n406j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxrat"]
@@ -11,7 +10,7 @@ radius = 43.0465
 [node name="ShotgunPayload" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_4i8bj")
-payloadStatsResource = ExtResource("2_la12t")
+payloadStatsResource = ExtResource("3_n406j")
 payloadBehaviorResource = ExtResource("3_n406j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PayloadStats" load_steps=3 format=3 uid="uid://d3txoplfv2gog"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/PayloadResources/base_payload_stats.gd" id="1_aswu0"]
-[ext_resource type="PackedScene" uid="uid://74e6nxgycvd7" path="res://Scenes/Payloads/ShotgunPayload.tscn" id="1_ti01b"]
+[ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="1_hm4cw"]
 
 [resource]
 script = ExtResource("1_aswu0")
@@ -15,4 +15,4 @@ affected_properties_with_deltas = {
 fire_rate = 0.7
 rotation_speed = 10.0
 spawn_children = true
-child_payload = ExtResource("1_ti01b")
+child_payload = ExtResource("1_hm4cw")

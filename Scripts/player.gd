@@ -118,7 +118,6 @@ func fire(payload):
 	new_payload.set_collision_layer_value(8, true); #Player
 	new_payload.set_collision_mask_value(2, true); #Enemies
 	
-	
 	new_payload.direction = target;
 	new_payload.global_position = aiming_direction.global_position + (target * firing_offset)
 	new_payload.rotation = self.rotation
