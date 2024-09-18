@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://04omko2mjy5m"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_na7l0"]
-[ext_resource type="PackedScene" uid="uid://1jagskp0ppiw" path="res://Scenes/Payloads/AlienPayload.tscn" id="2_vjnh5"]
+[ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_86crx"]
 [ext_resource type="Resource" uid="uid://cq6c8ttxhboi1" path="res://Scenes/Inventory Items/Pneuma.tres" id="3_7jvbn"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_h7yqp"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_aalla"]
-[ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/Resources/alien.tres" id="4_l84u6"]
+[ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/EnemyResources/alien.tres" id="4_l84u6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0
@@ -17,10 +17,11 @@ radius = 400.0
 radius = 10000.0
 
 [node name="RangedAlien" type="CharacterBody2D" groups=["enemies"]]
+rotation = -1.8326
 collision_layer = 2
 collision_mask = 128
 script = ExtResource("1_na7l0")
-payload = ExtResource("2_vjnh5")
+payload = ExtResource("2_86crx")
 drop_item_resource = ExtResource("3_7jvbn")
 alien_resource = ExtResource("4_l84u6")
 properties = {

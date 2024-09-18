@@ -42,7 +42,16 @@ func attack():
 	if !is_attacking:
 		is_attacking = true
 		direction = (player.global_position - self.global_position).normalized()
-		var new_payload = payload.instantiate()
+		
+		#TODO: Spawn behavior.
+		var new_payload : Area2D = payload.instantiate();
+		# collision setup
+		new_payload.layer_value = 2
+		new_payload.mask_value = 8
+		
+		#new_payload.set_collision_layer_value(2, true); #Enemies
+		#new_payload.set_collision_mask_value(8, true);
+		
 		new_payload.global_position = self.global_position + (direction * firing_offset)
 		new_payload.direction = direction
 		new_payload.rotation = get_target_rotation()

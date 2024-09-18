@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2d5glqcnndpt"]
+
+[ext_resource type="Script" path="res://Scripts/Payloads/payload.gd" id="1_0vmg0"]
+[ext_resource type="Resource" uid="uid://d3txoplfv2gog" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_stats.tres" id="2_7tog5"]
+[ext_resource type="Resource" uid="uid://dhnk35ais10jb" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_behavior.tres" id="3_pnmic"]
+[ext_resource type="Texture2D" uid="uid://cpf0bwxhv4x1m" path="res://Assets/2D/Vectors/shotgun_bullet.svg" id="4_1s48j"]
+[ext_resource type="Resource" uid="uid://pjl7f2dh8aqk" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_spawn.tres" id="4_ha1xh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ees0o"]
+radius = 35.0
+
+[node name="ShotgunPayload" type="Area2D"]
+position = Vector2(-1, 0)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_0vmg0")
+payloadStatsResource = ExtResource("2_7tog5")
+payloadBehaviorResource = ExtResource("3_pnmic")
+payloadSpawnResource = ExtResource("4_ha1xh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_1s48j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ees0o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

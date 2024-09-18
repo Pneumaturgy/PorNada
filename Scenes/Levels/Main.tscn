@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=10 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Entities/Player.tscn" id="2_463pk"]
 [ext_resource type="PackedScene" uid="uid://1f81cbb0o7ig" path="res://Scenes/PlayerCamera.tscn" id="3_dv5yg"]
-[ext_resource type="PackedScene" uid="uid://74e6nxgycvd7" path="res://Scenes/Payloads/ShotgunPayload.tscn" id="3_ki7np"]
 [ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 [ext_resource type="PackedScene" uid="uid://dody11on1j6u8" path="res://Scenes/Background.tscn" id="4_rrqsw"]
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="6_ygu73"]
@@ -115,7 +114,6 @@ script = ExtResource("1_oqb2v")
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 unique_name_in_owner = true
-current_payload = ExtResource("3_ki7np")
 fire_rate = 0.7
 properties = {
 "defense": 10.0,

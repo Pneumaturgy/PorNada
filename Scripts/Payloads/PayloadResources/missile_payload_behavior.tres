@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PayloadBehavior" load_steps=2 format=3 uid="uid://b85qw7g8rtmvt"]
+
+[ext_resource type="Script" path="res://Scripts/Payloads/PayloadResources/base_payload_behavior_resource.gd" id="1_x5u75"]
+
+[resource]
+script = ExtResource("1_x5u75")
+payloadBehavior = 1
