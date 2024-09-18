@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dp3v34nxlp5eb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0towx"]
-[ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_5l04x"]
+[ext_resource type="PackedScene" uid="uid://cmi0he5h0u8c5" path="res://Scenes/Payloads/MissilePayload.tscn" id="2_vi2u2"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_8236i"]
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_ffhe0"]
 [ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_qwxjb"]
@@ -34,7 +34,7 @@ collision_layer = 128
 collision_mask = 6
 script = ExtResource("1_0towx")
 mobile_controls = false
-current_payload = ExtResource("2_5l04x")
+current_payload = ExtResource("2_vi2u2")
 
 [node name="CharacterGraphics" type="Node2D" parent="."]
 rotation = -1.5708

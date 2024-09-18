@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://1jagskp0ppiw"]
+[gd_scene load_steps=4 format=3 uid="uid://csjcstbed18mx"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/payload.gd" id="1_j85ny"]
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="2_e1fm5"]

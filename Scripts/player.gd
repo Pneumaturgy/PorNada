@@ -113,8 +113,13 @@ func toggle_inventory():
 func fire(payload):
 	fire_rate_timer.start()
 	var target = (aiming_direction.global_position - self.global_position).normalized()
-	var new_payload = payload.instantiate()
-	new_payload.direction = target
+	var new_payload : Area2D = payload.instantiate()
+	
+	new_payload.set_collision_layer_value(8, true); #Player
+	new_payload.set_collision_mask_value(2, true); #Enemies
+	
+	
+	new_payload.direction = target;
 	new_payload.global_position = aiming_direction.global_position + (target * firing_offset)
 	new_payload.rotation = self.rotation
 	get_parent().add_child(new_payload)

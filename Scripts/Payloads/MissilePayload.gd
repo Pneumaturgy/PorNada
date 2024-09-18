@@ -1,5 +1,5 @@
-extends Area2D
 class_name MisslePayload
+extends Area2D
 
 @export var fire_rate = 0.7
 @export var bullet_speed = 5000

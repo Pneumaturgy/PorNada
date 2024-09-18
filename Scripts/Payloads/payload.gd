@@ -24,7 +24,7 @@ func _ready():
 	death_timer.start()
 
 func _process(delta):
-	position += payload_behavior_strategy.get_position_delta(self, direction, payloadStatsResource)
+	position += payload_behavior_strategy.get_position_delta(self, direction, payloadStatsResource);
 
 func apply_effects(entity):
 	for property in payloadStatsResource.affected_properties_with_deltas:
