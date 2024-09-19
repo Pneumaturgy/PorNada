@@ -12,6 +12,7 @@ const aliens = [
 	preload("res://Scenes/Entities/Enemies/RedAlien.tscn"),
 	preload("res://Scenes/Entities/Enemies/RangedAlien.tscn")
 ]
+@export var alien_spawn_table : SpawnTable
 
 var current_max_aliens : int
 var current_spawn_frequency : float
@@ -20,8 +21,9 @@ var current_spawn_quantity : int
 @onready var timer = $Timer
 
 func _ready():
+	Global.number_of_alien_types = len(aliens)
+	alien_spawn_table._init()
 	update_difficulty()
-	
 
 func _on_timer_timeout():
 	if can_spawn:
@@ -36,12 +38,16 @@ func spawn_aliens():
 	var angle = randf_range(0, 360)
 	var x = cos(angle) * distance
 	var y = sin(angle) * distance
-	var alien_instance = aliens[randi_range(0, len(aliens)-1)].instantiate()
+	var picked_alien_type = alien_spawn_table.pick_an_alien_type()
+	var selected_alien_type = aliens[picked_alien_type]
+	var alien_instance = selected_alien_type.instantiate()
 	alien_instance.position = Vector2(global_position.x + x, global_position.y + y)
 	alien_spawned.emit(alien_instance)
 	Global.current_alien_count += 1
 
 func update_difficulty():
+	if alien_spawn_table.is_current_stage_in_table_wildcard():
+		alien_spawn_table.mutate_wildcard_stage()
 	var difficulty_factor = log(Global.current_stage) / log(2)  # logarithmic scaling
 	current_max_aliens = default_alien_count + int(difficulty_factor * 10)
 	current_spawn_frequency = max(default_spawn_frequency - (difficulty_factor * 0.05), 0.1)

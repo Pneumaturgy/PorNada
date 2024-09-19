@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpawnTableRow" load_steps=2 format=3 uid="uid://m2sy0jl135h"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnTableRow.gd" id="1_bghip"]
+
+[resource]
+script = ExtResource("1_bghip")
+stage_number = 2
+alien_index = 0
+weight = 1

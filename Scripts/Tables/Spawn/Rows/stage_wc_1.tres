@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpawnTableRow" load_steps=2 format=3 uid="uid://civlujyl222q0"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnTableRow.gd" id="1_vp27s"]
+
+[resource]
+script = ExtResource("1_vp27s")
+stage_number = -1
+alien_index = 0
+weight = 1
