@@ -34,5 +34,6 @@ shape = SubResource("CircleShape2D_ees0o")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_4fa3i")
 autoplay = true
+bus = &"In-Game SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
