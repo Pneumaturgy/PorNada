@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://boawrgnim215d" path="res://Scripts/Payloads/PayloadResources/default_payload_spawn.tres" id="4_yllsl"]
 [ext_resource type="PackedScene" uid="uid://bwa076a4mdp4k" path="res://Scenes/Payloads/PayloadHitEffects/DefaultHitEffect.tscn" id="5_s6hpi"]
 [ext_resource type="PackedScene" uid="uid://c3ud52dwkij1k" path="res://Scenes/Payloads/PayloadSpawnEffects/DefaultSpawnEffect.tscn" id="6_s6gb5"]
-[ext_resource type="AudioStream" uid="uid://bdqc0vrfejhd3" path="res://Assets/SFX/BulletGoSFX.mp3" id="7_4fa3i"]
+[ext_resource type="AudioStream" uid="uid://bdqc0vrfejhd3" path="res://Assets/SFX/Payloads/BulletGoSFX.mp3" id="7_4fa3i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ees0o"]
 radius = 100.0

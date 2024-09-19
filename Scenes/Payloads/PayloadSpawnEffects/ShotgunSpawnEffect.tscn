@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://cnbwpgfauvmh0"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/payload_spawn_effect.gd" id="1_objk0"]
-[ext_resource type="AudioStream" uid="uid://d1anba54hnxfa" path="res://Assets/SFX/BaseFireFX.mp3" id="2_civ4k"]
-[ext_resource type="AudioStream" uid="uid://ctcr4iarlx2o1" path="res://Assets/SFX/SpreadFireFX.mp3" id="3_4ulug"]
+[ext_resource type="AudioStream" uid="uid://d1anba54hnxfa" path="res://Assets/SFX/Payloads/BaseFireFX.mp3" id="2_civ4k"]
+[ext_resource type="AudioStream" uid="uid://ctcr4iarlx2o1" path="res://Assets/SFX/Payloads/SpreadFireFX.mp3" id="3_4ulug"]
 
 [sub_resource type="Gradient" id="Gradient_87jib"]
 offsets = PackedFloat32Array(0, 0.503788, 1)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bwa076a4mdp4k"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/payload_spawn_effect.gd" id="1_6jily"]
-[ext_resource type="AudioStream" uid="uid://dclbac0rvstou" path="res://Assets/SFX/HitSFX.mp3" id="2_x1qe6"]
+[ext_resource type="AudioStream" uid="uid://dclbac0rvstou" path="res://Assets/SFX/Payloads/HitSFX.mp3" id="2_x1qe6"]
 
 [sub_resource type="Gradient" id="Gradient_87jib"]
 offsets = PackedFloat32Array(0, 0.503788, 1)
@@ -53,6 +53,7 @@ explosiveness = 0.8
 [node name="BaseSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_x1qe6")
 autoplay = true
+max_distance = 4000.0
 bus = &"SFX"
 
 [connection signal="finished" from="BaseSFX" to="." method="_on_base_sfx_finished"]
