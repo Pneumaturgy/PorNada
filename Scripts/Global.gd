@@ -8,7 +8,7 @@ var save_file
 var total_wins : int
 var current_stage : int
 
-
+var number_of_alien_types
 var current_alien_count = 0
 
 

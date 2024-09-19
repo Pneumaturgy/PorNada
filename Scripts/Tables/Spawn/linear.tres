@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnTable" load_steps=9 format=3 uid="uid://jgohcvop6ba6"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnTable.gd" id="1_5yptf"]
+[ext_resource type="Script" path="res://Scripts/SpawnTableRow.gd" id="2_vdaof"]
+[ext_resource type="Resource" uid="uid://os6cl500mgs3" path="res://Scripts/Tables/Spawn/Rows/stage1.tres" id="3_ynqu5"]
+[ext_resource type="Resource" uid="uid://m2sy0jl135h" path="res://Scripts/Tables/Spawn/Rows/stage2.1.tres" id="4_qbtv1"]
+[ext_resource type="Resource" uid="uid://caugjkwgrdcnh" path="res://Scripts/Tables/Spawn/Rows/stage2.2.tres" id="5_67feo"]
+[ext_resource type="Resource" uid="uid://civlujyl222q0" path="res://Scripts/Tables/Spawn/Rows/stage_wc_1.tres" id="6_mk586"]
+[ext_resource type="Resource" uid="uid://bv82sxbq6v4t4" path="res://Scripts/Tables/Spawn/Rows/stage_wc_2.tres" id="7_qk5j7"]
+[ext_resource type="Resource" uid="uid://cya7wf2wf7q83" path="res://Scripts/Tables/Spawn/Rows/stage_wc_3.tres" id="8_3plmv"]
+
+[resource]
+script = ExtResource("1_5yptf")
+spawnTableRows = Array[ExtResource("2_vdaof")]([ExtResource("3_ynqu5"), ExtResource("4_qbtv1"), ExtResource("5_67feo"), ExtResource("6_mk586"), ExtResource("7_qk5j7"), ExtResource("8_3plmv")])
