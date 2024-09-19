@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp3v34nxlp5eb"]
+[gd_scene load_steps=12 format=3 uid="uid://dp3v34nxlp5eb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0towx"]
 [ext_resource type="PackedScene" uid="uid://cmi0he5h0u8c5" path="res://Scenes/Payloads/MissilePayload.tscn" id="2_v2654"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcox5tg3oo4sg" path="res://Assets/2D/Sprites/Triangle.png" id="4_djjlr"]
 [ext_resource type="PackedScene" uid="uid://bi0qftlhda3q6" path="res://Scenes/sprites_shadow.tscn" id="5_j2ydm"]
 [ext_resource type="PackedScene" uid="uid://bpn16s0tmjxxb" path="res://Scenes/Player/inventory.tscn" id="8_i4nyp"]
+[ext_resource type="AudioStream" uid="uid://dni67sk12avb4" path="res://Assets/SFX/VOXFX/PlayerSpawn2.mp3" id="9_ss25v"]
 
 [sub_resource type="GDScript" id="GDScript_75t6v"]
 script/source = "extends Sprite2D
@@ -104,5 +105,10 @@ grow_vertical = 2
 fill_mode = 3
 
 [node name="Inventory" parent="." instance=ExtResource("8_i4nyp")]
+
+[node name="PlayerSpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ss25v")
+autoplay = true
+bus = &"In-Game SFX"
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

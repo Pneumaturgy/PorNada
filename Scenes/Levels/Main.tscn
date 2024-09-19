@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=11 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Entities/Player.tscn" id="2_463pk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 [ext_resource type="PackedScene" uid="uid://dody11on1j6u8" path="res://Scenes/Background.tscn" id="4_rrqsw"]
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="6_ygu73"]
+[ext_resource type="AudioStream" uid="uid://bxjpcloijj253" path="res://Assets/SFX/VOXFX/PlayerSpawn1.mp3" id="7_g6mdn"]
 
 [sub_resource type="Animation" id="Animation_p7r1s"]
 length = 0.001
@@ -283,6 +284,12 @@ autostart = true
 [node name="NightTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="IntroSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_g6mdn")
+pitch_scale = 1.5
+autoplay = true
+bus = &"SFX"
 
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]

@@ -9,6 +9,9 @@ signal collected(drop)
 @export var current_payload : PackedScene
 @export var fire_rate = 0.3
 
+@onready var player_spawn_sound = $PlayerSpawnSound
+
+
 ## Inventory Variables
 #const INVENTORY_SLOT = preload("res://Scenes/Player/inventory_slot.tscn")
 @export var current_inventory_slots = 4

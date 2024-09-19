@@ -5,6 +5,7 @@ class_name DropObject
 @export var drop_resource : Drop
 @onready var icon = $Icon
 var quantity: int
+@onready var sound = $Sound
 
 func _ready() -> void:
 	var random = RandomNumberGenerator.new()
@@ -14,9 +15,17 @@ func _ready() -> void:
 
 func _on_body_entered(body):
 	if body is Player:
+		
 		body.collected.emit(self)
+		
 		#body.add_inventory()
 
 func destroy():
-	print("destroy!!")
+	icon.visible = false
+	sound.play()
+	#print("destroy!!")
+	
+
+
+func _on_sound_finished():
 	queue_free()
