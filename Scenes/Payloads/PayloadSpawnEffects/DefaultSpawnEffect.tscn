@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwa076a4mdp4k"]
+[gd_scene load_steps=9 format=3 uid="uid://c3ud52dwkij1k"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/payload_spawn_effect.gd" id="1_5qw7y"]
-[ext_resource type="AudioStream" uid="uid://dclbac0rvstou" path="res://Assets/SFX/HitSFX.mp3" id="2_kkrsc"]
+[ext_resource type="AudioStream" uid="uid://d1anba54hnxfa" path="res://Assets/SFX/BaseFireFX.mp3" id="2_aop3y"]
+[ext_resource type="AudioStream" uid="uid://bqqojwuwvi1w1" path="res://Assets/SFX/DefaultFireFX.mp3" id="3_8pts2"]
 
 [sub_resource type="Gradient" id="Gradient_87jib"]
 offsets = PackedFloat32Array(0, 0.503788, 1)
@@ -41,7 +42,7 @@ color_ramp = SubResource("GradientTexture1D_jtokt")
 turbulence_influence_min = 0.3
 turbulence_influence_max = 0.568
 
-[node name="DefaultHitEffect" type="Node2D"]
+[node name="DefaultSpawnEffect" type="Node2D"]
 script = ExtResource("1_5qw7y")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -51,7 +52,12 @@ one_shot = true
 explosiveness = 0.8
 
 [node name="BaseSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_kkrsc")
+stream = ExtResource("2_aop3y")
+autoplay = true
+bus = &"SFX"
+
+[node name="SpecialSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8pts2")
 autoplay = true
 bus = &"SFX"
 

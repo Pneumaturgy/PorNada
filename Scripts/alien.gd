@@ -104,3 +104,8 @@ func die():
 	alien_death.emit()
 	drop()
 	super.die()
+
+func delete():
+	Global.current_alien_count -= 1
+	alien_death.emit()
+	super.die()

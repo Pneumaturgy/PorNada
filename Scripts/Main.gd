@@ -65,15 +65,15 @@ func _on_night_timer_timeout():
 	alien_spawner.can_spawn = true
 	day_timer.start()
 	current_stage_text.text  = "[center][wave amp=50 freq=5]Current Stage: " + str(Global.current_stage) + "[/wave][/center]"
-
+	clean_all_drops()
 
 
 func kill_all_aliens():
 	var current_aliens = get_tree().get_nodes_in_group("enemies")
 	for alien in current_aliens:
-		alien.die()
+		alien.delete()
 
-func clean_all_drops(): # TODO: This needs to be hooked up to stage finish
+func clean_all_drops(): # TODO: This needs to be hooked up to stage finish /// Nope, we need the aliens who die at end of stage to not drop anything
 	var current_drops = get_tree().get_nodes_in_group("drops")
 	for drop in current_drops:
 		drop.free()

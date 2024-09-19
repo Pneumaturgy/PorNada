@@ -38,10 +38,11 @@ func _process(delta):
 	position += payload_behavior_strategy.get_position_delta(self, direction, payloadStatsResource);
 
 func spawn_effects():
-	var new_effect = payloadSpawnEffect.instantiate()
-	new_effect.position = self.position
-	print(get_parent())
-	get_parent().add_child(new_effect)
+	if payloadSpawnEffect:
+		var new_effect = payloadSpawnEffect.instantiate()
+		new_effect.position = self.position
+		print(get_parent())
+		get_parent().add_child(new_effect)
 
 func apply_effects(entity):
 	for property in payloadStatsResource.affected_properties_with_deltas:
@@ -55,10 +56,11 @@ func _on_body_entered(body):
 		destroy_bullet()
 
 func hit_effect():
-	var new_effect = payloadHitEffect.instantiate()
-	new_effect.position = self.position
-	print(get_parent())
-	get_parent().add_child(new_effect)
+	if payloadHitEffect:
+		var new_effect = payloadHitEffect.instantiate()
+		new_effect.position = self.position
+		print(get_parent())
+		get_parent().add_child(new_effect)
 
 func destroy_bullet():
 	queue_free()

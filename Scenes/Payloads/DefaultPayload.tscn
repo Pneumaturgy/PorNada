@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="2_p82r6"]
 [ext_resource type="Resource" uid="uid://f8x7omrs34r3" path="res://Scripts/Payloads/PayloadResources/default_payload_behavior.tres" id="3_cf3mi"]
 [ext_resource type="Resource" uid="uid://boawrgnim215d" path="res://Scripts/Payloads/PayloadResources/default_payload_spawn.tres" id="4_yllsl"]
-[ext_resource type="PackedScene" uid="uid://bwa076a4mdp4k" path="res://Scenes/Payloads/PayloadSpawnEffects/DefaultSpawnEffect.tscn" id="5_s6hpi"]
-[ext_resource type="PackedScene" uid="uid://c3ud52dwkij1k" path="res://Scenes/Payloads/PayloadHitEffects/DefaultHitEffect.tscn" id="6_s6gb5"]
+[ext_resource type="PackedScene" uid="uid://bwa076a4mdp4k" path="res://Scenes/Payloads/PayloadHitEffects/DefaultHitEffect.tscn" id="5_s6hpi"]
+[ext_resource type="PackedScene" uid="uid://c3ud52dwkij1k" path="res://Scenes/Payloads/PayloadSpawnEffects/DefaultSpawnEffect.tscn" id="6_s6gb5"]
 [ext_resource type="AudioStream" uid="uid://bdqc0vrfejhd3" path="res://Assets/SFX/BulletGoSFX.mp3" id="7_4fa3i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ees0o"]
@@ -20,8 +20,8 @@ script = ExtResource("1_2rgvi")
 payloadStatsResource = ExtResource("2_22gb7")
 payloadBehaviorResource = ExtResource("3_cf3mi")
 payloadSpawnResource = ExtResource("4_yllsl")
-payloadSpawnEffect = ExtResource("5_s6hpi")
-payloadHitEffect = ExtResource("6_s6gb5")
+payloadSpawnEffect = ExtResource("6_s6gb5")
+payloadHitEffect = ExtResource("5_s6hpi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
