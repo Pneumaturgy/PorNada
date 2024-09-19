@@ -39,7 +39,6 @@ func spawn_aliens():
 	var x = cos(angle) * distance
 	var y = sin(angle) * distance
 	var picked_alien_type = alien_spawn_table.pick_an_alien_type()
-	print("Current Stage: ", Global.current_stage, ", Spawning Alien: ", picked_alien_type)
 	var selected_alien_type = aliens[picked_alien_type]
 	var alien_instance = selected_alien_type.instantiate()
 	alien_instance.position = Vector2(global_position.x + x, global_position.y + y)
