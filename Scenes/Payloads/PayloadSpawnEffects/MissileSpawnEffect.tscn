@@ -54,11 +54,11 @@ explosiveness = 0.8
 [node name="BaseSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_buvy2")
 autoplay = true
-bus = &"SFX"
+bus = &"In-Game SFX"
 
 [node name="SpecialSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gfg0w")
 autoplay = true
-bus = &"SFX"
+bus = &"In-Game SFX"
 
 [connection signal="finished" from="BaseSFX" to="." method="_on_base_sfx_finished"]

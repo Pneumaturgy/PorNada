@@ -54,6 +54,6 @@ explosiveness = 0.8
 stream = ExtResource("2_x1qe6")
 autoplay = true
 max_distance = 4000.0
-bus = &"SFX"
+bus = &"In-Game SFX"
 
 [connection signal="finished" from="BaseSFX" to="." method="_on_base_sfx_finished"]
