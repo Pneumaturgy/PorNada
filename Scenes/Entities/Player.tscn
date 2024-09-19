@@ -21,7 +21,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	global_position = player.position + Vector2(-200,-200)
 	#position = fix_position 
 "
@@ -105,7 +105,4 @@ fill_mode = 3
 
 [node name="Inventory" parent="." instance=ExtResource("8_i4nyp")]
 
-[connection signal="use_touch_aim_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_aim_vector"]
-[connection signal="use_touch_move_multiplier" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_multiplier"]
-[connection signal="use_touch_move_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_vector"]
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]

@@ -1,7 +1,7 @@
 extends Area2D
 class_name DropObject
 
-signal collected(drop)
+#signal collected(drop)
 @export var drop_resource : Drop
 @onready var icon = $Icon
 var quantity: int

@@ -34,7 +34,7 @@ func _ready():
 	death_timer.timeout.connect(destroy_bullet)
 	death_timer.start()
 
-func _process(delta):
+func _process(_delta):
 	position += payload_behavior_strategy.get_position_delta(self, direction, payloadStatsResource);
 
 func spawn_effects():

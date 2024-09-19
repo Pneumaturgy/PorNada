@@ -32,7 +32,7 @@ func create_new_noise():
 	noise_texture.generate_mipmaps = true
 	await get_tree().process_frame
 
-func generate_new_terrain(multi_mesh, range, variance, chance):
+func generate_new_terrain(multi_mesh, total_range, variance, chance):
 	var new_image = noise_texture.get_image()
 	if new_image != null:
 		var instance_index = 0
@@ -40,7 +40,7 @@ func generate_new_terrain(multi_mesh, range, variance, chance):
 			for x in range(new_image.get_width()):
 				var color = new_image.get_pixelv(Vector2(x, y)).r  # Get the grayscale value
 				if instance_index < multi_mesh.instance_count:
-					if color > range.x and color < range.y:
+					if color > total_range.x and color < total_range.y:
 						if randf_range(0.0, 100.0) <= chance:
 							var new_position = Vector2(x*100+randf_range(-variance,variance), y*100+randf_range(-variance,variance))
 							multi_mesh.set_instance_transform_2d(instance_index, Transform2D(randf_range(-0.2,0.2), new_position))

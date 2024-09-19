@@ -1,7 +1,7 @@
 extends Node
 class_name PayloadMovementBehavior
 
-func initialize(payload_owner, payloadStatsResource: PayloadStats):
+func initialize(_payload_owner, _payloadStatsResource: PayloadStats):
 	pass
 
 func get_position_delta(payload_owner, direction, payloadStatsResource: PayloadStats ):

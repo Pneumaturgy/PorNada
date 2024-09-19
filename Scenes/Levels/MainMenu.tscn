@@ -23,11 +23,6 @@ func _ready():
 	fade_in_screen.visible =  true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_new_pressed():
 	print('new')
 	animation_player.play_backwards(\"fade_in\")
@@ -50,7 +45,7 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 
-func _on_animation_player_animation_finished(fade_in):
+func _on_animation_player_animation_finished(_fade_in):
 	if trigger:
 		get_tree().change_scene_to_file(\"res://Scenes/Levels/Main.tscn\")
 "
@@ -66,7 +61,7 @@ func _ready():
 	if OS.get_name() == \"Android\":
 		is_mobile = true
 
-func _process(delta):
+func _process(_delta):
 	if is_mobile:
 		var gyro = Input.get_gyroscope()
 		position += Vector2(-gyro.y*15,-gyro.x*15)

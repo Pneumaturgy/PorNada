@@ -131,7 +131,7 @@ func _on_fire_rate_timer_timeout():
 	if can_fire:
 		fire(current_payload)
 
-func update_ui(property, delta):
+func update_ui(property, _delta):
 	if property == "health":
 		progress_bar.value = self.properties["health"]
 

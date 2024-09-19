@@ -30,10 +30,10 @@ func _on_alien_spawner_alien_spawned(alien_instance):
 	add_child(alien_instance)
 	alien_instance.set_player_instance(player)
 
-func _on_drop_spawned(drop_instance): # TODO: Do we need this?
+func _on_drop_spawned(_drop_instance): # TODO: Do we need this?
 	pass
 
-func _process(delta):
+func _process(_delta):
 	label.text = "fps: " + str(Engine.get_frames_per_second())
 	next_stage_number.text =  "[center][wave amp=50 freq=5]" + str(night_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
 	timer_text.text =  "[center][wave amp=50 freq=5]Time: " + str(day_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
@@ -85,7 +85,7 @@ func _on_player_player_died():
 	animation_player.play_backwards()
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	if death_animation_trigger:
 		get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 	else:

@@ -45,7 +45,7 @@ func is_current_stage_in_table_wildcard():
 	return str(get_current_stage_in_table()) == WILDCARD_STAGE
 
 ## potential future todo after discussion: should we mutate the wildcard stage for a given run every time it is beaten?
-func mutate_stage_in_table(stage_id):
+func mutate_stage_in_table(_stage_id):
 	pass
 
 func mutate_wildcard_stage():
