@@ -11,6 +11,8 @@ class_name Payload
 @export var payloadStatsResource : PayloadStats
 @export var payloadBehaviorResource : PayloadBehavior
 @export var payloadSpawnResource : PayloadSpawn
+@export var payloadSpawnEffect : PackedScene
+@export var payloadHitEffect : PackedScene
 
 var layer_value : int
 var mask_value : int
@@ -21,6 +23,7 @@ var payload_spawn_strategy
 var direction
 
 func _ready():
+	spawn_effects()
 	payload_behavior_strategy = payloadBehaviorResource.get_chasing_movement_strategy()
 	payload_behavior_strategy.initialize(self, payloadStatsResource)
 	payload_spawn_strategy = payloadSpawnResource.get_spawn_strategy()
@@ -34,6 +37,12 @@ func _ready():
 func _process(delta):
 	position += payload_behavior_strategy.get_position_delta(self, direction, payloadStatsResource);
 
+func spawn_effects():
+	var new_effect = payloadSpawnEffect.instantiate()
+	new_effect.position = self.position
+	print(get_parent())
+	get_parent().add_child(new_effect)
+
 func apply_effects(entity):
 	for property in payloadStatsResource.affected_properties_with_deltas:
 		var delta = payloadStatsResource.affected_properties_with_deltas[property]
@@ -42,7 +51,14 @@ func apply_effects(entity):
 func _on_body_entered(body):
 	if body is CharacterBody2D: # Entity:
 		apply_effects(body)
+		hit_effect()
 		destroy_bullet()
+
+func hit_effect():
+	var new_effect = payloadHitEffect.instantiate()
+	new_effect.position = self.position
+	print(get_parent())
+	get_parent().add_child(new_effect)
 
 func destroy_bullet():
 	queue_free()
