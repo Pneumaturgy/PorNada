@@ -41,7 +41,6 @@ func spawn_effects():
 	if payloadSpawnEffect:
 		var new_effect = payloadSpawnEffect.instantiate()
 		new_effect.position = self.position
-		print(get_parent())
 		get_parent().add_child(new_effect)
 
 func apply_effects(entity):
@@ -59,7 +58,6 @@ func hit_effect():
 	if payloadHitEffect:
 		var new_effect = payloadHitEffect.instantiate()
 		new_effect.position = self.position
-		print(get_parent())
 		get_parent().add_child(new_effect)
 
 func destroy_bullet():

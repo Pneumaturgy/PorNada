@@ -46,7 +46,7 @@ func add_to_inventory(drop):
 		item_stored = true
 	if item_stored:
 		current_slot.update_slot()
-		print("drop: ", drop.drop_resource.item_identifier, " current quantity: ", InventoryGrid.get_children()[inventory_slot].quantity )
+		#print("drop: ", drop.drop_resource.item_identifier, " current quantity: ", InventoryGrid.get_children()[inventory_slot].quantity )
 		drop.destroy()
 	# for each inventory slot
 	# if slot is empty:
