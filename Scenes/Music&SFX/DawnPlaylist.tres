@@ -1,14 +1,8 @@
-[gd_resource type="AudioStreamPlaylist" load_steps=5 format=3 uid="uid://chilb7xnei7ax"]
+[gd_resource type="AudioStreamPlaylist" load_steps=2 format=3 uid="uid://chilb7xnei7ax"]
 
 [ext_resource type="AudioStream" uid="uid://db8orccg0kskx" path="res://Assets/Music/Dawn1.mp3" id="1_rle1v"]
-[ext_resource type="AudioStream" uid="uid://cpg7gp6opd51" path="res://Assets/Music/Dawn2.mp3" id="2_7014d"]
-[ext_resource type="AudioStream" uid="uid://bx48acvaqbdmj" path="res://Assets/Music/Dawn3.mp3" id="3_lu4c4"]
-[ext_resource type="AudioStream" uid="uid://c3vwgnggdjy4e" path="res://Assets/Music/Dawn4.mp3" id="4_pmd5v"]
 
 [resource]
 fade_time = 1.0
-stream_count = 4
+stream_count = 1
 stream_0 = ExtResource("1_rle1v")
-stream_1 = ExtResource("2_7014d")
-stream_2 = ExtResource("3_lu4c4")
-stream_3 = ExtResource("4_pmd5v")

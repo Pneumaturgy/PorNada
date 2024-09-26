@@ -19,8 +19,11 @@ extends Node2D
 @onready var dawn_timer = $DawnTimer
 
 @onready var juke_box = $JukeBox
-#var play_next_track = true
-var trigger_next_track = false
+@onready var juke_stream = juke_box.stream
+const DAWN_PLAYLIST_RESOURCE = preload("res://Scenes/Music&SFX/DawnPlaylistResource.tres")
+const DAY_PLAYLIST_RESOURCE = preload("res://Scenes/Music&SFX/DayPlaylistResource.tres")
+const NIGHT_PLAYLIST_RESOURCE = preload("res://Scenes/Music&SFX/NightPlaylistResource.tres")
+
 var next_playlist 
 
 var next_scene : String
@@ -28,8 +31,7 @@ var current_level_kill_count : int
 var death_animation_trigger = false
 
 func _ready():
-	next_playlist = juke_box.dawn_playlist
-	update_jukebox()
+
 	new_dawn()
 	current_stage_text.text = "[center][wave amp=50 freq=5]Current Stage: " + str(Global.current_stage) + "[/wave][/center]"
 	current_level_kill_count = 0
@@ -42,22 +44,20 @@ func _on_alien_spawner_alien_spawned(alien_instance):
 func _on_drop_spawned(_drop_instance): # TODO: Do we need this?
 	pass
 
-
-
 func _process(_delta):
 	label.text = "fps: " + str(Engine.get_frames_per_second())
 	next_stage_number.text =  "[center][wave amp=50 freq=5]" + str(night_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
 	timer_text.text =  "[center][wave amp=50 freq=5]Time: " + str(day_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
-
 #region Day / Night Cycle
 func new_dawn(): ## Prepare to fight!
-	
+
 	dawn_timer.start() # Begin timer
 	print('dawn_timer')
 	
-	trigger_next_track = true
-	next_playlist = juke_box.dawn_playlist
-	#update_jukebox() # Update music
+
+	
+	next_playlist = DAWN_PLAYLIST_RESOURCE
+	update_jukebox() # Update music
 	# Update UI
 	new_stage_canvas.visible = false 
 	current_stage_text.text  = "[center][wave amp=50 freq=5]Current Stage: " + str(Global.current_stage) + "[/wave][/center]"
@@ -68,10 +68,9 @@ func _on_dawn_timer_timeout():
 func new_day(): ## Time to fight!
 	clean_all_drops()
 	day_timer.start()
-	
-	trigger_next_track = true
-	next_playlist = juke_box.day_playlist
-	#update_jukebox()
+
+	next_playlist = DAY_PLAYLIST_RESOURCE
+	update_jukebox()
 	alien_spawner.update_difficulty()
 	alien_spawner.can_spawn = true
 
@@ -82,9 +81,8 @@ func _on_day_timer_timeout():
 func new_night(): ## Time to loot!
 	night_timer.start()
 	
-	trigger_next_track = true
-	next_playlist = juke_box.night_playlist
-	#update_jukebox()
+	next_playlist = NIGHT_PLAYLIST_RESOURCE
+	update_jukebox()
 	alien_spawner.can_spawn = false
 	kill_all_aliens()
 	
@@ -100,7 +98,6 @@ func new_night(): ## Time to loot!
 func _on_night_timer_timeout():
 	new_dawn()
 #endregion
-
 
 func on_alien_death():
 	current_level_kill_count += 1
@@ -132,21 +129,10 @@ func _on_animation_player_animation_finished(_anim_name):
 
 
 func _on_juke_box_finished():
-	#if trigger_next_track:
 	update_jukebox()
-		#trigger_next_track = false
-		
-	#play_next_track = true
-	print('playnexttrack')
-	
-	pass # Replace with function body.
+
 
 func update_jukebox():
-	juke_box.stream = next_playlist.get_list_stream(randi_range(0,next_playlist.get_stream_count()-1))
-	#if play_next_track:
+	juke_box.stream = next_playlist.audio_tracks[randi_range(0,next_playlist.audio_tracks.size()-1)]
+	juke_box.stream.loop = true
 	juke_box.play()
-	print("jukebox is playing: " , juke_box.playing)
-	print("next playlist is: " , next_playlist)
-	print("current stream: " , juke_box.stream)
-
-		#play_next_track = false

@@ -280,7 +280,7 @@ libraries = {
 autoplay = "fade_in"
 
 [node name="DawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 11.19
 one_shot = true
 
 [node name="DayTimer" type="Timer" parent="."]
@@ -298,6 +298,7 @@ autoplay = true
 bus = &"SFX"
 
 [node name="JukeBox" parent="." instance=ExtResource("8_w0miu")]
+script = null
 
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]

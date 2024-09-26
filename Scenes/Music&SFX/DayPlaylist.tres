@@ -1,22 +1,8 @@
-[gd_resource type="AudioStreamPlaylist" load_steps=9 format=3 uid="uid://w858rh1i2dj6"]
+[gd_resource type="AudioStreamPlaylist" load_steps=2 format=3 uid="uid://w858rh1i2dj6"]
 
 [ext_resource type="AudioStream" uid="uid://dkaami0lmtye7" path="res://Assets/Music/Day1.mp3" id="1_xwy50"]
-[ext_resource type="AudioStream" uid="uid://dcidqiyibbahu" path="res://Assets/Music/Day2.mp3" id="2_wy48m"]
-[ext_resource type="AudioStream" uid="uid://d12r2kuho23qd" path="res://Assets/Music/Day3.mp3" id="3_swxrp"]
-[ext_resource type="AudioStream" uid="uid://drd6qqgujctyn" path="res://Assets/Music/Day4.mp3" id="4_5hd3u"]
-[ext_resource type="AudioStream" uid="uid://ceqtxbjxujynp" path="res://Assets/Music/Day5.mp3" id="5_7fjqc"]
-[ext_resource type="AudioStream" uid="uid://bfymh7lhk0p8r" path="res://Assets/Music/Day6.mp3" id="6_agkxf"]
-[ext_resource type="AudioStream" uid="uid://flp03o2x87dr" path="res://Assets/Music/Day7.mp3" id="7_4f2sr"]
-[ext_resource type="AudioStream" uid="uid://l05c8slawlwh" path="res://Assets/Music/Day8.mp3" id="8_1xswd"]
 
 [resource]
 fade_time = 1.0
-stream_count = 8
+stream_count = 1
 stream_0 = ExtResource("1_xwy50")
-stream_1 = ExtResource("2_wy48m")
-stream_2 = ExtResource("3_swxrp")
-stream_3 = ExtResource("4_5hd3u")
-stream_4 = ExtResource("5_7fjqc")
-stream_5 = ExtResource("6_agkxf")
-stream_6 = ExtResource("7_4f2sr")
-stream_7 = ExtResource("8_1xswd")
