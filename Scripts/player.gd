@@ -58,6 +58,7 @@ func get_input():
 			velocity = touch_move_vector * (speed_multiplier * get_property("speed"))
 	else:
 		velocity = Vector2(0,0)
+
 func _on_mobile_ui_overlay_use_touch_move_vector(move_vector):
 	if mobile_controls:
 		touch_move_vector = move_vector
@@ -78,10 +79,10 @@ func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):
 
 func _input(event):
 	if !disable_player_controls:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and !mobile_controls:
 			can_fire = event.pressed
 
-		if Input.is_action_just_pressed("fire"):
+		if Input.is_action_pressed("fire"):
 			if weapon_ready:
 				fire(current_payload)
 				weapon_ready = false

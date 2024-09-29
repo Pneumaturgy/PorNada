@@ -117,7 +117,6 @@ script = ExtResource("1_oqb2v")
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 unique_name_in_owner = true
-mobile_controls = true
 current_payload = ExtResource("3_k8oda")
 fire_rate = 0.7
 properties = {

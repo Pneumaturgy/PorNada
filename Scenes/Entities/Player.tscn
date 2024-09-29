@@ -111,4 +111,7 @@ stream = ExtResource("9_ss25v")
 autoplay = true
 bus = &"In-Game SFX"
 
+[connection signal="use_touch_aim_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_aim_vector"]
+[connection signal="use_touch_move_multiplier" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_multiplier"]
+[connection signal="use_touch_move_vector" from="MobileUiOverlay" to="." method="_on_mobile_ui_overlay_use_touch_move_vector"]
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
