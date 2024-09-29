@@ -25,13 +25,12 @@ const DAY_PLAYLIST_RESOURCE = preload("res://Scenes/Music&SFX/DayPlaylistResourc
 const NIGHT_PLAYLIST_RESOURCE = preload("res://Scenes/Music&SFX/NightPlaylistResource.tres")
 
 var next_playlist 
-
+var first_tick = false
 var next_scene : String
 var current_level_kill_count : int
 var death_animation_trigger = false
 
 func _ready():
-
 	new_dawn()
 	current_stage_text.text = "[center][wave amp=50 freq=5]Current Stage: " + str(Global.current_stage) + "[/wave][/center]"
 	current_level_kill_count = 0
@@ -45,17 +44,17 @@ func _on_drop_spawned(_drop_instance): # TODO: Do we need this?
 	pass
 
 func _process(_delta):
+	if !first_tick:
+		first_tick = true
+		update_jukebox()
 	label.text = "fps: " + str(Engine.get_frames_per_second())
 	next_stage_number.text =  "[center][wave amp=50 freq=5]" + str(night_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
 	timer_text.text =  "[center][wave amp=50 freq=5]Time: " + str(day_timer.get_time_left()).pad_decimals(1) + "[/wave][/center]"
+
 #region Day / Night Cycle
 func new_dawn(): ## Prepare to fight!
-
 	dawn_timer.start() # Begin timer
 	print('dawn_timer')
-	
-
-	
 	next_playlist = DAWN_PLAYLIST_RESOURCE
 	update_jukebox() # Update music
 	# Update UI
@@ -133,6 +132,7 @@ func _on_juke_box_finished():
 
 
 func update_jukebox():
-	juke_box.stream = next_playlist.audio_tracks[randi_range(0,next_playlist.audio_tracks.size()-1)]
-	juke_box.stream.loop = true
-	juke_box.play()
+	if first_tick:
+		juke_box.stream = next_playlist.audio_tracks[randi_range(0,next_playlist.audio_tracks.size()-1)]
+		juke_box.stream.loop = true
+		juke_box.play()

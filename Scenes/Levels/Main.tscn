@@ -117,6 +117,7 @@ script = ExtResource("1_oqb2v")
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 unique_name_in_owner = true
+mobile_controls = true
 current_payload = ExtResource("3_k8oda")
 fire_rate = 0.7
 properties = {
@@ -136,7 +137,6 @@ min_zoom = Vector2(0.2, 0.2)
 max_zoom = Vector2(0.3, 0.3)
 
 [node name="NewStageCanvas" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="NewStageCanvas"]
 layout_mode = 3
@@ -205,7 +205,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 148.0
 offset_top = -288.0
-offset_right = 477.0
+offset_right = 748.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -298,6 +298,7 @@ autoplay = true
 bus = &"SFX"
 
 [node name="JukeBox" parent="." instance=ExtResource("8_w0miu")]
+autoplay = false
 script = null
 
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
