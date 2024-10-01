@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddybj8vr5f4c5"]
+[gd_scene load_steps=12 format=3 uid="uid://ddybj8vr5f4c5"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_xmpdo"]
 [ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_5u7mn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://b1fe7oju5m2ov" path="res://Scripts/Enemies/EnemyResources/teleporter_enemy_resource.tres" id="4_aoodm"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_tsh2a"]
 [ext_resource type="AudioStream" uid="uid://corbw43gq6ftx" path="res://Assets/SFX/VOXFX/Alien2Spawn.mp3" id="7_h2x0n"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="7_hdmsv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0
@@ -71,6 +72,13 @@ pitch_scale = 1.5
 autoplay = true
 max_distance = 6000.0
 bus = &"In-Game SFX"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -710.0
+offset_top = -449.0
+offset_right = 722.0
+offset_bottom = -331.0
+script = ExtResource("7_hdmsv")
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

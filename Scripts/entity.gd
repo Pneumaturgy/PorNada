@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name  Entity
 
 var death_check = true
+signal healthChanged
 
 @export var properties = {
 	"health": 100.0,
@@ -25,6 +26,7 @@ func die():
 	queue_free()
 
 func health_triggers(value):
+	healthChanged.emit()
 	if value <= 0:
 		if death_check:
 			death_check = false

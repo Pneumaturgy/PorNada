@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_8236i"]
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_ffhe0"]
 [ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_qwxjb"]
-[ext_resource type="Texture2D" uid="uid://bcox5tg3oo4sg" path="res://Assets/2D/Sprites/Triangle.png" id="4_djjlr"]
 [ext_resource type="PackedScene" uid="uid://bi0qftlhda3q6" path="res://Scenes/sprites_shadow.tscn" id="5_j2ydm"]
+[ext_resource type="Texture2D" uid="uid://xdasym8vi57w" path="res://Assets/2D/Sprites/ship01top.png" id="6_0j3qk"]
 [ext_resource type="PackedScene" uid="uid://bpn16s0tmjxxb" path="res://Scenes/Player/inventory.tscn" id="8_i4nyp"]
 [ext_resource type="AudioStream" uid="uid://dni67sk12avb4" path="res://Assets/SFX/VOXFX/PlayerSpawn2.mp3" id="9_ss25v"]
 
@@ -47,25 +47,12 @@ script = SubResource("GDScript_75t6v")
 
 [node name="Sprites" type="Node2D" parent="CharacterGraphics"]
 script = ExtResource("3_8236i")
-color = "CHARTREUSE"
+color = "FFF"
 
-[node name="Main" type="Sprite2D" parent="CharacterGraphics/Sprites"]
-texture_filter = 1
-texture = ExtResource("4_djjlr")
-
-[node name="Main2" type="Sprite2D" parent="CharacterGraphics/Sprites"]
-texture_filter = 1
-position = Vector2(-100, 0)
-rotation = -0.523599
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_djjlr")
-
-[node name="Main3" type="Sprite2D" parent="CharacterGraphics/Sprites"]
-texture_filter = 1
-position = Vector2(100, 0)
-rotation = 0.523599
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("4_djjlr")
+[node name="Ship01Top" type="Sprite2D" parent="CharacterGraphics/Sprites"]
+rotation = 3.14159
+scale = Vector2(0.839999, 0.839999)
+texture = ExtResource("6_0j3qk")
 
 [node name="MobileUiOverlay" parent="." instance=ExtResource("3_qwxjb")]
 
