@@ -21,5 +21,4 @@ func _process(delta):
 
 
 func update():
-	print("Updating health bar")
 	value = entity.get_property("health")
