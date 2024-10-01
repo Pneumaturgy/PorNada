@@ -57,14 +57,12 @@ shape = SubResource("CircleShape2D_mly5f")
 collision_mask = 128
 
 [node name="AttackRangeCollision" type="CollisionShape2D" parent="AttackRange"]
-visible = false
 shape = SubResource("CircleShape2D_b76x1")
 
 [node name="VisionRange" type="Area2D" parent="."]
 collision_mask = 128
 
 [node name="VisionRangeCollision" type="CollisionShape2D" parent="VisionRange"]
-visible = false
 shape = SubResource("CircleShape2D_1ijht")
 
 [node name="AttackCooldown" type="Timer" parent="."]
