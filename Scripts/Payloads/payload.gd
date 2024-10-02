@@ -44,12 +44,9 @@ func spawn_effects():
 		get_parent().add_child(new_effect)
 
 func apply_effects(entity):
-	print('----entity')
-	print(entity)
 	for property in payloadStatsResource.affected_properties_with_deltas:
 		var delta = payloadStatsResource.affected_properties_with_deltas[property]
 		if(delta != 0):
-			print(property,' has taken', delta)
 			entity.affect_property(property, delta)
 		
 

@@ -25,8 +25,6 @@ func _ready():
 	death_timer.start()
 
 func apply_effects(entity):
-	print('-----entity')
-	print(entity)
 	for property in affected_properties_with_deltas:
 		var delta = affected_properties_with_deltas[property]
 		entity.affect_property(property, delta)

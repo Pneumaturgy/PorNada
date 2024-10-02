@@ -50,7 +50,6 @@ func set_property(property, value):
 	elif value > MAX_VALUE:
 		value = MAX_VALUE
 	runtime_properties[property] = value
-	print(property, "value is ", value)
 	check_triggers(property, value)
 
 func get_property(property):
