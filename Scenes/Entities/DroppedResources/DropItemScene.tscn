@@ -1,16 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxqll7smt031j"]
+[gd_scene load_steps=16 format=3 uid="uid://bxqll7smt031j"]
 
 [ext_resource type="Script" path="res://Scripts/DroppedResources/drop_object.gd" id="1_3f11o"]
 [ext_resource type="Texture2D" uid="uid://caxui7cjbjsih" path="res://Assets/2D/Sprites/DroppedResources/Pneuma.png" id="2_girns"]
+[ext_resource type="PackedScene" uid="uid://7l6xat4461ni" path="res://Scenes/Entities/DroppedResources/DropSpawnEffect.tscn" id="2_xf478"]
 [ext_resource type="AudioStream" uid="uid://bo5yji4xvp82w" path="res://Assets/SFX/UI/droppickup.mp3" id="3_5ecqi"]
+[ext_resource type="PackedScene" uid="uid://chib21f3c0m8b" path="res://Scenes/Entities/DroppedResources/DropCollectEffect.tscn" id="3_alf5w"]
+[ext_resource type="Texture2D" uid="uid://6q5nsxgsuper" path="res://Assets/2D/Sprites/DroppedResources/prettyStar.svg" id="6_6dpom"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_greji"]
 radius = 150.0
+
+[sub_resource type="Gradient" id="Gradient_oqakj"]
+offsets = PackedFloat32Array(0.00378788, 0.25, 0.992424)
+colors = PackedColorArray(0, 0, 0, 0, 0.549242, 0.549242, 0.549242, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gt0b7"]
+gradient = SubResource("Gradient_oqakj")
+
+[sub_resource type="Curve" id="Curve_kjmc8"]
+min_value = -100.0
+max_value = 100.0
+_data = [Vector2(0, -100), 0.0, 0.0, 0, 0, Vector2(0.246575, 100), 0.0, 0.0, 0, 0, Vector2(0.503425, -100), 0.0, 0.0, 0, 0, Vector2(0.743151, 100), 0.0, 0.0, 0, 0, Vector2(1, -100), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_72rcr"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246575, 100), 0.0, 0.0, 0, 0, Vector2(0.493151, 0), 0.0, 0.0, 0, 0, Vector2(0.743151, 100), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_a4xbw"]
+curve_x = SubResource("Curve_kjmc8")
+curve_y = SubResource("Curve_72rcr")
+
+[sub_resource type="Curve" id="Curve_jlpjv"]
+_data = [Vector2(0, 0), 0.0, -0.1984, 0, 0, Vector2(1, 0), -10.5354, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mk8fu"]
+curve = SubResource("Curve_jlpjv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ce4od"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 150.0
+emission_ring_inner_radius = 140.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_a4xbw")
+orbit_velocity_min = -0.5
+orbit_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_curve = SubResource("CurveTexture_mk8fu")
+color_ramp = SubResource("GradientTexture1D_gt0b7")
+turbulence_noise_strength = 20.0
+turbulence_influence_max = 0.374
+turbulence_initial_displacement_min = -41.8
+turbulence_initial_displacement_max = 85.3
 
 [node name="Drop" type="Area2D" groups=["drops"]]
 collision_layer = 4
 collision_mask = 128
 script = ExtResource("1_3f11o")
+dropSpawnEffect = ExtResource("2_xf478")
+dropCollectEffect = ExtResource("3_alf5w")
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("2_girns")
@@ -20,8 +77,15 @@ shape = SubResource("CircleShape2D_greji")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5ecqi")
-pitch_scale = 1.9
+pitch_scale = 0.9
 bus = &"UI / HUD SFX"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_ce4od")
+texture = ExtResource("6_6dpom")
+lifetime = 2.0
+explosiveness = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="Sound" to="." method="_on_sound_finished"]

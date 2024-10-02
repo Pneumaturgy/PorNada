@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://6qw3ygn2swoq" path="res://Assets/2D/Backgrounds/MainMenu/4.png" id="5_0sevg"]
 [ext_resource type="Texture2D" uid="uid://brckde1y0n4l7" path="res://Assets/2D/Backgrounds/MainMenu/5.png" id="6_bakvp"]
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="7_h7o41"]
-[ext_resource type="Script" path="res://Scenes/Levels/button_effects.gd" id="7_ifuyn"]
+[ext_resource type="Script" path="res://Scripts/Effects/button_effects.gd" id="7_ifuyn"]
 [ext_resource type="AudioStream" uid="uid://blojs5l2vl1rk" path="res://Assets/SFX/UI/hover.mp3" id="8_pj504"]
 [ext_resource type="AudioStream" uid="uid://cdey0smm8vood" path="res://Assets/SFX/UI/clickup.mp3" id="9_s7tkg"]
 [ext_resource type="AudioStream" uid="uid://b8mnpndpsg7hc" path="res://Assets/SFX/UI/clickdown.mp3" id="10_4s1qk"]

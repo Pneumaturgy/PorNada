@@ -6,8 +6,8 @@
 [ext_resource type="Resource" uid="uid://d3452acsadh0i" path="res://Scenes/Inventory Items/Log.tres" id="3_uwuin"]
 [ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/EnemyResources/alien.tres" id="4_47d1q"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_cp628"]
-[ext_resource type="AudioStream" uid="uid://ds4bos42knka7" path="res://Assets/SFX/VOXFX/Alien1Spawn.mp3" id="7_bnlq3"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="7_1nt2a"]
+[ext_resource type="AudioStream" uid="uid://ds4bos42knka7" path="res://Assets/SFX/VOXFX/Alien1Spawn.mp3" id="7_bnlq3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0
