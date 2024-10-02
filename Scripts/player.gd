@@ -9,6 +9,9 @@ signal collected(drop)
 @export var current_payload : PackedScene
 @export var fire_rate = 0.3
 
+@onready var player_spawn_sound = $PlayerSpawnSound
+
+
 ## Inventory Variables
 #const INVENTORY_SLOT = preload("res://Scenes/Player/inventory_slot.tscn")
 @export var current_inventory_slots = 4
@@ -55,6 +58,7 @@ func get_input():
 			velocity = touch_move_vector * (speed_multiplier * get_property("speed"))
 	else:
 		velocity = Vector2(0,0)
+
 func _on_mobile_ui_overlay_use_touch_move_vector(move_vector):
 	if mobile_controls:
 		touch_move_vector = move_vector
@@ -75,10 +79,10 @@ func _on_mobile_ui_overlay_use_touch_move_multiplier(_speed_multiplier):
 
 func _input(event):
 	if !disable_player_controls:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and !mobile_controls:
 			can_fire = event.pressed
 
-		if Input.is_action_just_pressed("fire"):
+		if Input.is_action_pressed("fire"):
 			if weapon_ready:
 				fire(current_payload)
 				weapon_ready = false
@@ -131,7 +135,7 @@ func _on_fire_rate_timer_timeout():
 	if can_fire:
 		fire(current_payload)
 
-func update_ui(property, delta):
+func update_ui(property, _delta):
 	if property == "health":
 		progress_bar.value = self.properties["health"]
 

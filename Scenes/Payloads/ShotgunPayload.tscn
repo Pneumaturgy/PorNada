@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2d5glqcnndpt"]
+[gd_scene load_steps=9 format=3 uid="uid://d2d5glqcnndpt"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/payload.gd" id="1_0vmg0"]
 [ext_resource type="Resource" uid="uid://d3txoplfv2gog" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_stats.tres" id="2_7tog5"]
 [ext_resource type="Resource" uid="uid://dhnk35ais10jb" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_behavior.tres" id="3_pnmic"]
 [ext_resource type="Texture2D" uid="uid://cpf0bwxhv4x1m" path="res://Assets/2D/Vectors/shotgun_bullet.svg" id="4_1s48j"]
 [ext_resource type="Resource" uid="uid://pjl7f2dh8aqk" path="res://Scripts/Payloads/PayloadResources/shotgun_payload_spawn.tres" id="4_ha1xh"]
+[ext_resource type="PackedScene" uid="uid://cnbwpgfauvmh0" path="res://Scenes/Payloads/PayloadSpawnEffects/ShotgunSpawnEffect.tscn" id="5_dgnau"]
+[ext_resource type="PackedScene" uid="uid://bwa076a4mdp4k" path="res://Scenes/Payloads/PayloadHitEffects/DefaultHitEffect.tscn" id="5_sb63m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ees0o"]
 radius = 35.0
@@ -17,6 +19,8 @@ script = ExtResource("1_0vmg0")
 payloadStatsResource = ExtResource("2_7tog5")
 payloadBehaviorResource = ExtResource("3_pnmic")
 payloadSpawnResource = ExtResource("4_ha1xh")
+payloadSpawnEffect = ExtResource("5_dgnau")
+payloadHitEffect = ExtResource("5_sb63m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708

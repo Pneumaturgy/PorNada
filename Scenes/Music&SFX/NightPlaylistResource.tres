@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MusicPlaylistResource" load_steps=6 format=3 uid="uid://sr2iwctlsbli"]
+
+[ext_resource type="AudioStream" uid="uid://b6s6iscb4gksi" path="res://Assets/Music/Night1.mp3" id="1_y1455"]
+[ext_resource type="AudioStream" uid="uid://bywspflwu08e1" path="res://Assets/Music/Night2.mp3" id="2_mjns6"]
+[ext_resource type="AudioStream" uid="uid://yvsfgw3fartl" path="res://Assets/Music/Night3.mp3" id="3_eewak"]
+[ext_resource type="AudioStream" uid="uid://saaw47j7poc3" path="res://Assets/Music/Night4.mp3" id="4_o7mbg"]
+[ext_resource type="Script" path="res://Scripts/music_playlist_resource.gd" id="5_bmbfo"]
+
+[resource]
+script = ExtResource("5_bmbfo")
+audio_tracks = Array[AudioStream]([ExtResource("1_y1455"), ExtResource("2_mjns6"), ExtResource("3_eewak"), ExtResource("4_o7mbg")])

@@ -3,6 +3,8 @@ extends CanvasLayer
 signal use_touch_move_vector
 signal use_touch_move_multiplier
 signal use_touch_aim_vector
+@onready var aiming_direction = $"../AimingDirection"
+
 const JOYSTICK = preload("res://Scenes/Joystick.tscn")
 var touch_move_joystick = null
 var touch_aim_joystick = null
@@ -15,7 +17,7 @@ var deadzone_radius : float = 100
 var raw_touch_move_vector : Vector2
 var raw_touch_aim_vector : Vector2
 var speed_multiplier : float
-
+var last_aim_vector : Vector2
 
 func _physics_process(_delta):
 	if touch_move_joystick:
@@ -28,8 +30,9 @@ func _physics_process(_delta):
 	if touch_aim_joystick:
 		emit_signal("use_touch_aim_vector",touch_aim_vector)
 		check_and_trigger_fire(raw_touch_aim_vector)
+		last_aim_vector = touch_aim_vector
 	else:
-		emit_signal("use_touch_aim_vector",Vector2(0,0))
+		emit_signal("use_touch_aim_vector",last_aim_vector)
 
 
 func _input(event):
@@ -39,12 +42,14 @@ func _input(event):
 			var is_left_side = touch_position.x < get_viewport().get_visible_rect().size.x / 2
 			# Handle touch input here
 			if is_left_side: # Left side touch
+				#aiming_direction.visible = true
 				if !touch_move_joystick and !touches.has(event.index):
 					touch_move_joystick = JOYSTICK.instantiate()
 					add_child(touch_move_joystick)
 					touches[event.index] = touch_move_joystick
 					touch_move_joystick.global_position = event.position - Vector2(128,128)
 			else: # Right side touch
+				#aiming_direction.visible = false
 				if !touch_aim_joystick and !touches.has(event.index):
 					touch_aim_joystick = JOYSTICK.instantiate()
 					add_child(touch_aim_joystick)
@@ -73,6 +78,7 @@ func _input(event):
 				touch_aim_vector = raw_touch_aim_vector.normalized()
 
 func check_and_trigger_fire(aim_vector : Vector2):
+	#print(aim_vector.length(), " ", deadzone_radius)
 	if aim_vector.length() > deadzone_radius:
 		Input.action_press("fire")
 	else:

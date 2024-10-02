@@ -1,0 +1,37 @@
+[gd_resource type="AudioStreamInteractive" load_steps=4 format=3 uid="uid://ewgrdrloegui"]
+
+[ext_resource type="AudioStream" uid="uid://chilb7xnei7ax" path="res://Scenes/Music&SFX/DawnPlaylist.tres" id="1_lc3en"]
+[ext_resource type="AudioStream" uid="uid://w858rh1i2dj6" path="res://Scenes/Music&SFX/DayPlaylist.tres" id="2_y1sjk"]
+[ext_resource type="AudioStream" uid="uid://demmiuvgfv71w" path="res://Scenes/Music&SFX/NightPlaylist.tres" id="3_6b2s0"]
+
+[resource]
+clip_count = 3
+clip_0/name = &"Dawn Playlist"
+clip_0/stream = ExtResource("1_lc3en")
+clip_0/auto_advance = 0
+clip_1/name = &"Day Playlist"
+clip_1/stream = ExtResource("2_y1sjk")
+clip_1/auto_advance = 0
+clip_2/name = &"Night Playlist"
+clip_2/stream = ExtResource("3_6b2s0")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(1, 2): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(2, 0): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+}
+}

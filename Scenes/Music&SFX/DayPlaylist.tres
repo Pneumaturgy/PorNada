@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=2 format=3 uid="uid://w858rh1i2dj6"]
+
+[ext_resource type="AudioStream" uid="uid://dkaami0lmtye7" path="res://Assets/Music/Day1.mp3" id="1_xwy50"]
+
+[resource]
+fade_time = 1.0
+stream_count = 1
+stream_0 = ExtResource("1_xwy50")

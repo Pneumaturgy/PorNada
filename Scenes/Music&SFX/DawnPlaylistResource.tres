@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MusicPlaylistResource" load_steps=6 format=3 uid="uid://c5f3nfx7sobsv"]
+
+[ext_resource type="AudioStream" uid="uid://db8orccg0kskx" path="res://Assets/Music/Dawn1.mp3" id="1_8t1i6"]
+[ext_resource type="Script" path="res://Scripts/music_playlist_resource.gd" id="1_jvhsh"]
+[ext_resource type="AudioStream" uid="uid://cpg7gp6opd51" path="res://Assets/Music/Dawn2.mp3" id="2_7wq72"]
+[ext_resource type="AudioStream" uid="uid://bx48acvaqbdmj" path="res://Assets/Music/Dawn3.mp3" id="3_xnfun"]
+[ext_resource type="AudioStream" uid="uid://c3vwgnggdjy4e" path="res://Assets/Music/Dawn4.mp3" id="4_3ojtx"]
+
+[resource]
+script = ExtResource("1_jvhsh")
+audio_tracks = Array[AudioStream]([ExtResource("1_8t1i6"), ExtResource("2_7wq72"), ExtResource("3_xnfun"), ExtResource("4_3ojtx")])

@@ -3,7 +3,7 @@ class_name ChaseMovementBehavior
 
 var enemy_target
 
-func initialize(payload_owner, payloadStatsResource: PayloadStats):
+func initialize(_payload_owner, _payloadStatsResource: PayloadStats):
 	pass
 
 func get_position_delta(payload_owner, direction, payloadStatsResource: PayloadStats):

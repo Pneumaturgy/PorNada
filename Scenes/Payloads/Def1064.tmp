@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://h15ss10g57uf"]
+
+[ext_resource type="Script" path="res://Scripts/Payloads/payload.gd" id="1_2rgvi"]
+[ext_resource type="Resource" uid="uid://wrrqg5usl8oq" path="res://Scripts/Payloads/PayloadResources/default_payload_stats.tres" id="2_22gb7"]
+[ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="2_p82r6"]
+[ext_resource type="Resource" uid="uid://f8x7omrs34r3" path="res://Scripts/Payloads/PayloadResources/default_payload_behavior.tres" id="3_cf3mi"]
+[ext_resource type="Resource" uid="uid://boawrgnim215d" path="res://Scripts/Payloads/PayloadResources/default_payload_spawn.tres" id="4_yllsl"]
+[ext_resource type="PackedScene" uid="uid://bwa076a4mdp4k" path="res://Scenes/Payloads/PayloadSpawnEffects/DefaultSpawnEffect.tscn" id="5_s6hpi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ees0o"]
+radius = 100.0
+
+[node name="DefaultPayload" type="Area2D"]
+position = Vector2(-1, 0)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_2rgvi")
+payloadStatsResource = ExtResource("2_22gb7")
+payloadBehaviorResource = ExtResource("3_cf3mi")
+payloadSpawnResource = ExtResource("4_yllsl")
+payloadSpawnEffect = ExtResource("5_s6hpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_p82r6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ees0o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

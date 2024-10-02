@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=13 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Entities/Player.tscn" id="2_463pk"]
 [ext_resource type="PackedScene" uid="uid://1f81cbb0o7ig" path="res://Scenes/PlayerCamera.tscn" id="3_dv5yg"]
+[ext_resource type="PackedScene" uid="uid://d2d5glqcnndpt" path="res://Scenes/Payloads/ShotgunPayload.tscn" id="3_k8oda"]
 [ext_resource type="PackedScene" uid="uid://id3yyslh6dji" path="res://Scenes/AlienSpawner.tscn" id="3_osgbh"]
 [ext_resource type="PackedScene" uid="uid://dody11on1j6u8" path="res://Scenes/Background.tscn" id="4_rrqsw"]
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="6_ygu73"]
+[ext_resource type="AudioStream" uid="uid://bxjpcloijj253" path="res://Assets/SFX/VOXFX/PlayerSpawn1.mp3" id="7_g6mdn"]
+[ext_resource type="PackedScene" uid="uid://cgvotvyvdco5b" path="res://Scenes/Music&SFX/JukeBox.tscn" id="8_w0miu"]
 
 [sub_resource type="Animation" id="Animation_p7r1s"]
 length = 0.001
@@ -114,6 +117,7 @@ script = ExtResource("1_oqb2v")
 
 [node name="Player" parent="." instance=ExtResource("2_463pk")]
 unique_name_in_owner = true
+current_payload = ExtResource("3_k8oda")
 fire_rate = 0.7
 properties = {
 "defense": 10.0,
@@ -131,10 +135,9 @@ zoom = Vector2(0.4, 0.4)
 min_zoom = Vector2(0.2, 0.2)
 max_zoom = Vector2(0.3, 0.3)
 
-[node name="EndGame" type="CanvasLayer" parent="."]
-visible = false
+[node name="NewStageCanvas" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="EndGame"]
+[node name="Control" type="Control" parent="NewStageCanvas"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,7 +145,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="EndGame/Control"]
+[node name="Title" type="RichTextLabel" parent="NewStageCanvas/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -157,7 +160,7 @@ theme_override_font_sizes/normal_font_size = 170
 bbcode_enabled = true
 text = "[center][wave amp=50 freq=5]Completed Stage:[/wave][/center]"
 
-[node name="StageNumber" type="RichTextLabel" parent="EndGame/Control"]
+[node name="StageNumber" type="RichTextLabel" parent="NewStageCanvas/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -172,7 +175,7 @@ theme_override_font_sizes/normal_font_size = 360
 bbcode_enabled = true
 text = "[center][wave amp=50 freq=5]1[/wave][/center]"
 
-[node name="NextStage" type="RichTextLabel" parent="EndGame/Control"]
+[node name="NextStage" type="RichTextLabel" parent="NewStageCanvas/Control"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 7
@@ -191,7 +194,7 @@ theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[center][wave amp=50 freq=5]Next Stage In: [/wave][/center]"
 
-[node name="NextStageNumber" type="RichTextLabel" parent="EndGame/Control"]
+[node name="NextStageNumber" type="RichTextLabel" parent="NewStageCanvas/Control"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 7
@@ -201,7 +204,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 148.0
 offset_top = -288.0
-offset_right = 477.0
+offset_right = 748.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -275,17 +278,32 @@ libraries = {
 }
 autoplay = "fade_in"
 
-[node name="DayTimer" type="Timer" parent="."]
-wait_time = 10.0
+[node name="DawnTimer" type="Timer" parent="."]
+wait_time = 11.19
 one_shot = true
-autostart = true
+
+[node name="DayTimer" type="Timer" parent="."]
+wait_time = 44.76
+one_shot = true
 
 [node name="NightTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 33.57
 one_shot = true
+
+[node name="IntroSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_g6mdn")
+pitch_scale = 1.5
+autoplay = true
+bus = &"SFX"
+
+[node name="JukeBox" parent="." instance=ExtResource("8_w0miu")]
+autoplay = false
+script = null
 
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
 [connection signal="animation_finished" from="FadeInScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="DawnTimer" to="." method="_on_dawn_timer_timeout"]
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]
 [connection signal="timeout" from="NightTimer" to="." method="_on_night_timer_timeout"]
+[connection signal="finished" from="JukeBox" to="." method="_on_juke_box_finished"]

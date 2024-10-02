@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MusicPlaylistResource" load_steps=10 format=3 uid="uid://yavwahlpniuo"]
+
+[ext_resource type="AudioStream" uid="uid://dkaami0lmtye7" path="res://Assets/Music/Day1.mp3" id="1_x2v5k"]
+[ext_resource type="AudioStream" uid="uid://dcidqiyibbahu" path="res://Assets/Music/Day2.mp3" id="2_6hgkm"]
+[ext_resource type="AudioStream" uid="uid://d12r2kuho23qd" path="res://Assets/Music/Day3.mp3" id="3_e0ms1"]
+[ext_resource type="AudioStream" uid="uid://drd6qqgujctyn" path="res://Assets/Music/Day4.mp3" id="4_fs546"]
+[ext_resource type="AudioStream" uid="uid://ceqtxbjxujynp" path="res://Assets/Music/Day5.mp3" id="5_5ur4f"]
+[ext_resource type="Script" path="res://Scripts/music_playlist_resource.gd" id="5_40psc"]
+[ext_resource type="AudioStream" uid="uid://bfymh7lhk0p8r" path="res://Assets/Music/Day6.mp3" id="6_7m4dr"]
+[ext_resource type="AudioStream" uid="uid://flp03o2x87dr" path="res://Assets/Music/Day7.mp3" id="7_uulxa"]
+[ext_resource type="AudioStream" uid="uid://l05c8slawlwh" path="res://Assets/Music/Day8.mp3" id="8_k7vc1"]
+
+[resource]
+script = ExtResource("5_40psc")
+audio_tracks = Array[AudioStream]([ExtResource("1_x2v5k"), ExtResource("2_6hgkm"), ExtResource("3_e0ms1"), ExtResource("4_fs546"), ExtResource("5_5ur4f"), ExtResource("6_7m4dr"), ExtResource("7_uulxa"), ExtResource("8_k7vc1")])

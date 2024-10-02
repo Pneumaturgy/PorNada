@@ -53,5 +53,5 @@ func affect_property(property, delta):
 	update_ui(property,delta)
 	set_property(property, get_property(property) + delta)
 
-func update_ui(property,delta):
+func update_ui(_property,_delta):
 	pass

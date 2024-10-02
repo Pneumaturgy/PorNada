@@ -11,7 +11,7 @@ script/source = "extends Sprite2D
 var to_modulate = {}
 
 
-func _process(delta):
+func _process(_delta):
 	# Get the Player node (assuming it's the root of this structure)
 	#var player = get_node(\"/Main/Player\")  # Adjust this path if necessary
 	

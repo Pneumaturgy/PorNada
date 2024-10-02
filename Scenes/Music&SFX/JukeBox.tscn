@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgvotvyvdco5b"]
+
+[ext_resource type="AudioStream" uid="uid://demmiuvgfv71w" path="res://Scenes/Music&SFX/NightPlaylist.tres" id="1_3txgh"]
+[ext_resource type="AudioStream" uid="uid://chilb7xnei7ax" path="res://Scenes/Music&SFX/DawnPlaylist.tres" id="2_u4hhw"]
+[ext_resource type="AudioStream" uid="uid://w858rh1i2dj6" path="res://Scenes/Music&SFX/DayPlaylist.tres" id="3_5d000"]
+
+[sub_resource type="GDScript" id="GDScript_t08sg"]
+script/source = "extends AudioStreamPlayer
+class_name Jukebox
+
+@export var night_playlist : AudioStreamPlaylist
+@export var dawn_playlist : AudioStreamPlaylist
+@export var day_playlist : AudioStreamPlaylist
+"
+
+[node name="JukeBox" type="AudioStreamPlayer"]
+autoplay = true
+bus = &"Music"
+script = SubResource("GDScript_t08sg")
+night_playlist = ExtResource("1_3txgh")
+dawn_playlist = ExtResource("2_u4hhw")
+day_playlist = ExtResource("3_5d000")

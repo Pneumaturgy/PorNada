@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmi0he5h0u8c5"]
+[gd_scene load_steps=14 format=3 uid="uid://cmi0he5h0u8c5"]
 
 [ext_resource type="Script" path="res://Scripts/Payloads/payload.gd" id="1_mqc8d"]
 [ext_resource type="Texture2D" uid="uid://b5s852ioh2cx7" path="res://Assets/2D/Vectors/missile.svg" id="1_vbb3a"]
 [ext_resource type="Resource" uid="uid://djr0wrcmv8urh" path="res://Scripts/Payloads/PayloadResources/missile_payload_stats.tres" id="2_0hy8s"]
 [ext_resource type="Resource" uid="uid://b85qw7g8rtmvt" path="res://Scripts/Payloads/PayloadResources/missile_payload_behavior.tres" id="3_xm10h"]
 [ext_resource type="Resource" uid="uid://boawrgnim215d" path="res://Scripts/Payloads/PayloadResources/default_payload_spawn.tres" id="4_oky1f"]
+[ext_resource type="PackedScene" uid="uid://do3wth0q4qas6" path="res://Scenes/Payloads/PayloadSpawnEffects/MissileSpawnEffect.tscn" id="5_ynleh"]
+[ext_resource type="PackedScene" uid="uid://bwa076a4mdp4k" path="res://Scenes/Payloads/PayloadHitEffects/DefaultHitEffect.tscn" id="6_72ala"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4m8o5"]
 radius = 25.0
@@ -44,6 +46,8 @@ script = ExtResource("1_mqc8d")
 payloadStatsResource = ExtResource("2_0hy8s")
 payloadBehaviorResource = ExtResource("3_xm10h")
 payloadSpawnResource = ExtResource("4_oky1f")
+payloadSpawnEffect = ExtResource("5_ynleh")
+payloadHitEffect = ExtResource("6_72ala")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.249998, -2.86102e-06)

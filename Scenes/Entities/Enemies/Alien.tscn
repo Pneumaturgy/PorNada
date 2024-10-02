@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jhbskamdetoa"]
+[gd_scene load_steps=12 format=3 uid="uid://jhbskamdetoa"]
 
 [ext_resource type="Script" path="res://Scripts/alien.gd" id="1_dvvrb"]
 [ext_resource type="PackedScene" uid="uid://h15ss10g57uf" path="res://Scenes/Payloads/DefaultPayload.tscn" id="2_s1k0i"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://fjfw1fduldpl" path="res://Scripts/Enemies/EnemyResources/alien.tres" id="4_47d1q"]
 [ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_cp628"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="7_1nt2a"]
+[ext_resource type="AudioStream" uid="uid://ds4bos42knka7" path="res://Assets/SFX/VOXFX/Alien1Spawn.mp3" id="7_bnlq3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mly5f"]
 radius = 200.0
@@ -65,6 +66,13 @@ collision_mask = 128
 shape = SubResource("CircleShape2D_1ijht")
 
 [node name="AttackCooldown" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_bnlq3")
+pitch_scale = 1.5
+autoplay = true
+max_distance = 6000.0
+bus = &"In-Game SFX"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -710.0
