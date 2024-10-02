@@ -35,10 +35,11 @@ var speed_multiplier : float
 var inventory_2: Dictionary # TODO: Transform into its own class / node, to communicate with Signals. Also, convert inventory contents to arrays within resources
 
 func _ready():
+	super._ready();
 	#collected.connect(on_collected)
 	check_mobile_controls()
 	fire_rate_timer.wait_time = fire_rate
-	progress_bar.value = self.properties["health"]
+	progress_bar.value = self.runtime_properties["health"]
 	inventory_2 = {}
 
 func check_mobile_controls():
@@ -137,7 +138,7 @@ func _on_fire_rate_timer_timeout():
 
 func update_ui(property, _delta):
 	if property == "health":
-		progress_bar.value = self.properties["health"]
+		progress_bar.value = self.runtime_properties["health"]
 
 func die():
 	player_died.emit()

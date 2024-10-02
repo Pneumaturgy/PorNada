@@ -44,9 +44,14 @@ func spawn_effects():
 		get_parent().add_child(new_effect)
 
 func apply_effects(entity):
+	print('----entity')
+	print(entity)
 	for property in payloadStatsResource.affected_properties_with_deltas:
 		var delta = payloadStatsResource.affected_properties_with_deltas[property]
-		entity.affect_property(property, delta)
+		if(delta != 0):
+			print(property,' has taken', delta)
+			entity.affect_property(property, delta)
+		
 
 func _on_body_entered(body):
 	if body is CharacterBody2D: # Entity:

@@ -10,6 +10,8 @@ signal healthChanged
 	"speed": 300.0
 }
 
+var runtime_properties = properties.duplicate(true);
+
 var MAX_PROPERTIES = {
 	"health": 1000.0,
 	"defense": 100.0,
@@ -21,6 +23,10 @@ var MIN_PROPERTIES = {
 	"defense": 0.0,
 	"speed": 0.0
 }
+
+func _ready():
+	runtime_properties = properties.duplicate(true);
+
 
 func die():
 	queue_free()
@@ -43,11 +49,12 @@ func set_property(property, value):
 		value = MIN_VALUE
 	elif value > MAX_VALUE:
 		value = MAX_VALUE
-	properties[property] = value
+	runtime_properties[property] = value
+	print(property, "value is ", value)
 	check_triggers(property, value)
 
 func get_property(property):
-	return properties[property]
+	return runtime_properties[property]
 
 func affect_property(property, delta):
 	update_ui(property,delta)
