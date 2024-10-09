@@ -13,10 +13,10 @@ func initialize(payload_owner, layer_value, mask_value, payloadStatsResource: Pa
 		new_bullet_instance.direction = new_direction
 		new_bullet_instance.global_position = payload_owner.global_position
 		new_bullet_instance.rotation = payload_owner.rotation
-		new_bullet_instance.layer_value = payload_owner.layer_value
-		new_bullet_instance.mask_value = payload_owner.mask_value
+		new_bullet_instance.mask_value = mask_value
+		new_bullet_instance.layer_value = layer_value
 		payload_owner.get_parent().add_child(new_bullet_instance)
 
-func set_collisions(payload_owner, layer_value, mask_value):
-	payload_owner.set_collision_layer_value(layer_value, true);
-	payload_owner.set_collision_mask_value(mask_value, true);
+#func set_collisions(payload_owner, layer_value, mask_value):
+	#payload_owner.set_collision_layer_value(layer_value, true);
+	#payload_owner.set_collision_mask_value(mask_value, true);

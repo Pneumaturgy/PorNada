@@ -7,8 +7,15 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_86tgh"]
 radius = 200.0
 
-[node name="EnvironmentEntity" type="Node2D"]
+[node name="EnvironmentEntity" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 128
 script = ExtResource("1_k5yky")
+properties = {
+"defense": 0.0,
+"health": 100.0,
+"speed": 0.0
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sel3d")
