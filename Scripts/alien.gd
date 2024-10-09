@@ -23,6 +23,7 @@ var chasing_movement_strategy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super._ready();
 	alien_death.connect(get_parent().on_alien_death)
 	chasing_movement_strategy = alien_resource.get_chasing_movement_strategy()
 

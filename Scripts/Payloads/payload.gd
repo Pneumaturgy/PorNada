@@ -46,7 +46,9 @@ func spawn_effects():
 func apply_effects(entity):
 	for property in payloadStatsResource.affected_properties_with_deltas:
 		var delta = payloadStatsResource.affected_properties_with_deltas[property]
-		entity.affect_property(property, delta)
+		if(delta != 0):
+			entity.affect_property(property, delta)
+		
 
 func _on_body_entered(body):
 	if body is CharacterBody2D: # Entity:

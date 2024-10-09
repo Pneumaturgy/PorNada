@@ -9,7 +9,8 @@ func _ready():
 	entity = get_parent()
 	entity.healthChanged.connect(update)
 	 # TODO: adjust if enemy recovers health with time and the initial is not the max
-	max_value = entity.get_property("health")
+	max_value = entity.properties["health"]
+	value = max_value
 	offset =  global_position - entity.global_position
 	update()
 
