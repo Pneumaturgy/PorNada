@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://wpocxhp4mlxv"]
+
+[ext_resource type="Script" path="res://Scripts/EnvEntities/environment_entity.gd" id="1_k5yky"]
+[ext_resource type="Texture2D" uid="uid://b53ytx4i6r7lt" path="res://Assets/2D/Sprites/Entity/mushy.png" id="1_sel3d"]
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="2_1a6n6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86tgh"]
+radius = 200.0
+
+[node name="EnvironmentEntity" type="Node2D"]
+script = ExtResource("1_k5yky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sel3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_86tgh")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -710.0
+offset_top = -449.0
+offset_right = 722.0
+offset_bottom = -331.0
+script = ExtResource("2_1a6n6")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcox5tg3oo4sg"
-path="res://.godot/imported/Triangle.png-bd290975bb9bbe237bc5ae7c5ac057df.ctex"
+uid="uid://xdasym8vi57w"
+path="res://.godot/imported/ship01top.png-dc5eac2eb29ebafef0f99225937986fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D/Sprites/Triangle.png"
-dest_files=["res://.godot/imported/Triangle.png-bd290975bb9bbe237bc5ae7c5ac057df.ctex"]
+source_file="res://Assets/2D/Sprites/Entity/ship01top.png"
+dest_files=["res://.godot/imported/ship01top.png-dc5eac2eb29ebafef0f99225937986fa.ctex"]
 
 [params]
 

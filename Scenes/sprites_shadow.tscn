@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi0qftlhda3q6"]
 
-[ext_resource type="Texture2D" uid="uid://b17cp4lf0d3se" path="res://Assets/2D/Sprites/playershadow.png" id="2_c1kqn"]
+[ext_resource type="Texture2D" uid="uid://b17cp4lf0d3se" path="res://Assets/2D/Sprites/Entity/playershadow.png" id="2_c1kqn"]
 
 [sub_resource type="GDScript" id="GDScript_mmp00"]
 script/source = "extends Sprite2D

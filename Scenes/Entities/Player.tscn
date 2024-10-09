@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_ffhe0"]
 [ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_qwxjb"]
 [ext_resource type="PackedScene" uid="uid://bi0qftlhda3q6" path="res://Scenes/sprites_shadow.tscn" id="5_j2ydm"]
-[ext_resource type="Texture2D" uid="uid://xdasym8vi57w" path="res://Assets/2D/Sprites/ship01top.png" id="6_0j3qk"]
+[ext_resource type="Texture2D" uid="uid://xdasym8vi57w" path="res://Assets/2D/Sprites/Entity/ship01top.png" id="6_0j3qk"]
 [ext_resource type="PackedScene" uid="uid://bpn16s0tmjxxb" path="res://Scenes/Player/inventory.tscn" id="8_i4nyp"]
 [ext_resource type="AudioStream" uid="uid://dni67sk12avb4" path="res://Assets/SFX/VOXFX/PlayerSpawn2.mp3" id="9_ss25v"]
 

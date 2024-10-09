@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xdasym8vi57w"
-path="res://.godot/imported/ship01top.png-fdf09be435663ae18c14feacfaf7b74c.ctex"
+uid="uid://bsh28ymc6d1x6"
+path="res://.godot/imported/Funk.png-30b180c378ef3519ce4dcd99461075be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D/Sprites/ship01top.png"
-dest_files=["res://.godot/imported/ship01top.png-fdf09be435663ae18c14feacfaf7b74c.ctex"]
+source_file="res://Assets/2D/Sprites/Entity/Funk.png"
+dest_files=["res://.godot/imported/Funk.png-30b180c378ef3519ce4dcd99461075be.ctex"]
 
 [params]
 

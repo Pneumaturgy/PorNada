@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="3_a74p5"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_mnlrb"]
 [ext_resource type="Resource" uid="uid://b1fe7oju5m2ov" path="res://Scripts/Enemies/EnemyResources/teleporter_enemy_resource.tres" id="4_aoodm"]
-[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Funk.png" id="4_tsh2a"]
+[ext_resource type="Texture2D" uid="uid://bsh28ymc6d1x6" path="res://Assets/2D/Sprites/Entity/Funk.png" id="4_tsh2a"]
 [ext_resource type="AudioStream" uid="uid://corbw43gq6ftx" path="res://Assets/SFX/VOXFX/Alien2Spawn.mp3" id="7_h2x0n"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="7_hdmsv"]
 
