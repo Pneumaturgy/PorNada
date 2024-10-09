@@ -23,8 +23,8 @@ collision_layer = 2
 collision_mask = 128
 script = ExtResource("1_xmpdo")
 payload = ExtResource("2_5u7mn")
-drop_item_resource = ExtResource("3_a74p5")
 alien_resource = ExtResource("4_aoodm")
+drop_item_resource = ExtResource("3_a74p5")
 properties = {
 "defense": 10.0,
 "health": 100.0,

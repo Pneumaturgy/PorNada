@@ -7,10 +7,10 @@ signal alien_death
 var player
 @export var payload : PackedScene
 @onready var AttackCooldownTimer = $AttackCooldown
-@export var drop_item_resource : Resource
+#@export var drop_item_resource : Resource
 @export var attack_cooldown = 1.0
 
-const drop_item_scene = preload("res://Scenes/Entities/DroppedResources/DropItemScene.tscn")
+#const drop_item_scene = preload("res://Scenes/Entities/DroppedResources/DropItemScene.tscn")
 
 var firing_offset = 20
 var is_chasing = false
@@ -47,9 +47,10 @@ func attack():
 		#TODO: Spawn behavior.
 		var new_payload : Area2D = payload.instantiate();
 		# collision setup
-		new_payload.layer_value = 2
-		new_payload.mask_value = 8
-		
+		#new_payload.layer_value = 2
+		#new_payload.mask_value = 8
+		new_payload.set_collision_layer_value(2, true);
+		new_payload.set_collision_mask_value(8, true);
 		#new_payload.set_collision_layer_value(2, true); #Enemies
 		#new_payload.set_collision_mask_value(8, true);
 		
@@ -103,10 +104,10 @@ func drop():
 func die():
 	Global.current_alien_count -= 1
 	alien_death.emit()
-	drop()
+	#drop()
 	super.die()
 
 func delete():
 	Global.current_alien_count -= 1
 	alien_death.emit()
-	super.die()
+	queue_free()

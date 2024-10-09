@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp3v34nxlp5eb"]
+[gd_scene load_steps=13 format=3 uid="uid://dp3v34nxlp5eb"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_0towx"]
 [ext_resource type="PackedScene" uid="uid://cmi0he5h0u8c5" path="res://Scenes/Payloads/MissilePayload.tscn" id="2_v2654"]
+[ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="3_4eds2"]
 [ext_resource type="Script" path="res://Scripts/modulate_children.gd" id="3_8236i"]
 [ext_resource type="Texture2D" uid="uid://bi0nfwxtxmqmv" path="res://Assets/2D/Vectors/Arrow.svg" id="3_ffhe0"]
 [ext_resource type="PackedScene" uid="uid://dwxpty4m3mpmh" path="res://Scenes/MobileUIOverlay.tscn" id="3_qwxjb"]
@@ -36,6 +37,7 @@ collision_mask = 6
 script = ExtResource("1_0towx")
 mobile_controls = false
 current_payload = ExtResource("2_v2654")
+drop_item_resource = ExtResource("3_4eds2")
 
 [node name="CharacterGraphics" type="Node2D" parent="."]
 rotation = -1.5708

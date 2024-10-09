@@ -23,9 +23,9 @@ collision_layer = 2
 collision_mask = 128
 script = ExtResource("1_dvvrb")
 payload = ExtResource("2_s1k0i")
-drop_item_resource = ExtResource("3_uwuin")
 attack_cooldown = 0.5
 alien_resource = ExtResource("4_47d1q")
+drop_item_resource = ExtResource("3_uwuin")
 properties = {
 "defense": 10.0,
 "health": 50.0,

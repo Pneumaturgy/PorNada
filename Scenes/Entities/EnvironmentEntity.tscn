@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://wpocxhp4mlxv"]
+[gd_scene load_steps=6 format=3 uid="uid://wpocxhp4mlxv"]
 
 [ext_resource type="Script" path="res://Scripts/EnvEntities/environment_entity.gd" id="1_k5yky"]
 [ext_resource type="Texture2D" uid="uid://b53ytx4i6r7lt" path="res://Assets/2D/Sprites/Entity/mushy.png" id="1_sel3d"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="2_1a6n6"]
+[ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="2_slb76"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86tgh"]
 radius = 200.0
@@ -11,9 +12,10 @@ radius = 200.0
 collision_layer = 2
 collision_mask = 128
 script = ExtResource("1_k5yky")
+drop_item_resource = ExtResource("2_slb76")
 properties = {
 "defense": 0.0,
-"health": 100.0,
+"health": 20.0,
 "speed": 0.0
 }
 

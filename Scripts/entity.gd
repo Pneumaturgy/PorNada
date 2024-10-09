@@ -1,8 +1,11 @@
 extends CharacterBody2D
 class_name  Entity
 
+@export var drop_item_resource : Resource
 var death_check = true
 signal healthChanged
+const drop_item_scene = preload("res://Scenes/Entities/DroppedResources/DropItemScene.tscn")
+
 
 @export var properties = {
 	"health": 100.0,
@@ -29,6 +32,7 @@ func _ready():
 
 
 func die():
+	drop()
 	queue_free()
 
 func health_triggers(value):
@@ -61,3 +65,12 @@ func affect_property(property, delta):
 
 func update_ui(_property,_delta):
 	pass
+
+
+func drop():
+	var new_drop = drop_item_scene.instantiate()
+	new_drop.drop_resource = drop_item_resource
+	new_drop.position = self.global_position
+	var drops_node_group = get_node("/root/Main")
+	drops_node_group.call_deferred("add_child", new_drop)
+	# TODO: Add graphic functionality
