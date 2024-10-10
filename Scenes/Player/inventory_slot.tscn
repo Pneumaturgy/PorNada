@@ -6,10 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j45qd"]
 size = Vector2(150, 150)
 
-[node name="Inventory Slot" type="Control"]
+[node name="Inventory Slot" type="TextureRect"]
 custom_minimum_size = Vector2(200, 200)
-layout_mode = 3
-anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_u6826")
@@ -23,6 +23,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 
@@ -39,6 +40,7 @@ offset_right = 39.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
 theme = ExtResource("2_okqm6")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
@@ -63,6 +65,7 @@ offset_right = 75.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("2_okqm6")
 
 [node name="Control" type="Control" parent="Area2D/Button"]
@@ -74,3 +77,6 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

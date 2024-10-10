@@ -17,9 +17,16 @@ func _ready():
 	player.collected.connect(add_to_inventory)
 	set_up_inventory()
 
+
+func can_drop_function(origin_index, destination_index):
+	return origin_index != destination_index
+
+
 func set_up_inventory():
 	for slot in player.current_inventory_slots:
 		var new_slot = INVENTORY_SLOT.instantiate()
+		new_slot.slot_index = slot
+		new_slot.can_drop_function = Callable(self, "can_drop_function")
 		InventoryGrid.add_child(new_slot)
 		
 
@@ -46,24 +53,4 @@ func add_to_inventory(drop):
 		item_stored = true
 	if item_stored:
 		current_slot.update_slot()
-		#print("drop: ", drop.drop_resource.item_identifier, " current quantity: ", InventoryGrid.get_children()[inventory_slot].quantity )
 		drop.destroy()
-	# for each inventory slot
-	# if slot is empty:
-	# if slots contains item key
-	# sum quantities
-	# else, is slot empty? find next empty slot
-	# insert new key
-	# if no new empty slots
-	
-	# send signal to destroy if added
-	# else, don't send signal
-	#print("adding: ", item_key, "quantity: ", quantity )
-
-#var max_inventory_slots = 32
-#func on_collected(item_key,quantity):
-	#add_inventory(item_key, quantity)
-#
-#func add_inventory(item_key, quantity):
-	#inventory_2[item_key] = inventory_2.get(item_key, 0) + quantity
-	#print("Player has ", str(inventory_2[item_key]), " ", item_key) # TODO: Transport this to new inventory class

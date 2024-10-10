@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpn16s0tmjxxb"]
+[gd_scene load_steps=4 format=3 uid="uid://bpn16s0tmjxxb"]
 
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="1_hkppn"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/inventory.gd" id="1_ng15c"]
 
+[sub_resource type="GDScript" id="GDScript_lrh3x"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [node name="Inventory" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_ng15c")
 
 [node name="Control" type="Control" parent="."]
@@ -14,22 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="InventoryGrid" type="GridContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -814.0
-offset_top = -446.281
-offset_right = 814.0
-offset_bottom = 446.281
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_hkppn")
-columns = 8
+script = SubResource("GDScript_lrh3x")
 
 [node name="Inventory Background" type="Panel" parent="Control"]
 layout_mode = 1
@@ -45,3 +43,23 @@ offset_bottom = 421.791
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hkppn")
+
+[node name="InventoryGrid" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -814.0
+offset_top = -446.281
+offset_right = 814.0
+offset_bottom = 446.281
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme = ExtResource("1_hkppn")
+columns = 8
+
+[connection signal="mouse_entered" from="Control" to="Control" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Control/InventoryGrid" to="." method="_on_inventory_grid_mouse_entered"]
