@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/EnvEntities/environment_entity.gd" id="1_k5yky"]
 [ext_resource type="Texture2D" uid="uid://b53ytx4i6r7lt" path="res://Assets/2D/Sprites/Entity/mushy.png" id="1_sel3d"]
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="2_1a6n6"]
-[ext_resource type="Resource" uid="uid://rk58oi5dmcsu" path="res://Scenes/Inventory Items/Paw.tres" id="2_slb76"]
+[ext_resource type="Resource" uid="uid://bykm4ekel7ek2" path="res://Scenes/Inventory Items/Soul.tres" id="2_iyo2o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_86tgh"]
 radius = 200.0
 
 [node name="EnvironmentEntity" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 128
+collision_mask = 2
 script = ExtResource("1_k5yky")
-drop_item_resource = ExtResource("2_slb76")
+drop_item_resource = ExtResource("2_iyo2o")
 properties = {
 "defense": 0.0,
 "health": 20.0,

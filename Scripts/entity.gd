@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name  Entity
 
+signal destroyed()
+
 @export var drop_item_resource : Resource
 var death_check = true
 signal healthChanged
@@ -32,6 +34,7 @@ func _ready():
 
 
 func die():
+	destroyed.emit()
 	drop()
 	queue_free()
 

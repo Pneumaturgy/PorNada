@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Drop" load_steps=3 format=3 uid="uid://bykm4ekel7ek2"]
+
+[ext_resource type="Texture2D" uid="uid://bo3o36bki75ht" path="res://Assets/2D/InventoryImages/Pneuma.svg" id="1_1134u"]
+[ext_resource type="Script" path="res://Scripts/DroppedResources/drop_resource.gd" id="1_wd54p"]
+
+[resource]
+script = ExtResource("1_wd54p")
+min_quantity_multiplier = 1
+max_quantity_multiplier = 10
+item_identifier = "Soul"
+item_image = ExtResource("1_1134u")
