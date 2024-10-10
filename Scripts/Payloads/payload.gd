@@ -23,16 +23,22 @@ var payload_spawn_strategy
 var direction
 
 func _ready():
+	if layer_value == 0 and mask_value == 0:
+		layer_value = get_collision_layer()
+		mask_value = get_collision_mask()
 	spawn_effects()
 	payload_behavior_strategy = payloadBehaviorResource.get_chasing_movement_strategy()
 	payload_behavior_strategy.initialize(self, payloadStatsResource)
 	payload_spawn_strategy = payloadSpawnResource.get_spawn_strategy()
 	payload_spawn_strategy.initialize(self, layer_value, mask_value, payloadStatsResource)
+	
+	
 	var death_timer = Timer.new()
 	add_child(death_timer)
 	death_timer.wait_time = payloadStatsResource.timeToLive
 	death_timer.timeout.connect(destroy_bullet)
 	death_timer.start()
+	
 
 func _process(_delta):
 	position += payload_behavior_strategy.get_position_delta(self, direction, payloadStatsResource);

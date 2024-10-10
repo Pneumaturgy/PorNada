@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsh28ymc6d1x6"
-path="res://.godot/imported/Funk.png-fd0935bb9a9f22b5381eb3d4f4b7a4fa.ctex"
+uid="uid://bcox5tg3oo4sg"
+path="res://.godot/imported/Triangle.png-e812bf530fd35265e9c4dd6cf70e4860.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D/Sprites/Funk.png"
-dest_files=["res://.godot/imported/Funk.png-fd0935bb9a9f22b5381eb3d4f4b7a4fa.ctex"]
+source_file="res://Assets/2D/Sprites/Entity/Triangle.png"
+dest_files=["res://.godot/imported/Triangle.png-e812bf530fd35265e9c4dd6cf70e4860.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwurvkxkotcjx"]
+[gd_scene load_steps=14 format=3 uid="uid://cwurvkxkotcjx"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_oqb2v"]
 [ext_resource type="PackedScene" uid="uid://dp3v34nxlp5eb" path="res://Scenes/Entities/Player.tscn" id="2_463pk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="6_ygu73"]
 [ext_resource type="AudioStream" uid="uid://bxjpcloijj253" path="res://Assets/SFX/VOXFX/PlayerSpawn1.mp3" id="7_g6mdn"]
 [ext_resource type="PackedScene" uid="uid://cgvotvyvdco5b" path="res://Scenes/Music&SFX/JukeBox.tscn" id="8_w0miu"]
+[ext_resource type="PackedScene" uid="uid://ddw87d31jgbjf" path="res://Scenes/EnvSpawner.tscn" id="11_a723w"]
 
 [sub_resource type="Animation" id="Animation_p7r1s"]
 length = 0.001
@@ -125,7 +126,11 @@ properties = {
 "speed": 3000.0
 }
 
-[node name="AlienSpawner" parent="Player" instance=ExtResource("3_osgbh")]
+[node name="EnvSpawner" parent="." instance=ExtResource("11_a723w")]
+position = Vector2(-10, -10)
+
+[node name="AlienSpawner" parent="." instance=ExtResource("3_osgbh")]
+position = Vector2(10, 10)
 
 [node name="Background" parent="." instance=ExtResource("4_rrqsw")]
 position = Vector2(1, 1)
@@ -301,7 +306,7 @@ autoplay = false
 script = null
 
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
-[connection signal="alien_spawned" from="Player/AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
+[connection signal="alien_spawned" from="AlienSpawner" to="." method="_on_alien_spawner_alien_spawned"]
 [connection signal="animation_finished" from="FadeInScreen/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="DawnTimer" to="." method="_on_dawn_timer_timeout"]
 [connection signal="timeout" from="DayTimer" to="." method="_on_day_timer_timeout"]

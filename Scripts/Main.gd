@@ -13,7 +13,7 @@ extends Node2D
 @onready var timer_text = $HUD/Control/HBoxContainer/Time
 @onready var current_stage_text = $HUD/Control/HBoxContainer/CurrentStageText
 
-@onready var alien_spawner = $Player/AlienSpawner
+@onready var alien_spawner = $AlienSpawner
 @onready var day_timer = $DayTimer
 @onready var night_timer = $NightTimer
 @onready var dawn_timer = $DawnTimer
