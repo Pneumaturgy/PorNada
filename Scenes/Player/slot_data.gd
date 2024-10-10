@@ -1,4 +1,4 @@
-class_name SlotData extends Node
+class_name SlotData
 
 var item: Drop
 var quantity: int
