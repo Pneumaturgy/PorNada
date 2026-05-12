@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://de0jmx2n1muqc"]
+[gd_resource type="Theme" format=3 uid="uid://de0jmx2n1muqc"]
 
 [ext_resource type="FontFile" uid="uid://bs74q7u0nqjej" path="res://Assets/Fonts/SankofaDisplay-Regular.ttf" id="1_qmemq"]
 [ext_resource type="StyleBox" uid="uid://maofl7cginxf" path="res://Assets/UI/por_nada_style2.tres" id="3_neb35"]
@@ -24,6 +24,7 @@ border_width_right = 50
 border_width_bottom = 50
 border_color = Color(0.728438, 0.803818, 0.940842, 1)
 border_blend = true
+corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50

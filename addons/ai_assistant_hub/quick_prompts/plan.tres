@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AIQuickPromptResource" format=3 uid="uid://b3xp6ppopa4kr"]
+
+[ext_resource type="Texture2D" uid="uid://r7njmupyi7w4" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_flatmsicons.png" id="1_cyaei"]
+[ext_resource type="Script" uid="uid://d0fa2nefrqetl" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="2_pcfl1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gcli"]
+atlas = ExtResource("1_cyaei")
+region = Rect2(928, 640, 32, 32)
+
+[resource]
+script = ExtResource("2_pcfl1")
+action_name = "Plan"
+action_prompt = "Review this feature request and draft an implementation_plan.md following the 'By Jove' standard: {INPUT}"
+icon = SubResource("AtlasTexture_3gcli")
+response_target = 1
+format_response_as_comment = true
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"

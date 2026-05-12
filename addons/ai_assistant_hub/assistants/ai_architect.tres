@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AIAssistantResource" format=3 uid="uid://bmgamh8s6ygfc"]
+
+[ext_resource type="Script" uid="uid://d0fa2nefrqetl" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="2_xoh5i"]
+[ext_resource type="Resource" uid="uid://b3xp6ppopa4kr" path="res://addons/ai_assistant_hub/quick_prompts/plan.tres" id="3_x8ori"]
+[ext_resource type="Resource" uid="uid://nfyo8lq3yuha" path="res://addons/ai_assistant_hub/quick_prompts/taskify.tres" id="4_mx2d4"]
+[ext_resource type="Resource" uid="uid://b0at8cb4v8e6v" path="res://addons/ai_assistant_hub/quick_prompts/user_stories.tres" id="5_40ng6"]
+[ext_resource type="Script" uid="uid://cs5josc0ysm0a" path="res://addons/ai_assistant_hub/assistants/ai_assistant_resource.gd" id="6_eaa75"]
+[ext_resource type="Texture2D" uid="uid://qjvopjqelt0m" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_3dmsicons.png" id="7_ihhge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ga57"]
+atlas = ExtResource("7_ihhge")
+region = Rect2(864, 608, 32, 32)
+
+[resource]
+script = ExtResource("6_eaa75")
+type_name = "Architect"
+type_icon = SubResource("AtlasTexture_1ga57")
+ai_description = "You are the Lead Architect for the \"By Jove\" project. Your primary task is to bridge the gap between user intent and technical execution. Following the standards in aiagent.md, you are responsible for the Investigative and Implementation Planning stages. You analyze prompts for scope creep, suggest modular alternatives, and draft the implementation_plan.md. You are skeptical of direct node references and always look for ways to leverage GlobalSignals and Resource-based design."
+quick_prompts = Array[ExtResource("2_xoh5i")]([ExtResource("3_x8ori"), ExtResource("4_mx2d4"), ExtResource("5_40ng6")])

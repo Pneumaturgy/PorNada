@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="AIQuickPromptResource" format=3 uid="uid://b0at8cb4v8e6v"]
+
+[ext_resource type="Texture2D" uid="uid://r7njmupyi7w4" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_flatmsicons.png" id="1_qvsb0"]
+[ext_resource type="Script" uid="uid://d0fa2nefrqetl" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="2_5ace0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymeku"]
+atlas = ExtResource("1_qvsb0")
+region = Rect2(672, 928, 32, 32)
+
+[resource]
+script = ExtResource("2_5ace0")
+action_name = "Generate User Stories"
+action_prompt = "Based on whatever context the user provides and the code selected:
+
+´´´gdscript
+{CODE}
+´´´
+Write a full user story as a comment on the code. It will be used by subsequent models to understand the requirements to write the code in gdscript. Don't forget the structure:
+
+1. As a (stakeholder)
+2. I'd like to (do something. describe what the stakeholder would like to achieve)
+3. So that (the reasons or end goal. Write what the stakeholder would like to achieve as a consequence of this story).
+
+Next, write the context of the task, a description of what needs to be done, and a list of requirements in order for it to be done properly and high quality.
+
+Finally, let's add acceptance criteria. These are essentially test cases. So when each are satisfied, we can say that the feature has been really finished. Structured in this way:
+
+Given: (write the context of the system)
+When: (something happens or a specific trigger)
+Then: (the effect or follow up action)
+
+Make sure you append this user story ticket as a comment next to the most appropriate part of the code."
+icon = SubResource("AtlasTexture_ymeku")
+response_target = 1
+code_placement = 1
+format_response_as_comment = true
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"

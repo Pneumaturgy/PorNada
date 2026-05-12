@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AIQuickPromptResource" format=3 uid="uid://dos8ju21wm1xg"]
+
+[ext_resource type="Texture2D" uid="uid://r7njmupyi7w4" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_flatmsicons.png" id="1_aiwky"]
+[ext_resource type="Script" uid="uid://d0fa2nefrqetl" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="2_akqh4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec828"]
+atlas = ExtResource("1_aiwky")
+region = Rect2(896, 704, 32, 32)
+
+[resource]
+script = ExtResource("2_akqh4")
+action_name = "Code"
+action_prompt = "Based on whatever context the user provides and the code selected:
+
+´´´gdscript
+{CODE}
+´´´
+
+Use all provided context to write code in the best way you can. Be generous and honest; if you can't solve something properly with the tools provided, concede and ask for more help."
+icon = SubResource("AtlasTexture_ec828")
+response_target = 2
+code_placement = 2
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"

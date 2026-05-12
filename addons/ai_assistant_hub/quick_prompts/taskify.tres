@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AIQuickPromptResource" format=3 uid="uid://nfyo8lq3yuha"]
+
+[ext_resource type="Texture2D" uid="uid://r7njmupyi7w4" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_flatmsicons.png" id="1_rmcjs"]
+[ext_resource type="Script" uid="uid://d0fa2nefrqetl" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="2_5rpl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gcli"]
+atlas = ExtResource("1_rmcjs")
+region = Rect2(928, 160, 32, 32)
+
+[resource]
+script = ExtResource("2_5rpl0")
+action_name = "Taskify"
+action_prompt = "Based on our current discussion, update the tasks.md file in the docs/ directory."
+icon = SubResource("AtlasTexture_3gcli")
+response_target = 1
+format_response_as_comment = true
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"

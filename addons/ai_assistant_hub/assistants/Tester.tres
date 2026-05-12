@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="AIAssistantResource" format=3 uid="uid://c4xk0sefhqrcp"]
+
+[ext_resource type="Script" uid="uid://d0fa2nefrqetl" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="1_856ua"]
+[ext_resource type="Texture2D" uid="uid://r7njmupyi7w4" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_flatmsicons.png" id="2_5b2fn"]
+[ext_resource type="Script" uid="uid://cs5josc0ysm0a" path="res://addons/ai_assistant_hub/assistants/ai_assistant_resource.gd" id="3_x0hpk"]
+[ext_resource type="Texture2D" uid="uid://qjvopjqelt0m" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_3dmsicons.png" id="4_d7knb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6htsc"]
+atlas = ExtResource("2_5b2fn")
+region = Rect2(704, 768, 32, 32)
+
+[sub_resource type="Resource" id="Resource_3n1eg"]
+script = ExtResource("1_856ua")
+action_name = "Write Test"
+action_prompt = "Based on whatever context the user provides and the code selected:
+
+´´´gdscript
+{CODE}
+´´´
+
+Find an appropriate place to write a test in order to complete a feature request using TDD. If you have seen a user story, make sure a full suite of tests are written, either directly as code, or as comments, in order to later be used for TDD."
+icon = SubResource("AtlasTexture_6htsc")
+response_target = 2
+code_placement = 1
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_856ua"]
+atlas = ExtResource("2_5b2fn")
+region = Rect2(672, 768, 32, 32)
+
+[sub_resource type="Resource" id="Resource_5b2fn"]
+script = ExtResource("1_856ua")
+action_name = "Theorize Test Case"
+action_prompt = "Based on whatever context the user provides and the code selected:
+
+´´´gdscript
+{CODE}
+´´´
+
+Find an appropriate place to write a test in GDScript in comments, in order to complete a feature request using TDD. If you have seen a user story, make sure a full suite of tests are written as comments, in order to later be used for TDD."
+icon = SubResource("AtlasTexture_856ua")
+response_target = 1
+code_placement = 1
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teybv"]
+atlas = ExtResource("4_d7knb")
+region = Rect2(352, 96, 32, 32)
+
+[resource]
+script = ExtResource("3_x0hpk")
+type_name = "Tester"
+type_icon = SubResource("AtlasTexture_teybv")
+ai_description = "You are a useful Godot AI assistant. You are working in Godot 4 and will  always be looking at GDscript code. Your main tasks involve writing tests in order to be later used for TDD. Therefore, you will see code, bug fix suggestions or user stories, potentially as comments in code, and prepare tests to be done in TDD in the codebase."
+quick_prompts = Array[ExtResource("1_856ua")]([SubResource("Resource_3n1eg"), SubResource("Resource_5b2fn")])
+metadata/_custom_type_script = "uid://cs5josc0ysm0a"

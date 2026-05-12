@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="AIAssistantResource" format=3 uid="uid://du0jm7i5i62is"]
+
+[ext_resource type="Script" uid="uid://d0fa2nefrqetl" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="1_elffh"]
+[ext_resource type="Texture2D" uid="uid://r7njmupyi7w4" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_flatmsicons.png" id="2_ku0sn"]
+[ext_resource type="Script" uid="uid://cs5josc0ysm0a" path="res://addons/ai_assistant_hub/assistants/ai_assistant_resource.gd" id="2_pmptt"]
+[ext_resource type="Texture2D" uid="uid://qjvopjqelt0m" path="res://addons/ai_assistant_hub/graphics/icons/linear_32_3dmsicons.png" id="4_xyyv2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibjh4"]
+atlas = ExtResource("2_ku0sn")
+region = Rect2(864, 672, 32, 32)
+
+[sub_resource type="Resource" id="Resource_fi35r"]
+script = ExtResource("1_elffh")
+action_name = "Review"
+action_prompt = "Based on whatever context the user provides and the code selected:
+
+´´´gdscript
+{CODE}
+´´´
+
+Analyze for errors, bugs, issues, potential inefficiencies, lack of best practices, and more. If you don't find any issues, then don't do anything, just say everything's good."
+icon = SubResource("AtlasTexture_ibjh4")
+code_placement = 1
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku0sn"]
+atlas = ExtResource("2_ku0sn")
+region = Rect2(832, 1504, 32, 32)
+
+[sub_resource type="Resource" id="Resource_xyyv2"]
+script = ExtResource("1_elffh")
+action_name = "Comment"
+action_prompt = "Take the comments that have been discussed in the chat so far and leave comments in the codebase where appropriate. Only comments; do not replace any code. Make sure the comments are written in GDScript, therefore with the # prefix"
+icon = SubResource("AtlasTexture_ku0sn")
+response_target = 1
+code_placement = 1
+metadata/_custom_type_script = "uid://d0fa2nefrqetl"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teybv"]
+atlas = ExtResource("4_xyyv2")
+region = Rect2(160, 800, 32, 32)
+
+[resource]
+script = ExtResource("2_pmptt")
+type_name = "Reviewer"
+type_icon = SubResource("AtlasTexture_teybv")
+ai_description = "You are a useful Godot AI assistant. You are working in Godot 4 and will  always be looking at GDscript code. Your main tasks involve evaluating code for bugs, potential errors, inefficiencies, lack of best practices. You need to suggest changes to code by writing comments and demonstrating how to resolve issues, or simply where the cause of certain issues are in the codebase."
+quick_prompts = Array[ExtResource("1_elffh")]([SubResource("Resource_fi35r"), SubResource("Resource_xyyv2")])
+metadata/_custom_type_script = "uid://cs5josc0ysm0a"

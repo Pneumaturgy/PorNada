@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://be1i0a5dgxjx"]
+[gd_scene format=3 uid="uid://be1i0a5dgxjx"]
 
 [ext_resource type="Texture2D" uid="uid://dq0oahffcj7wl" path="res://Assets/2D/Backgrounds/MainMenu/1.png" id="2_d04v8"]
 [ext_resource type="Texture2D" uid="uid://b2pv2gva54lda" path="res://Assets/2D/Backgrounds/MainMenu/2.png" id="3_ln5qm"]
 [ext_resource type="Texture2D" uid="uid://bac15a0optmuk" path="res://Assets/2D/Backgrounds/MainMenu/3.png" id="4_5w3o8"]
 [ext_resource type="Texture2D" uid="uid://6qw3ygn2swoq" path="res://Assets/2D/Backgrounds/MainMenu/4.png" id="5_0sevg"]
 [ext_resource type="Texture2D" uid="uid://brckde1y0n4l7" path="res://Assets/2D/Backgrounds/MainMenu/5.png" id="6_bakvp"]
+[ext_resource type="Shader" uid="uid://cp56g87sva5nt" path="res://addons/shader/glass_panel.gdshader" id="7_82l7r"]
 [ext_resource type="Theme" uid="uid://de0jmx2n1muqc" path="res://Assets/UI/pornada_ui.tres" id="7_h7o41"]
-[ext_resource type="Script" path="res://Scripts/Effects/button_effects.gd" id="7_ifuyn"]
+[ext_resource type="Script" uid="uid://bx8tu2x1pogpf" path="res://Scripts/Effects/button_effects.gd" id="7_ifuyn"]
 [ext_resource type="AudioStream" uid="uid://blojs5l2vl1rk" path="res://Assets/SFX/UI/hover.mp3" id="8_pj504"]
 [ext_resource type="AudioStream" uid="uid://cdey0smm8vood" path="res://Assets/SFX/UI/clickup.mp3" id="9_s7tkg"]
 [ext_resource type="AudioStream" uid="uid://b8mnpndpsg7hc" path="res://Assets/SFX/UI/clickdown.mp3" id="10_4s1qk"]
@@ -71,6 +72,50 @@ func _input(event):
 		position = event.position
 	
 "
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2xmls"]
+shader = ExtResource("7_82l7r")
+shader_parameter/brightness = 0.1
+shader_parameter/chromatic_shift_amount = 0.2
+shader_parameter/bend_amount = 0.4
+shader_parameter/blur_amount = 2.0
+shader_parameter/grain_amount = 0.05
+shader_parameter/curve_light_blend = 0.5
+shader_parameter/rim_light_blend = 0.8
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lm8k6"]
+shader = ExtResource("7_82l7r")
+shader_parameter/brightness = 0.1
+shader_parameter/chromatic_shift_amount = 0.2
+shader_parameter/bend_amount = 0.4
+shader_parameter/blur_amount = 2.0
+shader_parameter/grain_amount = 0.05
+shader_parameter/curve_light_blend = 0.5
+shader_parameter/rim_light_blend = 0.8
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1w1t"]
+shader = ExtResource("7_82l7r")
+shader_parameter/brightness = 0.1
+shader_parameter/chromatic_shift_amount = 0.2
+shader_parameter/bend_amount = 0.4
+shader_parameter/blur_amount = 2.0
+shader_parameter/grain_amount = 0.05
+shader_parameter/curve_light_blend = 0.5
+shader_parameter/rim_light_blend = 0.8
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kv2kq"]
+shader = ExtResource("7_82l7r")
+shader_parameter/brightness = 0.1
+shader_parameter/chromatic_shift_amount = 0.2
+shader_parameter/bend_amount = 0.4
+shader_parameter/blur_amount = 2.0
+shader_parameter/grain_amount = 0.05
+shader_parameter/curve_light_blend = 0.5
+shader_parameter/rim_light_blend = 0.8
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_p7r1s"]
 length = 0.001
@@ -170,59 +215,59 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jy4xb"]
 _data = {
-"RESET": SubResource("Animation_p7r1s"),
-"fade_in": SubResource("Animation_frl0a")
+&"RESET": SubResource("Animation_p7r1s"),
+&"fade_in": SubResource("Animation_frl0a")
 }
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Node2D" unique_id=1851403604]
 script = SubResource("GDScript_j122v")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=607608915]
 offset = Vector2(1000, 540)
 transform = Transform2D(1, 0, 0, 1, 1000, 540)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=131003341]
 motion_scale = Vector2(0.01, 0.01)
 
-[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1449639848]
 position = Vector2(-18, 15)
 scale = Vector2(1.1, 1.12778)
 texture = ExtResource("2_d04v8")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=78431941]
 motion_scale = Vector2(0.02, 0.02)
 
-[node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=187345791]
 position = Vector2(-28.895, 277.955)
 texture = ExtResource("3_ln5qm")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1119273324]
 motion_scale = Vector2(0.04, 0.04)
 
-[node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1031089104]
 position = Vector2(181.885, 145.11)
 texture = ExtResource("4_5w3o8")
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1746423614]
 motion_scale = Vector2(0.07, 0.07)
 
-[node name="4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+[node name="4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=569169422]
 position = Vector2(46.5, 236.5)
 texture = ExtResource("5_0sevg")
 
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1301307487]
 motion_scale = Vector2(0.09, 0.09)
 
-[node name="5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+[node name="5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5" unique_id=1076461319]
 position = Vector2(-3, 301)
 texture = ExtResource("6_bakvp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1955218180]
 script = SubResource("GDScript_eu2ia")
 
-[node name="MainMenu" type="CanvasLayer" parent="."]
+[node name="MainMenu" type="CanvasLayer" parent="." unique_id=1626385516]
 
-[node name="Control" type="Control" parent="MainMenu"]
+[node name="Control" type="Control" parent="MainMenu" unique_id=2121921068]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -230,7 +275,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="MainMenu/Control"]
+[node name="Title" type="RichTextLabel" parent="MainMenu/Control" unique_id=674546715]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -244,7 +289,8 @@ theme_override_font_sizes/normal_font_size = 480
 bbcode_enabled = true
 text = "[wave amp=50 freq=5]Por Nada[/wave]"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Control" unique_id=729645516]
+material = SubResource("ShaderMaterial_2xmls")
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -259,50 +305,82 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Quit" type="Button" parent="MainMenu/Control/HBoxContainer"]
+[node name="Quit" type="Button" parent="MainMenu/Control/HBoxContainer" unique_id=136154168]
+material = SubResource("ShaderMaterial_lm8k6")
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_h7o41")
+script = ExtResource("7_ifuyn")
+sounds = Array[AudioStreamMP3]([ExtResource("8_pj504"), ExtResource("9_s7tkg"), ExtResource("10_4s1qk")])
+
+[node name="Label" type="Label" parent="MainMenu/Control/HBoxContainer/Quit" unique_id=22627076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 90
 text = "Quit"
-script = ExtResource("7_ifuyn")
-sounds = Array[AudioStreamMP3]([ExtResource("8_pj504"), ExtResource("9_s7tkg"), ExtResource("10_4s1qk")])
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Control" type="Control" parent="MainMenu/Control/HBoxContainer"]
+[node name="Control" type="Control" parent="MainMenu/Control/HBoxContainer" unique_id=671480809]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="New" type="Button" parent="MainMenu/Control/HBoxContainer"]
+[node name="New" type="Button" parent="MainMenu/Control/HBoxContainer" unique_id=966204653]
+material = SubResource("ShaderMaterial_p1w1t")
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_h7o41")
+script = ExtResource("7_ifuyn")
+sounds = Array[AudioStreamMP3]([ExtResource("8_pj504"), ExtResource("9_s7tkg"), ExtResource("10_4s1qk")])
+
+[node name="Label" type="Label" parent="MainMenu/Control/HBoxContainer/New" unique_id=1047256115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 90
-text = "New
-"
-script = ExtResource("7_ifuyn")
-sounds = Array[AudioStreamMP3]([ExtResource("8_pj504"), ExtResource("9_s7tkg"), ExtResource("10_4s1qk")])
+text = "New"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="MainMenu/Control/HBoxContainer"]
+[node name="Control2" type="Control" parent="MainMenu/Control/HBoxContainer" unique_id=944344373]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Load" type="Button" parent="MainMenu/Control/HBoxContainer"]
+[node name="Load" type="Button" parent="MainMenu/Control/HBoxContainer" unique_id=1513967634]
+material = SubResource("ShaderMaterial_kv2kq")
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_h7o41")
+script = ExtResource("7_ifuyn")
+sounds = Array[AudioStreamMP3]([ExtResource("8_pj504"), ExtResource("9_s7tkg"), ExtResource("10_4s1qk")])
+
+[node name="Label" type="Label" parent="MainMenu/Control/HBoxContainer/Load" unique_id=136956137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 90
 text = "Load"
-script = ExtResource("7_ifuyn")
-sounds = Array[AudioStreamMP3]([ExtResource("8_pj504"), ExtResource("9_s7tkg"), ExtResource("10_4s1qk")])
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="FadeInScreen" type="CanvasLayer" parent="."]
+[node name="FadeInScreen" type="CanvasLayer" parent="." unique_id=1112149315]
 visible = false
 
-[node name="Label" type="Label" parent="FadeInScreen"]
+[node name="Label" type="Label" parent="FadeInScreen" unique_id=102632885]
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="ColorRect" type="ColorRect" parent="FadeInScreen"]
+[node name="ColorRect" type="ColorRect" parent="FadeInScreen" unique_id=1712250225]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -311,11 +389,9 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeInScreen"]
-libraries = {
-"": SubResource("AnimationLibrary_jy4xb")
-}
-autoplay = "fade_in"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeInScreen" unique_id=1790671207]
+libraries/ = SubResource("AnimationLibrary_jy4xb")
+autoplay = &"fade_in"
 
 [connection signal="pressed" from="MainMenu/Control/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MainMenu/Control/HBoxContainer/New" to="." method="_on_new_pressed"]
