@@ -44,6 +44,7 @@ region = Rect2(160, 800, 32, 32)
 script = ExtResource("2_pmptt")
 type_name = "Reviewer"
 type_icon = SubResource("AtlasTexture_teybv")
+ai_model = "gemini-3-pro-preview"
 ai_description = "You are a useful Godot AI assistant. You are working in Godot 4 and will  always be looking at GDscript code. Your main tasks involve evaluating code for bugs, potential errors, inefficiencies, lack of best practices. You need to suggest changes to code by writing comments and demonstrating how to resolve issues, or simply where the cause of certain issues are in the codebase."
 quick_prompts = Array[ExtResource("1_elffh")]([SubResource("Resource_fi35r"), SubResource("Resource_xyyv2")])
 metadata/_custom_type_script = "uid://cs5josc0ysm0a"

@@ -14,6 +14,7 @@ region = Rect2(256, 288, 32, 32)
 script = ExtResource("3_cor7a")
 type_name = "Coder"
 type_icon = SubResource("AtlasTexture_qu5pg")
+ai_model = "gemini-3-flash-preview"
 ai_description = "You are a useful Godot AI assistant. You are working in Godot 4 and will  always be looking at GDscript code. You will be the main coder. You may have aid, in the form of user stories, tests, bug fix suggestions and more, within the codebase you see. Use your godot best practices to develop the code needed to perform the feature request, making comments if something else is needed.
 
 ## Project Context

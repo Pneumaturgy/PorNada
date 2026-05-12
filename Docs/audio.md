@@ -46,6 +46,11 @@ Attached to transient nodes that contain an `AudioStreamPlayer` and often `GPUPa
 - **Function**: Automatically calls `queue_free()` when the `finished()` signal is emitted by the audio player.
 - **Visuals**: Often synchronizes particle emission with the sound duration.
 
+### `ButtonEffects` (`button_effects.gd`)
+A utility script for buttons to provide standardized audio feedback for mouse interaction and state changes.
+- **Signals Handled**: `mouse_entered`, `mouse_exited`, `button_down`, `button_up`.
+- **Safety**: Includes `is_instance_valid()` and `is_inside_tree()` checks on the audio player node to prevent Godot errors when sounds are triggered during scene transitions (e.g., a mouse exit event firing while the button or its children are being removed).
+
 ## 🛠 Adding New Music
 1. Import your audio files into `res://Assets/Audio/`.
 2. Open the desired `MusicPlaylistResource.tres` in the inspector.

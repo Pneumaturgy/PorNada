@@ -202,7 +202,8 @@ func _on_assistants_refresh_btn_pressed() -> void:
 			new_bot_btn.chat_created.connect(_on_new_bot_btn_chat_created)
 			new_bot_btn.deleted.connect(_on_assistants_refresh_btn_pressed)
 			assistant_types_container.add_child(new_bot_btn)
-			_apis_used[assistant.llm_provider.api_id] = true
+			if assistant.llm_provider:
+				_apis_used[assistant.llm_provider.api_id] = true
 		else:
 			AIHubPlugin.print_msg("Not an AIAssistantResource, skipping.")
 	

@@ -30,5 +30,9 @@ func on_button_up():
 
 
 func play_sound(i):
+	if i < 0 or i >= sounds.size() or not sounds[i]:
+		return
+	if not is_instance_valid(sound_player) or not sound_player.is_inside_tree():
+		return
 	sound_player.stream = sounds[i]
 	sound_player.play()
