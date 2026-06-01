@@ -61,4 +61,13 @@ Detailed documentation for each system can be found in the `docs/` directory:
 
 ---
 
-> *Note: This documentation is actively maintained. Please update the relevant `.md` files in `docs/` when introducing major system changes.*
+## 🗺️ Project Planning & Roadmap
+
+All new features, bug fixes, and technical improvements are tracked in our centralized ticket system. 
+
+> [!IMPORTANT]
+> All new features and major changes MUST have a corresponding ticket in [**Tickets.md**](docs/Tickets.md) before implementation.
+
+---
+
+> *Note: This documentation is actively maintained. Please update the relevant `.md` files in `docs/` and ensure tickets are updated when introducing major system changes.*

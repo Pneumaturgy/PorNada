@@ -35,19 +35,25 @@ func create_new_noise():
 func generate_new_terrain(multi_mesh, total_range, variance, chance):
 	var new_image = noise_texture.get_image()
 	if new_image != null:
-		var instance_index = 0
+		var candidates = []
 		for y in range(new_image.get_height()):
 			for x in range(new_image.get_width()):
 				var color = new_image.get_pixelv(Vector2(x, y)).r  # Get the grayscale value
-				if instance_index < multi_mesh.instance_count:
-					if color > total_range.x and color < total_range.y:
-						if randf_range(0.0, 100.0) <= chance:
-							var new_position = Vector2(x*100+randf_range(-variance,variance), y*100+randf_range(-variance,variance))
-							multi_mesh.set_instance_transform_2d(instance_index, Transform2D(randf_range(-0.2,0.2), new_position))
-							instance_index += 1
-				if instance_index >= multi_mesh.instance_count:
-					break
+				if color > total_range.x and color < total_range.y:
+					if randf_range(0.0, 100.0) <= chance:
+						candidates.append(Vector2(x, y))
+		
+		candidates.shuffle()
+		
+		var instance_index = 0
+		for pos in candidates:
 			if instance_index >= multi_mesh.instance_count:
 				break
+			
+			var new_position = Vector2(pos.x * 100 + randf_range(-variance, variance), pos.y * 100 + randf_range(-variance, variance))
+			multi_mesh.set_instance_transform_2d(instance_index, Transform2D(randf_range(-0.2, 0.2), new_position))
+			instance_index += 1
+		
+		multi_mesh.visible_instance_count = instance_index
 	else:
 		print("null image ", new_image)
